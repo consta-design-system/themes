@@ -1,0 +1,38 @@
+.themes--ConstructorExampleControls {
+  width: 100%;
+
+  &-Buttons {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+  }
+
+  &-Links {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &-Link {
+    --link-color: var(--color-typo-link);
+    color: var(--link-color);
+    transition: color 0.3s;
+
+    &_minor {
+      --link-color: var(--color-typo-link-minor);
+    }
+
+    &_hover {
+      --link-color: var(--color-typo-link-hover);
+    }
+
+    &:hover {
+      color: var(--color-typo-link-hover);
+    }
+  }
+}
