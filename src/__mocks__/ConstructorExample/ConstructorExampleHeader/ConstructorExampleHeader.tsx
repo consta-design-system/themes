@@ -95,7 +95,7 @@ export const ConstructorExampleHeader = (props: Props) => {
             name="statuses"
             size="s"
             value={choice}
-            onChange={({ value }) => setChoice(value)}
+            onChange={setChoice}
             getItemLabel={(item) => item}
           />
           <Select
@@ -103,7 +103,7 @@ export const ConstructorExampleHeader = (props: Props) => {
             items={types}
             value={type}
             size="s"
-            onChange={({ value }) => setType(value)}
+            onChange={setType}
             getItemLabel={(item) => item}
             getItemKey={(item) => item}
           />
@@ -127,13 +127,13 @@ export const ConstructorExampleHeader = (props: Props) => {
               className={cnConstructorExampleHeader('Date', [
                 cnMixSpace({ mR: 'm' }),
               ])}
-              onChange={({ value }) => setDates(value)}
+              onChange={setDates}
             />
             <Switch
               size="s"
               className={cnMixSpace({ mR: '2xs' })}
               checked={flag}
-              onChange={({ checked }) => setFlag[checked ? 'on' : 'off']()}
+              onChange={(e) => setFlag[e.target.checked ? 'on' : 'off']()}
             />
             <Text size="2xs" lineHeight="m" view="ghost">
               Учитывать выходные
