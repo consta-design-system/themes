@@ -1,3 +1,6 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-nested-ternary */
 const { normalize, dirname, join, relative, resolve } = require('path');
 const {
   readFile,
@@ -8,12 +11,12 @@ const {
   writeJSON,
   copyFile,
 } = require('fs-extra');
-const logSymbols = require('log-symbols');
+
 const fg = require('fast-glob');
 const postcss = require('postcss');
 const { react } = require('@bem/sdk.naming.presets');
 const createMatch = require('@bem/sdk.naming.cell.match');
-const svgr = require('@svgr/core').default;
+
 const { svgParse } = require('./svgParse');
 const { generateReExportsFonts } = require('./generateReExportsFonts');
 
@@ -73,6 +76,7 @@ const transformCSS = async (ignore, src, distPaths, options) => {
     });
     for (const distPath of distPaths) {
       const newPath = resolve(distPath, relative(src, fileName));
+      // eslint-disable-next-line no-await-in-loop
       await ensureDir(dirname(newPath));
       writeFile(newPath, processedCss);
     }
@@ -285,6 +289,45 @@ const iconsFileTransformed = async (ignore, src) => {
   await createFileIconsStories(svgComponents, src);
 };
 
+const themeTransformed = async (ignore, src) => {
+  const filesToDelete = await fg([`${src}/Theme_*_*.ts`]);
+
+  filesToDelete.forEach(async (fileName) => {
+    await remove(fileName);
+  });
+
+  const files = await fg([`${src}/theme/**/*.css`], { ignore });
+  const test = /.\/src\/theme\/(.+)\/(.+_(.+)_(.+))\.css/;
+
+  const mods = {};
+  let modsImport = '';
+
+  files.forEach(async (file) => {
+    if (test.test(file)) {
+      const [_, dir, fileName, mod, value] = test.exec(file);
+
+      const jsCode = `import './theme/${dir}/${fileName}.css';\n`;
+
+      if (mods[mod]) {
+        mods[mod].push(value);
+      } else {
+        mods[mod] = [value];
+      }
+
+      modsImport += `import '##/${fileName}';\n`;
+
+      const jsPatch = `${src}/${fileName}.ts`;
+      await ensureDir(dirname(jsPatch));
+      await writeFile(jsPatch, jsCode);
+    }
+  });
+
+  const jsCode = `${modsImport}\nexport const data = ${JSON.stringify(mods)};`;
+  const jsPatch = `${src}/docs/mods/__mocks__/data.ts`;
+  await ensureDir(dirname(jsPatch));
+  await writeFile(jsPatch, jsCode);
+};
+
 const responsesImagesTransformed = async (ignore, src) => {
   const svgFiles = await fg([`${src}/responsesImages/**/*.svg`], { ignore });
   const test = /.\/src\/responsesImages\/(.+)\/ResponsesImage(.+).svg/;
@@ -293,7 +336,7 @@ const responsesImagesTransformed = async (ignore, src) => {
   svgFiles.forEach((fileName) => {
     if (test.test(fileName)) {
       const [file, componentName, svgName] = test.exec(fileName);
-      if (componentName === 'ResponsesImage' + svgName) {
+      if (componentName === `ResponsesImage${svgName}`) {
         if (!svgComponents[componentName]) {
           svgComponents[componentName] = {};
         }
@@ -599,4 +642,5 @@ module.exports = {
   copyReadme,
   copyChangelog,
   generateReExportsFonts,
+  themeTransformed,
 };

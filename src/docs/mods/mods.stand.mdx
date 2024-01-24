@@ -1,0 +1,18 @@
+```ts
+import { presetGpnDefault, ThemePreset } from '@consta/uikit/Theme';
+import '@consta/themes/Theme_color_statusAlertDark';
+import '@consta/themes/Theme_color_statusAlertDefault';
+
+const myPreset: ThemePreset = {
+  ...presetGpnDefault,
+  color: {
+    primary: 'statusAlertDefault',
+    invert: 'statusAlertDark',
+    accent: 'statusAlertDark',
+  },
+};
+
+const App = () => {
+  return <Theme preset={myPreset}>your code</Theme>;
+};
+```

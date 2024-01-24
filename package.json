@@ -24,11 +24,12 @@
     "pre-commit": "yarn run lint-staged",
     "test": "yarn tsc-dry-run",
     "unit": "jest",
+    "pre-build": "node scripts/preBuild.js --config=scripts/generateReExportsConfig.js && yarn lint",
     "unit:watch": "jest --watch",
     "unit:clear": "jest --clearCache",
-    "build:css": "cross-env NODE_ENV=buildProduction postcss src/**/*.css --base src --dir dist/__internal__/src/",
-    "build:js": "cross-env NODE_ENV=buildProduction BUILDING_JS=true babel --extensions .ts,.tsx --config-file ./babel.config.js --source-maps --out-dir dist/__internal__/src/ ./src",
-    "build:types": "cross-env NODE_ENV=buildProduction ttsc --declaration --outDir dist/__internal__/src/ --emitDeclarationOnly -p tsconfig.build.json",
+    "build:css": "cross-env NODE_ENV=buildProduction postcss src/**/*.css --base src --dir dist && node ./scripts/rm.js --path=./dist/__mocks__",
+    "build:js": "cross-env NODE_ENV=buildProduction BUILDING_JS=true babel --extensions .ts,.tsx --config-file ./babel.config.js --source-maps --out-dir dist/ ./src",
+    "build:types": "cross-env NODE_ENV=buildProduction ttsc --declaration --outDir dist --emitDeclarationOnly -p tsconfig.build.json",
     "build:package.json": "node scripts/prepare-package-json.js",
     "build:reexports": "node scripts/generateReExports.js --config=scripts/generateReExportsConfig.js",
     "build:copy-assets": "node scripts/copyAssets.js",
@@ -89,6 +90,7 @@
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.17.9",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/plugin-proposal-optional-chaining": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.18.9",
@@ -203,8 +205,5 @@
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
   },
-  "homepage": "http://uikit.consta.design",
-  "dependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.7"
-  }
+  "homepage": "http://uikit.consta.design"
 }
