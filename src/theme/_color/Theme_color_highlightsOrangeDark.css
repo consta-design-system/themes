@@ -1,9 +1,9 @@
 /* Базовые цвета, от которых выстраивается вся палитра */
 $color-base-base: #fff; /* Базовый цвет содержимого, от которого выстраиваются цвета текста, иконок, ... */
 $color-base-essential: #22272b; /* Базовый цвет поверхностей */
-$color-base-project: #1eb382; /* Проектный цвет, от которого выстраивают акцентные состояния */
-$color-base-phantom: #ecfff9; /* Тонирующий цвет, от которого выстраиватся бордеры, оверлей под модальными окнами, ... */
-$color-base-path: #21c48e; /* Цвет ссылок и контролов, от которого выстраиваются все их состояния */
+$color-base-project: #e98504; /* Проектный цвет, от которого выстраивают акцентные состояния */
+$color-base-phantom: #fff2e0; /* Тонирующий цвет, от которого выстраиватся бордеры, оверлей под модальными окнами, ... */
+$color-base-path: #f58b00; /* Цвет ссылок и контролов, от которого выстраиваются все их состояния */
 $color-base-system: #4b5963; /* Цвет системнный */
 $color-base-shadow: #000; /* Цвет тени */
 
@@ -15,7 +15,7 @@ $color-base-normal: #0aa5ff; /* Цвет нейтральный */
 $color-base-critical: #33000f;
 
 /* stylelint-disable */
-.Theme_color_statusSuccessDark {
+.Theme_color_highlightsOrangeDark {
   /* //////////////////////////////
   // Цвета фонов /////////////// */
   --color-bg-default: color($color-base-essential a(100%)); /* Цвет дефолта */
@@ -133,17 +133,17 @@ $color-base-critical: #33000f;
 
   --color-typo-link:
     color(
-      $color-base-path s(+20%) l(-8%) a(100%)
+      $color-base-path h(-6%) l(-2%) a(100%)
     ); /* Цвет основной ссылки */
 
   --color-typo-link-minor:
     color(
-      $color-base-path s(-15%) l(-17%) a(100%)
+      $color-base-path h(-6%) s(-34%) l(-11%) a(100%)
     ); /* Цвет второстепенной ссылки */
 
   --color-typo-link-hover:
     color(
-      $color-base-path s(+20%) a(100%)
+      $color-base-path h(-6%) l(+7%) a(100%)
     ); /* Цвет ховера ссылки */
 
   /* //////////////////////////////
@@ -198,7 +198,7 @@ $color-base-critical: #33000f;
   /* Primary */
   --color-control-bg-primary:
     color(
-      $color-base-path s(-1%) a(100%)
+      $color-base-path a(100%)
     ); /* Цвет фона активного контрола */
 
   --color-control-bg-primary-hover:
@@ -234,12 +234,12 @@ $color-base-critical: #33000f;
 
   --color-control-typo-secondary:
     color(
-      $color-base-path s(+20%) l(-8%) a(100%)
+      $color-base-path h(-6%) l(-2%) a(100%)
     ); /* Цвет второстепеного текста контрола */
 
   --color-control-typo-secondary-hover:
     color(
-      $color-base-path s(+20%) a(100%)
+      $color-base-path h(-6%) l(+7%) a(100%)
     ); /* Цвет акцентного текста */
 
   /* Ghost */

@@ -1,25 +1,25 @@
-import '##/Theme_color_statusAlertDark';
-import '##/Theme_color_statusAlertDefault';
-import '##/Theme_color_statusCautionDark';
-import '##/Theme_color_statusCautionDefault';
-import '##/Theme_color_statusNormalDark';
-import '##/Theme_color_statusNormalDefault';
-import '##/Theme_color_statusSuccessDark';
-import '##/Theme_color_statusSuccessDefault';
-import '##/Theme_color_statusWarningDark';
-import '##/Theme_color_statusWarningDefault';
+import '##/Theme_color_highlightsBlueDark';
+import '##/Theme_color_highlightsBlueDefault';
+import '##/Theme_color_highlightsGreenDark';
+import '##/Theme_color_highlightsGreenDefault';
+import '##/Theme_color_highlightsOrangeDark';
+import '##/Theme_color_highlightsOrangeDefault';
+import '##/Theme_color_highlightsRedDark';
+import '##/Theme_color_highlightsRedDefault';
+import '##/Theme_color_highlightsYellowDark';
+import '##/Theme_color_highlightsYellowDefault';
 
 export const data = {
   color: [
-    'statusAlertDark',
-    'statusAlertDefault',
-    'statusCautionDark',
-    'statusCautionDefault',
-    'statusNormalDark',
-    'statusNormalDefault',
-    'statusSuccessDark',
-    'statusSuccessDefault',
-    'statusWarningDark',
-    'statusWarningDefault',
+    'highlightsBlueDark',
+    'highlightsBlueDefault',
+    'highlightsGreenDark',
+    'highlightsGreenDefault',
+    'highlightsOrangeDark',
+    'highlightsOrangeDefault',
+    'highlightsRedDark',
+    'highlightsRedDefault',
+    'highlightsYellowDark',
+    'highlightsYellowDefault',
   ],
 };
