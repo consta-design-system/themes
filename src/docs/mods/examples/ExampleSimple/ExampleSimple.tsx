@@ -1,5 +1,5 @@
-import '##/Theme_color_statusSuccessDefault';
-import '##/Theme_color_statusSuccessDark';
+import '##/Theme_color_highlightsGreenDark';
+import '##/Theme_color_highlightsGreenDefault';
 
 import { Example } from '@consta/stand';
 import { Button } from '@consta/uikit/Button';
@@ -14,9 +14,9 @@ const ButtonWithTooltip = withTooltip({ content: 'Тултип в инвертн
 const localPreset: ThemePreset = {
   ...presetGpnDefault,
   color: {
-    primary: 'statusSuccessDefault',
-    invert: 'statusSuccessDark',
-    accent: 'statusSuccessDark',
+    primary: 'highlightsGreenDefault',
+    invert: 'highlightsGreenDark',
+    accent: 'highlightsGreenDark',
   },
 };
 
