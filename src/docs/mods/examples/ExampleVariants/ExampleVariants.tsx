@@ -2,6 +2,7 @@ import './ExampleVariants.css';
 
 import { Button } from '@consta/uikit/Button';
 import { ChoiceGroup } from '@consta/uikit/ChoiceGroup';
+import { DatePicker } from '@consta/uikit/DatePicker';
 import { FieldGroup } from '@consta/uikit/FieldGroup';
 import { cnMixFlex } from '@consta/uikit/MixFlex';
 import { Text } from '@consta/uikit/Text';
@@ -14,10 +15,11 @@ const cnExampleVariants = cn('ExampleVariants');
 
 type ItemCG = string;
 
-const CG = ['Выбери меня', 'Нет, меня'];
+const inputData = ['Багаж есть', 'Багажа нет'];
 
 export const ExampleVariants: React.FC = () => {
-  const [valueCG, setValueCG] = useState<ItemCG | null>(CG[0]);
+  const [inputValue, setInputValue] = useState<ItemCG | null>(inputData[0]);
+  const [dateValue, setDateValue] = useState<Date | null>(null);
 
   return (
     <div className={cnExampleVariants()}>
@@ -34,33 +36,28 @@ export const ExampleVariants: React.FC = () => {
           lineHeight="s"
           className={cnExampleVariants('Description')}
         >
-          Эта карточка — просто абстрактный пример интерфейса
+          Быстрый поиск авиабилетов
         </Text>
+        <FieldGroup size="l" style={{ width: '100%' }}>
+          <TextField placeholder="Куда" />
+          <DatePicker
+            placeholder="Дата"
+            value={dateValue}
+            onChange={setDateValue}
+          />
+        </FieldGroup>
+
         <ChoiceGroup
           name="CG"
-          value={valueCG}
-          onChange={setValueCG}
-          items={CG}
+          value={inputValue}
+          onChange={setInputValue}
+          items={inputData}
           getItemLabel={(item) => item}
           size="l"
           multiple={false}
           width="full"
         />
-        <FieldGroup size="l">
-          <TextField
-            placeholder="Допустим, длина"
-            rightSide="м"
-            form="defaultClear"
-            style={{ width: '50%' }}
-          />
-          <TextField
-            placeholder="и вес"
-            rightSide="кг"
-            form="brickDefault"
-            style={{ width: '50%' }}
-          />
-        </FieldGroup>
-        <Button size="l" label="Нажми на кнопку" width="full" />
+        <Button size="l" label="Поиск" width="full" />
       </div>
     </div>
   );
