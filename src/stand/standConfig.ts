@@ -14,7 +14,8 @@ export const { createStand } = createConfig({
   ],
   group: 'Библиотеки',
   image,
-  description: 'Библиотека тем',
+  description:
+    'Библиотека тем с различными предустановленными значениями модификаторов.',
   standPageDecoration,
   repositoryUrl: 'https://github.com/consta-design-system/themes',
   figmaUrl: 'https://www.figma.com/file/elVbeup31NtoDiJo3DoRa3',
