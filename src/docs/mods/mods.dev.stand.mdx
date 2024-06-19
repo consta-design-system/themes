@@ -1,0 +1,58 @@
+import { ExampleSimple } from './examples/ExampleSimple/ExampleSimple';
+
+Вы можете импортировать части темы и собрать свой пресет
+
+```ts
+import { presetGpnDefault, ThemePreset } from '@consta/uikit/Theme';
+import '@consta/themes/Theme_color_highlightsRedDark';
+import '@consta/themes/Theme_color_highlightsRedDefault';
+
+const myPreset: ThemePreset = {
+  ...presetGpnDefault,
+  color: {
+    primary: 'statusAlertDefault',
+    invert: 'statusAlertDark',
+    accent: 'statusAlertDark',
+  },
+};
+
+const App = () => {
+  return <Theme preset={myPreset}>your code</Theme>;
+};
+```
+
+Пример локального применения темы:
+
+```tsx
+import '@consta/themes/Theme_color_highlightsSuccessDefault';
+import '@consta/themes/Theme_color_highlightsSuccessDark';
+import { Example } from '@consta/stand';
+import { Button } from '@consta/uikit/Button';
+import { presetGpnDefault, Theme, ThemePreset } from '@consta/uikit/Theme';
+import { withTooltip } from '@consta/uikit/withTooltip';
+import React from 'react';
+
+const ButtonWithTooltip = withTooltip({ content: 'Тултип в инвертной теме' })(
+  Button,
+);
+
+const localPreset: ThemePreset = {
+  ...presetGpnDefault,
+  color: {
+    primary: 'statusSuccessDefault',
+    invert: 'statusSuccessDark',
+    accent: 'statusSuccessDark',
+  },
+};
+
+export const ExampleSimple = () => (
+  <>
+    <ButtonWithTooltip label="кнопка в глобальной теме" />
+    <Theme preset={localPreset}>
+      <ButtonWithTooltip label="кнопка в локальной теме" />
+    </Theme>
+  </>
+);
+```
+
+<ExampleSimple />

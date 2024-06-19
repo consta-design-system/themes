@@ -1,0 +1,33 @@
+[Модификаторы темы](##LIBS.LIB.STAND/lib:portal/stand:theme-themeabout/hash:модификаторы) — это инструменты, которые помогают изменять визуальные атрибуты темы:
+
+- `_color` — цвета,
+- `_control` — внешний вид компонентов,
+- `_font` — шрифты,
+- `_shadow` — тени,
+- `_size` — размер текста и междустрочный интервал,
+- `_space` — отступы.
+
+Значения модификаторов описываются в отдельных CSS-файлах, имя которых формируется следующим образом: `Theme_<модификатор>_<значение модификатора>.css`
+
+Модификаторы позволяют создавать различные варианты одной и той же темы, адаптируя ее под конкретные потребности проекта."
+
+### Пример подключения
+
+```ts
+import { presetGpnDefault, ThemePreset } from '@consta/uikit/Theme';
+import '@consta/themes/Theme_color_highlightsRedDark';
+import '@consta/themes/Theme_color_highlightsRedDefault';
+
+const myPreset: ThemePreset = {
+  ...presetGpnDefault,
+  color: {
+    primary: 'highlightsRedDefault',
+    invert: 'highlightsRedDark',
+    accent: 'highlightsRedDark',
+  },
+};
+
+const App = () => {
+  return <Theme preset={myPreset}>your code</Theme>;
+};
+```

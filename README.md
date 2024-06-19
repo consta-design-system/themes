@@ -1,6 +1,6 @@
 # [Дизайн-система Consta](http://consta.design/) | Themes
 
-Набор статусных тем, для компнентов дизайн системы.
+Набор тем, для дизайн системы.
 
 # Как использовать
 
@@ -17,26 +17,32 @@ $ yarn add @consta/themes
 
 Чтобы начать работу, установите библиотеку [`@consta/uikit`](https://www.npmjs.com/package/@consta/uikit) и [настройте тему](http://consta.design/libs/portal/theme-themeabout).
 
-### Можно использовать компоненты
+### Использование
 
 Например, так:
 
-```js
-import { Theme } from '@consta/uikit/Theme';
-import { Button } from '@consta/uikit/Button';
-import { presetGpnAlert } from '@consta/themes/preset-alert';
+```ts
+import { presetGpnDefault, ThemePreset } from '@consta/uikit/Theme';
+import '@consta/themes/Theme_color_highlightsRedDark';
+import '@consta/themes/Theme_color_highlightsRedDefault';
+
+const myPreset: ThemePreset = {
+  ...presetGpnDefault,
+  color: {
+    primary: 'highlightsRedDefault',
+    invert: 'highlightsRedDark',
+    accent: 'highlightsRedDark',
+  },
+};
+
 const App = () => {
-  return (
-    <Theme preset={presetGpnAlert}>
-      <Button />
-    </Theme>
-  );
+  return <Theme preset={myPreset}>your code</Theme>;
 };
 ```
 
 ## Документация
 
-[Посмотреть документацию и примеры](http://consta.design/libs/header)
+[Посмотреть документацию и примеры](http://consta.design/libs/themes)
 
 ## Разработка
 
@@ -64,6 +70,9 @@ $ yarn stand:build
 
 # Запуск тестов
 $ yarn test
+
+# Создание реекспортов для модификаторов темы (запускать после изменении модификаторов)
+$ yarn pre-build
 ```
 
 ## Контрибьюторам
