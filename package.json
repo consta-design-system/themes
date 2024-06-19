@@ -205,5 +205,5 @@
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
   },
-  "homepage": "http://uikit.consta.design"
+  "homepage": "http://consta.design/libs/themes"
 }
