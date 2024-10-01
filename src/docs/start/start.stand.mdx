@@ -1,11 +1,23 @@
-Установите необходимые пакеты с помощью yarn или npm соответственно:
+import { MdxTabs } from '@consta/stand';
 
-```json
-yarn add @consta/uikit @consta/themes
-```
+1. Установите пакеты:
+
+<MdxTabs labels = {['npm', 'yarn']} view = "clear">
+<>
 
 ```json
 npm install @consta/uikit @consta/themes
 ```
 
-[Подключите тему](##LIBS.LIB.STAND.TAB/lib:uikit/stand:components-theme-stable/tab:dev/hash:как-подключить-тему)
+</>
+
+<>
+
+```json
+yarn add @consta/uikit @consta/themes
+```
+
+</>
+</MdxTabs>
+
+2. Подключите [тему](##LIBS.LIB.STAND/lib:portal/stand:theme-connecttheme).
