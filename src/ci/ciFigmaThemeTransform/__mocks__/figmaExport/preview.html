@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consta Design Tokens — Preview</title>
+<style>
+  /* ===================== BASE RESET ===================== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ===================== CSS VARIABLES — LIGHT ===================== */
+  :root, .theme-light {
+    --bg-primary:          #ffffff;
+    --bg-secondary:        #eaecee;
+    --bg-ghost:            #eaecee;
+    --bg-accent:           #0070ba;
+    --bg-hover-primary:    #eaecee;
+    --bg-hover-secondary:  #d4dadd;
+    --bg-active-primary:   #d4dadd;
+    --bg-stripe:           #eaecee;
+
+    --bg-success:          #2ebd85;
+    --bg-warning:          #f6b03f;
+    --bg-alert:            #e2463b;
+    --bg-normal:           #7eb1f4;
+    --bg-neutral:          #eaecee;
+    --bg-critical:         #440e0a;
+
+    --border-primary:      #bfc7cd;
+    --border-secondary:    #d4dadd;
+    --border-accent:       #0070ba;
+    --border-focus:        #0089e5;
+    --border-success:      #2ebd85;
+    --border-warning:      #ea950b;
+    --border-alert:        #d92d20;
+    --border-normal:       #2f80ed;
+    --border-neutral:      #6b7d88;
+
+    --text-primary:        #22272b;
+    --text-secondary:      #4f5c64;
+    --text-ghost:          #7e8f9a;
+    --text-accent:         #0070ba;
+    --text-disabled:       #a9b5bc;
+    --text-success:        #1d825b;
+    --text-warning:        #a76a08;
+    --text-alert:          #931e16;
+    --text-normal:         #115fc5;
+    --text-neutral:        #384247;
+
+    /* Controls */
+    --ctrl-bg-primary:         #0070ba;
+    --ctrl-bg-primary-hover:   #0089e5;
+    --ctrl-bg-primary-active:  #0063a4;
+    --ctrl-bg-primary-disabled:#d4dadd;
+    --ctrl-bg-secondary:       transparent;
+    --ctrl-bg-secondary-hover: #eaecee;
+    --ctrl-bg-ghost:           #eaecee;
+    --ctrl-bg-ghost-hover:     #d4dadd;
+    --ctrl-border-primary:     transparent;
+    --ctrl-border-secondary:   #0070ba;
+    --ctrl-border-secondary-h: #0089e5;
+    --ctrl-border-ghost:       #bfc7cd;
+    --ctrl-border-focus:       #0089e5;
+    --ctrl-border-disabled:    #d4dadd;
+    --ctrl-text-primary:       #ffffff;
+    --ctrl-text-secondary:     #0070ba;
+    --ctrl-text-ghost:         #22272b;
+    --ctrl-text-disabled:      #a9b5bc;
+
+    /* Input */
+    --input-bg:            #ffffff;
+    --input-bg-hover:      #eaecee;
+    --input-bg-disabled:   #bfc7cd;
+    --input-border:        #d4dadd;
+    --input-border-hover:  #bfc7cd;
+    --input-border-focus:  #0089e5;
+    --input-border-disabled:#a9b5bc;
+    --input-text:          #161a1d;
+    --input-placeholder:   #0a3f2b;
+    --input-text-disabled: #5a6972;
+    --input-bg-success:    #c7f6e4;
+    --input-bg-warning:    #fce8c8;
+    --input-bg-alert:      #f7ccc9;
+    --input-border-success:#3fd199;
+    --input-border-warning:#f6b03f;
+    --input-border-alert:  #e2463b;
+    --input-text-success:  #0a3f2b;
+    --input-text-warning:  #432b03;
+    --input-text-alert:    #440e0a;
+
+    --radius-s: 4px;
+    --radius-m: 8px;
+    --radius-l: 12px;
+    --shadow: 0 2px 8px rgba(0,32,51,0.12), 0 1px 2px rgba(0,32,51,0.04);
+  }
+
+  /* ===================== CSS VARIABLES — DARK ===================== */
+  .theme-dark {
+    --bg-primary:          #22272b;
+    --bg-secondary:        #161a1d;
+    --bg-ghost:            #2d3439;
+    --bg-accent:           #0070ba;
+    --bg-hover-primary:    #2d3439;
+    --bg-hover-secondary:  #22272b;
+    --bg-active-primary:   #384247;
+    --bg-stripe:           #2d3439;
+
+    --bg-success:          #2ebd85;
+    --bg-warning:          #f6b03f;
+    --bg-alert:            #e2463b;
+    --bg-normal:           #7eb1f4;
+    --bg-neutral:          #2d3439;
+    --bg-critical:         #440e0a;
+
+    --border-primary:      #434f56;
+    --border-secondary:    #384247;
+    --border-accent:       #0070ba;
+    --border-focus:        #11a0ff;
+    --border-success:      #3fd199;
+    --border-warning:      #ea950b;
+    --border-alert:        #e2463b;
+    --border-normal:       #4a92ef;
+    --border-neutral:      #5a6972;
+
+    --text-primary:        #eaecee;
+    --text-secondary:      #94a2ab;
+    --text-ghost:          #6b7d88;
+    --text-accent:         #3bb1ff;
+    --text-disabled:       #4f5c64;
+    --text-success:        #5bd9a9;
+    --text-warning:        #f7bb5b;
+    --text-alert:          #e66258;
+    --text-normal:         #7eb1f4;
+    --text-neutral:        #94a2ab;
+
+    --ctrl-bg-primary:         #0070ba;
+    --ctrl-bg-primary-hover:   #0089e5;
+    --ctrl-bg-primary-active:  #0063a4;
+    --ctrl-bg-primary-disabled:#2d3439;
+    --ctrl-bg-secondary:       transparent;
+    --ctrl-bg-secondary-hover: #2d3439;
+    --ctrl-bg-ghost:           #2d3439;
+    --ctrl-bg-ghost-hover:     #384247;
+    --ctrl-border-primary:     transparent;
+    --ctrl-border-secondary:   #0089e5;
+    --ctrl-border-secondary-h: #11a0ff;
+    --ctrl-border-ghost:       #434f56;
+    --ctrl-border-focus:       #11a0ff;
+    --ctrl-border-disabled:    #2d3439;
+    --ctrl-text-primary:       #ffffff;
+    --ctrl-text-secondary:     #3bb1ff;
+    --ctrl-text-ghost:         #eaecee;
+    --ctrl-text-disabled:      #4f5c64;
+
+    --input-bg:            #ffffff;
+    --input-bg-hover:      #eaecee;
+    --input-bg-disabled:   #bfc7cd;
+    --input-border:        #d4dadd;
+    --input-border-hover:  #bfc7cd;
+    --input-border-focus:  #11a0ff;
+    --input-border-disabled:#a9b5bc;
+    --input-text:          #161a1d;
+    --input-placeholder:   #0a3f2b;
+    --input-text-disabled: #5a6972;
+    --input-bg-success:    #c7f6e4;
+    --input-bg-warning:    #fce8c8;
+    --input-bg-alert:      #f7ccc9;
+    --input-border-success:#3fd199;
+    --input-border-warning:#f6b03f;
+    --input-border-alert:  #e2463b;
+    --input-text-success:  #0a3f2b;
+    --input-text-warning:  #432b03;
+    --input-text-alert:    #440e0a;
+
+    --shadow: 0 2px 8px rgba(0,0,0,0.32), 0 1px 2px rgba(0,0,0,0.08);
+  }
+
+  /* ===================== LAYOUT ===================== */
+  body {
+    font-family: -apple-system, 'Inter', BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #f0f0f0;
+    color: #333;
+    min-height: 100vh;
+  }
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a2e;
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .page-header h1 { font-size: 16px; font-weight: 600; flex: 1; }
+  .page-header p { font-size: 12px; opacity: 0.6; }
+  .themes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: calc(100vh - 50px);
+  }
+  @media (max-width: 900px) {
+    .themes-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===================== THEME PANEL ===================== */
+  .theme-panel {
+    padding: 24px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100%;
+  }
+  .theme-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-ghost);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-secondary);
+  }
+  .section {
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-ghost);
+    margin-bottom: 12px;
+  }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .col { display: flex; flex-direction: column; gap: 8px; }
+
+  /* ===================== BUTTON ===================== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 36px;
+    border-radius: var(--radius-m);
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--ctrl-bg-primary);
+    color: var(--ctrl-text-primary);
+    border-color: var(--ctrl-border-primary, transparent);
+  }
+  .btn-primary:hover {
+    background: var(--ctrl-bg-primary-hover);
+  }
+  .btn-primary:active {
+    background: var(--ctrl-bg-primary-active);
+  }
+  .btn-secondary {
+    background: var(--ctrl-bg-secondary);
+    color: var(--ctrl-text-secondary);
+    border-color: var(--ctrl-border-secondary);
+  }
+  .btn-secondary:hover {
+    background: var(--ctrl-bg-secondary-hover);
+    border-color: var(--ctrl-border-secondary-h);
+  }
+  .btn-ghost {
+    background: var(--ctrl-bg-ghost);
+    color: var(--ctrl-text-ghost);
+    border-color: var(--ctrl-border-ghost);
+  }
+  .btn-ghost:hover {
+    background: var(--ctrl-bg-ghost-hover);
+  }
+  .btn-success {
+    background: var(--bg-success);
+    color: var(--text-success);
+    border-color: var(--border-success);
+  }
+  .btn-alert {
+    background: var(--bg-alert);
+    color: white;
+    border-color: var(--border-alert);
+  }
+  .btn-warning {
+    background: var(--bg-warning);
+    color: var(--text-warning);
+  }
+  .btn:disabled, .btn-disabled {
+    background: var(--ctrl-bg-primary-disabled);
+    color: var(--ctrl-text-disabled);
+    border-color: transparent;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .btn-sm { height: 28px; padding: 0 12px; font-size: 12px; border-radius: var(--radius-s); }
+  .btn-lg { height: 44px; padding: 0 24px; font-size: 16px; border-radius: var(--radius-m); }
+  .btn-icon { width: 36px; padding: 0; justify-content: center; }
+
+  /* ===================== INPUT ===================== */
+  .field-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .field-label { font-size: 12px; color: var(--text-secondary); }
+  .field-caption { font-size: 12px; }
+  .field-caption.success { color: var(--text-success); }
+  .field-caption.warning { color: var(--text-warning); }
+  .field-caption.alert { color: var(--text-alert); }
+  .input {
+    height: 36px;
+    padding: 0 12px;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--input-text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+  .input::placeholder { color: var(--input-placeholder); }
+  .input:hover { border-color: var(--input-border-hover); background: var(--input-bg-hover); }
+  .input:focus { border-color: var(--input-border-focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-border-focus) 25%, transparent); }
+  .input:disabled { background: var(--input-bg-disabled); color: var(--input-text-disabled); border-color: var(--input-border-disabled); cursor: not-allowed; }
+  .input.success { background: var(--input-bg-success); border-color: var(--input-border-success); color: var(--input-text-success); }
+  .input.warning { background: var(--input-bg-warning); border-color: var(--input-border-warning); color: var(--input-text-warning); }
+  .input.alert { background: var(--input-bg-alert); border-color: var(--input-border-alert); color: var(--input-text-alert); }
+
+  /* ===================== BADGE ===================== */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+  .badge-success { background: var(--bg-success); color: var(--text-success); border-color: var(--border-success); }
+  .badge-warning { background: var(--bg-warning); color: var(--text-warning); border-color: var(--border-warning); }
+  .badge-alert { background: var(--bg-alert); color: var(--text-alert); border-color: var(--border-alert); }
+  .badge-normal { background: var(--bg-normal); color: var(--text-normal); border-color: var(--border-normal); }
+  .badge-neutral { background: var(--bg-neutral); color: var(--text-neutral); border-color: var(--border-neutral); }
+  .badge-accent { background: var(--bg-accent); color: white; }
+  .badge-ghost { background: transparent; color: var(--text-secondary); border-color: var(--border-secondary); }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+
+  /* ===================== CHECKBOX ===================== */
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  .checkbox {
+    width: 18px; height: 18px;
+    border-radius: var(--radius-s);
+    border: 2px solid var(--ctrl-border-ghost);
+    background: var(--ctrl-bg-ghost);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .checkbox.checked {
+    background: var(--ctrl-bg-primary);
+    border-color: var(--ctrl-bg-primary);
+  }
+  .checkbox.checked::after {
+    content: '';
+    width: 10px; height: 6px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+  .checkbox.indeterminate {
+    background: var(--ctrl-bg-primary);
+    border-color: var(--ctrl-bg-primary);
+  }
+  .checkbox.indeterminate::after {
+    content: '';
+    width: 10px; height: 2px;
+    background: white;
+  }
+  .checkbox-label { font-size: 14px; color: var(--text-primary); }
+  .checkbox-label.disabled { color: var(--text-disabled); }
+  .checkbox.disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ===================== RADIO ===================== */
+  .radio-item {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+  }
+  .radio {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--ctrl-border-ghost);
+    background: var(--ctrl-bg-ghost);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .radio.checked {
+    border-color: var(--ctrl-bg-primary);
+  }
+  .radio.checked::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ctrl-bg-primary);
+  }
+
+  /* ===================== SWITCH ===================== */
+  .switch-wrap { display: flex; align-items: center; gap: 8px; }
+  .switch {
+    width: 36px; height: 20px;
+    border-radius: 10px;
+    background: var(--ctrl-border-ghost);
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .switch.on { background: var(--ctrl-bg-primary); }
+  .switch::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: white;
+    top: 2px; left: 2px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .switch.on::after { transform: translateX(16px); }
+
+  /* ===================== INFORMER / ALERT ===================== */
+  .informer {
+    padding: 12px 16px;
+    border-radius: var(--radius-m);
+    border: 1px solid transparent;
+    display: flex; gap: 10px;
+  }
+  .informer-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .informer-body { flex: 1; }
+  .informer-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+  .informer-text { font-size: 13px; }
+  .informer.success { background: var(--bg-success); border-color: var(--border-success); color: var(--text-success); }
+  .informer.warning { background: var(--bg-warning); border-color: var(--border-warning); color: var(--text-warning); }
+  .informer.alert { background: var(--bg-alert); border-color: var(--border-alert); color: var(--text-alert); }
+  .informer.normal { background: var(--bg-normal); border-color: var(--border-normal); color: var(--text-normal); }
+  .informer.neutral { background: var(--bg-neutral); border-color: var(--border-neutral); color: var(--text-primary); }
+
+  /* ===================== MENU ===================== */
+  .menu {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-m);
+    padding: 4px 0;
+    box-shadow: var(--shadow);
+    min-width: 200px;
+  }
+  .menu-item {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.1s;
+  }
+  .menu-item:hover { background: var(--bg-hover-secondary); }
+  .menu-item.active { background: var(--bg-accent); color: white; }
+  .menu-item.disabled { color: var(--text-disabled); cursor: not-allowed; }
+  .menu-divider { height: 1px; background: var(--border-secondary); margin: 4px 0; }
+  .menu-item-secondary { font-size: 12px; color: var(--text-secondary); }
+  .menu-item-icon { width: 16px; text-align: center; }
+
+  /* ===================== CARD ===================== */
+  .card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-l);
+    padding: 16px;
+    box-shadow: var(--shadow);
+  }
+  .card-title { font-weight: 600; font-size: 16px; color: var(--text-primary); margin-bottom: 6px; }
+  .card-text { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+  .card-footer { margin-top: 12px; display: flex; gap: 8px; justify-content: flex-end; }
+  .card.secondary { background: var(--bg-secondary); }
+
+  /* ===================== TABS ===================== */
+  .tabs { border-bottom: 1px solid var(--border-secondary); display: flex; gap: 0; }
+  .tab {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--text-primary); background: var(--bg-hover-secondary); }
+  .tab.active { color: var(--text-accent); border-bottom-color: var(--border-accent); font-weight: 500; }
+  .tab.disabled { color: var(--text-disabled); cursor: not-allowed; }
+
+  /* ===================== TABLE ===================== */
+  .table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .table th {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-primary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .table td {
+    padding: 10px 12px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-secondary);
+  }
+  .table tr:last-child td { border-bottom: none; }
+  .table tr:nth-child(odd) td { background: var(--bg-stripe); }
+  .table tr:hover td { background: var(--bg-hover-secondary); }
+
+  /* ===================== TAG / CHIP ===================== */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 13px;
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .chip:hover { background: var(--bg-hover-secondary); }
+  .chip.active { background: var(--bg-accent); color: white; border-color: transparent; }
+  .chip-close { font-size: 12px; opacity: 0.6; margin-left: 2px; }
+
+  /* ===================== AVATAR ===================== */
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--bg-accent);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 13px;
+    flex-shrink: 0;
+  }
+  .avatar.sm { width: 28px; height: 28px; font-size: 11px; }
+  .avatar.lg { width: 48px; height: 48px; font-size: 16px; }
+  .avatar.success { background: var(--bg-success); color: var(--text-success); }
+  .avatar.alert { background: var(--bg-alert); color: var(--text-alert); }
+
+  /* ===================== PROGRESS ===================== */
+  .progress-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-secondary); }
+  .progress-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-secondary);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--bg-accent);
+    transition: width 0.3s;
+  }
+  .progress-fill.success { background: var(--bg-success); }
+  .progress-fill.warning { background: var(--bg-warning); }
+  .progress-fill.alert { background: var(--bg-alert); }
+
+  /* ===================== BREADCRUMBS ===================== */
+  .breadcrumbs { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+  .breadcrumb-item { color: var(--text-secondary); }
+  .breadcrumb-item.active { color: var(--text-primary); font-weight: 500; }
+  .breadcrumb-sep { color: var(--text-ghost); }
+
+  /* ===================== TYPOGRAPHY ===================== */
+  .typo-demo { display: flex; flex-direction: column; gap: 6px; }
+  .typo-demo h1 { font-size: 32px; font-weight: 700; color: var(--text-primary); }
+  .typo-demo h2 { font-size: 24px; font-weight: 600; color: var(--text-primary); }
+  .typo-demo h3 { font-size: 20px; font-weight: 600; color: var(--text-primary); }
+  .typo-demo h4 { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+  .typo-demo p { font-size: 14px; color: var(--text-secondary); }
+  .typo-demo small { font-size: 12px; color: var(--text-ghost); }
+  .typo-demo a { color: var(--text-accent); text-decoration: underline; cursor: pointer; }
+
+  /* ===================== COLOR PALETTE PREVIEW ===================== */
+  .palette { display: flex; gap: 4px; flex-wrap: wrap; }
+  .swatch {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-s);
+    border: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+  }
+  .swatch-label {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    white-space: nowrap;
+    color: var(--text-ghost);
+    text-align: center;
+  }
+  .palette-row { display: flex; gap: 4px; margin-bottom: 20px; align-items: center; }
+  .palette-name { font-size: 11px; color: var(--text-ghost); width: 70px; flex-shrink: 0; }
+
+  /* ===================== HEADER/NAV ===================== */
+  .demo-nav {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-secondary);
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 44px;
+  }
+  .demo-nav-brand {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-accent);
+    margin-right: 24px;
+  }
+  .demo-nav-item {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  .demo-nav-item:hover { color: var(--text-primary); }
+  .demo-nav-item.active { color: var(--text-accent); border-bottom-color: var(--border-accent); }
+
+  /* ===================== TOOLTIP ===================== */
+  .tooltip-demo { position: relative; display: inline-block; }
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-accent);
+    color: white;
+    padding: 4px 8px;
+    border-radius: var(--radius-s);
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ===================== PAGINATION ===================== */
+  .pagination { display: flex; gap: 4px; align-items: center; }
+  .page-btn {
+    width: 32px; height: 32px;
+    border-radius: var(--radius-s);
+    border: 1px solid var(--border-secondary);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 13px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.1s;
+  }
+  .page-btn:hover { background: var(--bg-hover-secondary); }
+  .page-btn.active { background: var(--bg-accent); color: white; border-color: transparent; }
+  .page-btn.disabled { color: var(--text-disabled); cursor: not-allowed; }
+
+  /* Dividers */
+  .divider { height: 1px; background: var(--border-secondary); margin: 16px 0; }
+
+  /* Select */
+  .select {
+    height: 36px;
+    padding: 0 32px 0 12px;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--input-text);
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a6972' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+  }
+  .select:hover { border-color: var(--input-border-hover); }
+  .select:focus { border-color: var(--input-border-focus); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Consta Design Tokens — Preview</h1>
+  <p>Light &amp; Dark theme rendered from token aliases</p>
+</div>
+
+<div class="themes-grid">
+
+  <!-- =================== LIGHT THEME =================== -->
+  <div class="theme-panel theme-light">
+    <div class="theme-label">☀ Light Theme</div>
+
+    <!-- Nav -->
+    <div class="section">
+      <div class="section-title">Navigation</div>
+      <div class="demo-nav">
+        <span class="demo-nav-brand">Consta</span>
+        <span class="demo-nav-item active">Dashboard</span>
+        <span class="demo-nav-item">Objects</span>
+        <span class="demo-nav-item">Reports</span>
+        <span class="demo-nav-item">Settings</span>
+      </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="section">
+      <div class="breadcrumbs">
+        <span class="breadcrumb-item">Home</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-item">Objects</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-item active">Well #47</span>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="section">
+      <div class="section-title">Buttons</div>
+      <div class="row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-primary btn-disabled">Disabled</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Medium</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-alert">Alert</button>
+        <button class="btn btn-warning">Warning</button>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="section">
+      <div class="section-title">Text Fields</div>
+      <div class="col">
+        <div class="field-wrap">
+          <label class="field-label">Default label</label>
+          <input class="input" type="text" placeholder="Placeholder text" />
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Success state</label>
+          <input class="input success" type="text" value="Valid value" />
+          <span class="field-caption success">Field is valid</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Warning state</label>
+          <input class="input warning" type="text" value="Attention needed" />
+          <span class="field-caption warning">Check value</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Error state</label>
+          <input class="input alert" type="text" value="Invalid value" />
+          <span class="field-caption alert">Error message</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Disabled</label>
+          <input class="input" type="text" placeholder="Disabled input" disabled />
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Select</label>
+          <select class="select">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkboxes & Radio -->
+    <div class="section">
+      <div class="section-title">Checkbox &amp; Radio &amp; Switch</div>
+      <div class="col">
+        <label class="checkbox-item">
+          <div class="checkbox"></div>
+          <span class="checkbox-label">Unchecked</span>
+        </label>
+        <label class="checkbox-item">
+          <div class="checkbox checked"></div>
+          <span class="checkbox-label">Checked</span>
+        </label>
+        <label class="checkbox-item">
+          <div class="checkbox indeterminate"></div>
+          <span class="checkbox-label">Indeterminate</span>
+        </label>
+        <label class="checkbox-item">
+          <div class="checkbox disabled"></div>
+          <span class="checkbox-label disabled">Disabled</span>
+        </label>
+        <div class="divider"></div>
+        <label class="radio-item">
+          <div class="radio"></div>
+          <span class="checkbox-label">Not selected</span>
+        </label>
+        <label class="radio-item">
+          <div class="radio checked"></div>
+          <span class="checkbox-label">Selected</span>
+        </label>
+        <div class="divider"></div>
+        <div class="switch-wrap">
+          <div class="switch"></div>
+          <span class="checkbox-label">Off</span>
+        </div>
+        <div class="switch-wrap">
+          <div class="switch on"></div>
+          <span class="checkbox-label">On</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="section">
+      <div class="section-title">Badges &amp; Chips</div>
+      <div class="row">
+        <span class="badge badge-success"><span class="badge-dot" style="background: var(--text-success)"></span>Success</span>
+        <span class="badge badge-warning"><span class="badge-dot" style="background: var(--text-warning)"></span>Warning</span>
+        <span class="badge badge-alert"><span class="badge-dot" style="background: var(--text-alert)"></span>Alert</span>
+        <span class="badge badge-normal">Normal</span>
+        <span class="badge badge-neutral">Neutral</span>
+        <span class="badge badge-accent">Brand</span>
+        <span class="badge badge-ghost">Ghost</span>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <span class="chip">Technology</span>
+        <span class="chip active">Active <span class="chip-close">✕</span></span>
+        <span class="chip">Oil &amp; Gas <span class="chip-close">✕</span></span>
+        <span class="chip">Geology</span>
+      </div>
+    </div>
+
+    <!-- Informers -->
+    <div class="section">
+      <div class="section-title">Informers</div>
+      <div class="col">
+        <div class="informer success">
+          <span class="informer-icon">✓</span>
+          <div class="informer-body">
+            <div class="informer-title">Operation completed</div>
+            <div class="informer-text">Data saved successfully.</div>
+          </div>
+        </div>
+        <div class="informer warning">
+          <span class="informer-icon">⚠</span>
+          <div class="informer-body">
+            <div class="informer-title">Check required</div>
+            <div class="informer-text">Some values need verification.</div>
+          </div>
+        </div>
+        <div class="informer alert">
+          <span class="informer-icon">✗</span>
+          <div class="informer-body">
+            <div class="informer-title">Error occurred</div>
+            <div class="informer-text">Could not save data. Try again.</div>
+          </div>
+        </div>
+        <div class="informer normal">
+          <span class="informer-icon">ℹ</span>
+          <div class="informer-body">
+            <div class="informer-title">Information</div>
+            <div class="informer-text">Regular info message.</div>
+          </div>
+        </div>
+        <div class="informer neutral">
+          <span class="informer-icon">○</span>
+          <div class="informer-body">
+            <div class="informer-title">Neutral</div>
+            <div class="informer-text">No special status.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="section">
+      <div class="section-title">Tabs</div>
+      <div class="tabs">
+        <div class="tab active">Overview</div>
+        <div class="tab">Parameters</div>
+        <div class="tab">History</div>
+        <div class="tab">Documents</div>
+        <div class="tab disabled">Disabled</div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="section">
+      <div class="section-title">Cards</div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Well #47-K</div>
+          <div class="card-text">Location: Yamal Peninsula · Status: Active · Depth: 3 240 m</div>
+          <div class="card-footer">
+            <button class="btn btn-ghost btn-sm">Details</button>
+            <button class="btn btn-primary btn-sm">Open</button>
+          </div>
+        </div>
+        <div class="card secondary">
+          <div class="card-title">Secondary card</div>
+          <div class="card-text">This card uses the secondary surface token.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="section">
+      <div class="section-title">Context Menu</div>
+      <div class="menu" style="display:inline-block">
+        <div class="menu-item"><span class="menu-item-icon">✎</span>Edit<span style="flex:1"></span><span class="menu-item-secondary">⌘E</span></div>
+        <div class="menu-item active"><span class="menu-item-icon">★</span>Selected item</div>
+        <div class="menu-item"><span class="menu-item-icon">⎘</span>Duplicate</div>
+        <div class="menu-divider"></div>
+        <div class="menu-item"><span class="menu-item-icon">↗</span>Export</div>
+        <div class="menu-item disabled"><span class="menu-item-icon">⌂</span>Disabled option</div>
+        <div class="menu-divider"></div>
+        <div class="menu-item" style="color: var(--text-alert)"><span class="menu-item-icon">✗</span>Delete</div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="section">
+      <div class="section-title">Table</div>
+      <table class="table">
+        <thead>
+          <tr><th>Well</th><th>Region</th><th>Depth</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>#47-K</td><td>Yamal</td><td>3 240 m</td><td><span class="badge badge-success">Active</span></td></tr>
+          <tr><td>#32-A</td><td>Khanty-Mansiysk</td><td>2 890 m</td><td><span class="badge badge-warning">Maintenance</span></td></tr>
+          <tr><td>#11-B</td><td>Sakhalin</td><td>4 100 m</td><td><span class="badge badge-alert">Offline</span></td></tr>
+          <tr><td>#58-N</td><td>Yamal</td><td>1 760 m</td><td><span class="badge badge-normal">Monitoring</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Progress -->
+    <div class="section">
+      <div class="section-title">Progress</div>
+      <div class="col">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Completion</span><span>68%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Success</span><span>100%</span></div>
+          <div class="progress-bar"><div class="progress-fill success" style="width:100%"></div></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Warning</span><span>45%</span></div>
+          <div class="progress-bar"><div class="progress-fill warning" style="width:45%"></div></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Alert</span><span>20%</span></div>
+          <div class="progress-bar"><div class="progress-fill alert" style="width:20%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatars -->
+    <div class="section">
+      <div class="section-title">Avatars</div>
+      <div class="row" style="align-items:flex-end">
+        <div class="avatar sm">АП</div>
+        <div class="avatar">АП</div>
+        <div class="avatar lg">АП</div>
+        <div class="avatar success">JD</div>
+        <div class="avatar alert">RK</div>
+        <div class="avatar" style="background: var(--bg-warning); color: var(--text-warning)">MN</div>
+        <div class="avatar" style="background: var(--bg-normal); color: var(--text-normal)">SL</div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="section">
+      <div class="section-title">Pagination</div>
+      <div class="pagination">
+        <div class="page-btn disabled">←</div>
+        <div class="page-btn active">1</div>
+        <div class="page-btn">2</div>
+        <div class="page-btn">3</div>
+        <div class="page-btn">…</div>
+        <div class="page-btn">12</div>
+        <div class="page-btn">→</div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="section">
+      <div class="section-title">Typography</div>
+      <div class="typo-demo">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <p>Body text — the quick brown fox jumps over the lazy dog.</p>
+        <small>Caption text — small and secondary</small>
+        <a>Link text</a>
+      </div>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="section">
+      <div class="section-title">Semantic Color Preview</div>
+      <div class="palette-row">
+        <span class="palette-name">Surfaces</span>
+        <div class="palette">
+          <div class="swatch" style="background: var(--bg-primary); border: 1px solid var(--border-secondary)" title="bg-primary"></div>
+          <div class="swatch" style="background: var(--bg-secondary)" title="bg-secondary"></div>
+          <div class="swatch" style="background: var(--bg-ghost)" title="bg-ghost"></div>
+          <div class="swatch" style="background: var(--bg-accent)" title="bg-accent"></div>
+          <div class="swatch" style="background: var(--bg-success)" title="bg-success"></div>
+          <div class="swatch" style="background: var(--bg-warning)" title="bg-warning"></div>
+          <div class="swatch" style="background: var(--bg-alert)" title="bg-alert"></div>
+          <div class="swatch" style="background: var(--bg-normal)" title="bg-normal"></div>
+          <div class="swatch" style="background: var(--bg-neutral)" title="bg-neutral"></div>
+          <div class="swatch" style="background: var(--bg-critical)" title="bg-critical"></div>
+        </div>
+      </div>
+      <div class="palette-row">
+        <span class="palette-name">Borders</span>
+        <div class="palette">
+          <div class="swatch" style="background: var(--border-primary)" title="border-primary"></div>
+          <div class="swatch" style="background: var(--border-secondary)" title="border-secondary"></div>
+          <div class="swatch" style="background: var(--border-accent)" title="border-accent"></div>
+          <div class="swatch" style="background: var(--border-focus)" title="border-focus"></div>
+          <div class="swatch" style="background: var(--border-success)" title="border-success"></div>
+          <div class="swatch" style="background: var(--border-warning)" title="border-warning"></div>
+          <div class="swatch" style="background: var(--border-alert)" title="border-alert"></div>
+        </div>
+      </div>
+      <div class="palette-row">
+        <span class="palette-name">Text</span>
+        <div class="palette">
+          <div class="swatch" style="background: var(--text-primary)" title="text-primary"></div>
+          <div class="swatch" style="background: var(--text-secondary)" title="text-secondary"></div>
+          <div class="swatch" style="background: var(--text-ghost)" title="text-ghost"></div>
+          <div class="swatch" style="background: var(--text-accent)" title="text-accent"></div>
+          <div class="swatch" style="background: var(--text-disabled)" title="text-disabled"></div>
+          <div class="swatch" style="background: var(--text-success)" title="text-success"></div>
+          <div class="swatch" style="background: var(--text-warning)" title="text-warning"></div>
+          <div class="swatch" style="background: var(--text-alert)" title="text-alert"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== DARK THEME =================== -->
+  <div class="theme-panel theme-dark">
+    <div class="theme-label">☾ Dark Theme</div>
+
+    <!-- Nav -->
+    <div class="section">
+      <div class="section-title">Navigation</div>
+      <div class="demo-nav">
+        <span class="demo-nav-brand">Consta</span>
+        <span class="demo-nav-item active">Dashboard</span>
+        <span class="demo-nav-item">Objects</span>
+        <span class="demo-nav-item">Reports</span>
+        <span class="demo-nav-item">Settings</span>
+      </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="section">
+      <div class="breadcrumbs">
+        <span class="breadcrumb-item">Home</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-item">Objects</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-item active">Well #47</span>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="section">
+      <div class="section-title">Buttons</div>
+      <div class="row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-primary btn-disabled">Disabled</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Medium</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-alert">Alert</button>
+        <button class="btn btn-warning">Warning</button>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="section">
+      <div class="section-title">Text Fields</div>
+      <div class="col">
+        <div class="field-wrap">
+          <label class="field-label">Default label</label>
+          <input class="input" type="text" placeholder="Placeholder text" />
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Success state</label>
+          <input class="input success" type="text" value="Valid value" />
+          <span class="field-caption success">Field is valid</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Warning state</label>
+          <input class="input warning" type="text" value="Attention needed" />
+          <span class="field-caption warning">Check value</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Error state</label>
+          <input class="input alert" type="text" value="Invalid value" />
+          <span class="field-caption alert">Error message</span>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Disabled</label>
+          <input class="input" type="text" placeholder="Disabled input" disabled />
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">Select</label>
+          <select class="select">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkboxes -->
+    <div class="section">
+      <div class="section-title">Checkbox &amp; Radio &amp; Switch</div>
+      <div class="col">
+        <label class="checkbox-item">
+          <div class="checkbox"></div>
+          <span class="checkbox-label">Unchecked</span>
+        </label>
+        <label class="checkbox-item">
+          <div class="checkbox checked"></div>
+          <span class="checkbox-label">Checked</span>
+        </label>
+        <label class="checkbox-item">
+          <div class="checkbox indeterminate"></div>
+          <span class="checkbox-label">Indeterminate</span>
+        </label>
+        <label class="checkbox-item">
+          <div class="checkbox disabled"></div>
+          <span class="checkbox-label disabled">Disabled</span>
+        </label>
+        <div class="divider"></div>
+        <label class="radio-item">
+          <div class="radio"></div>
+          <span class="checkbox-label">Not selected</span>
+        </label>
+        <label class="radio-item">
+          <div class="radio checked"></div>
+          <span class="checkbox-label">Selected</span>
+        </label>
+        <div class="divider"></div>
+        <div class="switch-wrap">
+          <div class="switch"></div>
+          <span class="checkbox-label">Off</span>
+        </div>
+        <div class="switch-wrap">
+          <div class="switch on"></div>
+          <span class="checkbox-label">On</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="section">
+      <div class="section-title">Badges &amp; Chips</div>
+      <div class="row">
+        <span class="badge badge-success"><span class="badge-dot" style="background: var(--text-success)"></span>Success</span>
+        <span class="badge badge-warning"><span class="badge-dot" style="background: var(--text-warning)"></span>Warning</span>
+        <span class="badge badge-alert"><span class="badge-dot" style="background: var(--text-alert)"></span>Alert</span>
+        <span class="badge badge-normal">Normal</span>
+        <span class="badge badge-neutral">Neutral</span>
+        <span class="badge badge-accent">Brand</span>
+        <span class="badge badge-ghost">Ghost</span>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <span class="chip">Technology</span>
+        <span class="chip active">Active <span class="chip-close">✕</span></span>
+        <span class="chip">Oil &amp; Gas <span class="chip-close">✕</span></span>
+        <span class="chip">Geology</span>
+      </div>
+    </div>
+
+    <!-- Informers -->
+    <div class="section">
+      <div class="section-title">Informers</div>
+      <div class="col">
+        <div class="informer success">
+          <span class="informer-icon">✓</span>
+          <div class="informer-body">
+            <div class="informer-title">Operation completed</div>
+            <div class="informer-text">Data saved successfully.</div>
+          </div>
+        </div>
+        <div class="informer warning">
+          <span class="informer-icon">⚠</span>
+          <div class="informer-body">
+            <div class="informer-title">Check required</div>
+            <div class="informer-text">Some values need verification.</div>
+          </div>
+        </div>
+        <div class="informer alert">
+          <span class="informer-icon">✗</span>
+          <div class="informer-body">
+            <div class="informer-title">Error occurred</div>
+            <div class="informer-text">Could not save data. Try again.</div>
+          </div>
+        </div>
+        <div class="informer normal">
+          <span class="informer-icon">ℹ</span>
+          <div class="informer-body">
+            <div class="informer-title">Information</div>
+            <div class="informer-text">Regular info message.</div>
+          </div>
+        </div>
+        <div class="informer neutral">
+          <span class="informer-icon">○</span>
+          <div class="informer-body">
+            <div class="informer-title">Neutral</div>
+            <div class="informer-text">No special status.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="section">
+      <div class="section-title">Tabs</div>
+      <div class="tabs">
+        <div class="tab active">Overview</div>
+        <div class="tab">Parameters</div>
+        <div class="tab">History</div>
+        <div class="tab">Documents</div>
+        <div class="tab disabled">Disabled</div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="section">
+      <div class="section-title">Cards</div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Well #47-K</div>
+          <div class="card-text">Location: Yamal Peninsula · Status: Active · Depth: 3 240 m</div>
+          <div class="card-footer">
+            <button class="btn btn-ghost btn-sm">Details</button>
+            <button class="btn btn-primary btn-sm">Open</button>
+          </div>
+        </div>
+        <div class="card secondary">
+          <div class="card-title">Secondary card</div>
+          <div class="card-text">This card uses the secondary surface token.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="section">
+      <div class="section-title">Context Menu</div>
+      <div class="menu" style="display:inline-block">
+        <div class="menu-item"><span class="menu-item-icon">✎</span>Edit<span style="flex:1"></span><span class="menu-item-secondary">⌘E</span></div>
+        <div class="menu-item active"><span class="menu-item-icon">★</span>Selected item</div>
+        <div class="menu-item"><span class="menu-item-icon">⎘</span>Duplicate</div>
+        <div class="menu-divider"></div>
+        <div class="menu-item"><span class="menu-item-icon">↗</span>Export</div>
+        <div class="menu-item disabled"><span class="menu-item-icon">⌂</span>Disabled option</div>
+        <div class="menu-divider"></div>
+        <div class="menu-item" style="color: var(--text-alert)"><span class="menu-item-icon">✗</span>Delete</div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="section">
+      <div class="section-title">Table</div>
+      <table class="table">
+        <thead>
+          <tr><th>Well</th><th>Region</th><th>Depth</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>#47-K</td><td>Yamal</td><td>3 240 m</td><td><span class="badge badge-success">Active</span></td></tr>
+          <tr><td>#32-A</td><td>Khanty-Mansiysk</td><td>2 890 m</td><td><span class="badge badge-warning">Maintenance</span></td></tr>
+          <tr><td>#11-B</td><td>Sakhalin</td><td>4 100 m</td><td><span class="badge badge-alert">Offline</span></td></tr>
+          <tr><td>#58-N</td><td>Yamal</td><td>1 760 m</td><td><span class="badge badge-normal">Monitoring</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Progress -->
+    <div class="section">
+      <div class="section-title">Progress</div>
+      <div class="col">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Completion</span><span>68%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Success</span><span>100%</span></div>
+          <div class="progress-bar"><div class="progress-fill success" style="width:100%"></div></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Warning</span><span>45%</span></div>
+          <div class="progress-bar"><div class="progress-fill warning" style="width:45%"></div></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Alert</span><span>20%</span></div>
+          <div class="progress-bar"><div class="progress-fill alert" style="width:20%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatars -->
+    <div class="section">
+      <div class="section-title">Avatars</div>
+      <div class="row" style="align-items:flex-end">
+        <div class="avatar sm">АП</div>
+        <div class="avatar">АП</div>
+        <div class="avatar lg">АП</div>
+        <div class="avatar success">JD</div>
+        <div class="avatar alert">RK</div>
+        <div class="avatar" style="background: var(--bg-warning); color: var(--text-warning)">MN</div>
+        <div class="avatar" style="background: var(--bg-normal); color: var(--text-normal)">SL</div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="section">
+      <div class="section-title">Pagination</div>
+      <div class="pagination">
+        <div class="page-btn disabled">←</div>
+        <div class="page-btn active">1</div>
+        <div class="page-btn">2</div>
+        <div class="page-btn">3</div>
+        <div class="page-btn">…</div>
+        <div class="page-btn">12</div>
+        <div class="page-btn">→</div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="section">
+      <div class="section-title">Typography</div>
+      <div class="typo-demo">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <p>Body text — the quick brown fox jumps over the lazy dog.</p>
+        <small>Caption text — small and secondary</small>
+        <a>Link text</a>
+      </div>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="section">
+      <div class="section-title">Semantic Color Preview</div>
+      <div class="palette-row">
+        <span class="palette-name">Surfaces</span>
+        <div class="palette">
+          <div class="swatch" style="background: var(--bg-primary); border: 1px solid var(--border-secondary)" title="bg-primary"></div>
+          <div class="swatch" style="background: var(--bg-secondary)" title="bg-secondary"></div>
+          <div class="swatch" style="background: var(--bg-ghost)" title="bg-ghost"></div>
+          <div class="swatch" style="background: var(--bg-accent)" title="bg-accent"></div>
+          <div class="swatch" style="background: var(--bg-success)" title="bg-success"></div>
+          <div class="swatch" style="background: var(--bg-warning)" title="bg-warning"></div>
+          <div class="swatch" style="background: var(--bg-alert)" title="bg-alert"></div>
+          <div class="swatch" style="background: var(--bg-normal)" title="bg-normal"></div>
+          <div class="swatch" style="background: var(--bg-neutral)" title="bg-neutral"></div>
+          <div class="swatch" style="background: var(--bg-critical)" title="bg-critical"></div>
+        </div>
+      </div>
+      <div class="palette-row">
+        <span class="palette-name">Borders</span>
+        <div class="palette">
+          <div class="swatch" style="background: var(--border-primary)" title="border-primary"></div>
+          <div class="swatch" style="background: var(--border-secondary)" title="border-secondary"></div>
+          <div class="swatch" style="background: var(--border-accent)" title="border-accent"></div>
+          <div class="swatch" style="background: var(--border-focus)" title="border-focus"></div>
+          <div class="swatch" style="background: var(--border-success)" title="border-success"></div>
+          <div class="swatch" style="background: var(--border-warning)" title="border-warning"></div>
+          <div class="swatch" style="background: var(--border-alert)" title="border-alert"></div>
+        </div>
+      </div>
+      <div class="palette-row">
+        <span class="palette-name">Text</span>
+        <div class="palette">
+          <div class="swatch" style="background: var(--text-primary)" title="text-primary"></div>
+          <div class="swatch" style="background: var(--text-secondary)" title="text-secondary"></div>
+          <div class="swatch" style="background: var(--text-ghost)" title="text-ghost"></div>
+          <div class="swatch" style="background: var(--text-accent)" title="text-accent"></div>
+          <div class="swatch" style="background: var(--text-disabled)" title="text-disabled"></div>
+          <div class="swatch" style="background: var(--text-success)" title="text-success"></div>
+          <div class="swatch" style="background: var(--text-warning)" title="text-warning"></div>
+          <div class="swatch" style="background: var(--text-alert)" title="text-alert"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

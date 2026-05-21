@@ -1,0 +1,2752 @@
+{
+  "id": "VariableCollectionId:100:1",
+  "name": "components",
+  "modes": {
+    "1:0": "light",
+    "77:1": "dark"
+  },
+  "variableIds": [
+    "VariableID:100:1000",
+    "VariableID:100:1001",
+    "VariableID:100:1002",
+    "VariableID:100:1003",
+    "VariableID:100:1004",
+    "VariableID:100:1005",
+    "VariableID:100:1006",
+    "VariableID:100:1007",
+    "VariableID:100:1008",
+    "VariableID:100:1009",
+    "VariableID:100:1010",
+    "VariableID:100:1011",
+    "VariableID:100:1012",
+    "VariableID:100:1013",
+    "VariableID:100:1014",
+    "VariableID:100:1015",
+    "VariableID:100:1016",
+    "VariableID:100:1017",
+    "VariableID:100:1018",
+    "VariableID:100:1019",
+    "VariableID:100:1020",
+    "VariableID:100:1021",
+    "VariableID:100:1022",
+    "VariableID:100:1023",
+    "VariableID:100:1024",
+    "VariableID:100:1025",
+    "VariableID:100:1026",
+    "VariableID:100:1027",
+    "VariableID:100:1028",
+    "VariableID:100:1029",
+    "VariableID:100:1030",
+    "VariableID:100:1031",
+    "VariableID:100:1032",
+    "VariableID:100:1033",
+    "VariableID:100:1034",
+    "VariableID:100:1035",
+    "VariableID:100:1036",
+    "VariableID:100:1037",
+    "VariableID:100:1038",
+    "VariableID:100:1039",
+    "VariableID:100:1040",
+    "VariableID:100:1041",
+    "VariableID:100:1042",
+    "VariableID:100:1043",
+    "VariableID:100:1044",
+    "VariableID:100:1045",
+    "VariableID:100:1046",
+    "VariableID:100:1047",
+    "VariableID:100:1048",
+    "VariableID:100:1049",
+    "VariableID:100:1050",
+    "VariableID:100:1051",
+    "VariableID:100:1052",
+    "VariableID:100:1053",
+    "VariableID:100:1054",
+    "VariableID:100:1055",
+    "VariableID:100:1056",
+    "VariableID:100:1057",
+    "VariableID:100:1058",
+    "VariableID:100:1059",
+    "VariableID:100:1060",
+    "VariableID:100:1061",
+    "VariableID:100:1062",
+    "VariableID:100:1063",
+    "VariableID:100:1064",
+    "VariableID:100:1065",
+    "VariableID:100:1066",
+    "VariableID:100:1067",
+    "VariableID:100:1068",
+    "VariableID:100:1069",
+    "VariableID:100:1070",
+    "VariableID:100:1071",
+    "VariableID:100:1072",
+    "VariableID:100:1073",
+    "VariableID:100:1074",
+    "VariableID:100:1075",
+    "VariableID:100:1076",
+    "VariableID:100:1077",
+    "VariableID:100:1078",
+    "VariableID:100:1079",
+    "VariableID:100:1080",
+    "VariableID:100:1081",
+    "VariableID:100:1082",
+    "VariableID:100:1083",
+    "VariableID:100:1084",
+    "VariableID:100:1085",
+    "VariableID:100:1086",
+    "VariableID:100:1087",
+    "VariableID:100:1088",
+    "VariableID:100:1089",
+    "VariableID:100:1090",
+    "VariableID:100:1091",
+    "VariableID:100:1092",
+    "VariableID:100:1093",
+    "VariableID:100:1094",
+    "VariableID:100:1095",
+    "VariableID:100:1096",
+    "VariableID:100:1097",
+    "VariableID:100:1098",
+    "VariableID:100:1099",
+    "VariableID:100:1100",
+    "VariableID:100:1101",
+    "VariableID:100:1102",
+    "VariableID:100:1103",
+    "VariableID:100:1104",
+    "VariableID:100:1105",
+    "VariableID:100:1106",
+    "VariableID:100:1107",
+    "VariableID:100:1108",
+    "VariableID:100:1109",
+    "VariableID:100:1110",
+    "VariableID:100:1111",
+    "VariableID:100:1112",
+    "VariableID:100:1113",
+    "VariableID:100:1114",
+    "VariableID:100:1115",
+    "VariableID:100:1116",
+    "VariableID:100:1117",
+    "VariableID:100:1118",
+    "VariableID:100:1119",
+    "VariableID:100:1120",
+    "VariableID:100:1121",
+    "VariableID:100:1122",
+    "VariableID:100:1123"
+  ],
+  "variables": [
+    {
+      "id": "VariableID:100:1000",
+      "name": "component/button/primary/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:385"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:385"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1001",
+      "name": "component/button/primary/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:390"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:390"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1002",
+      "name": "component/button/primary/surface/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:395"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:395"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1003",
+      "name": "component/button/primary/surface/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:400"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:400"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1004",
+      "name": "component/button/primary/typo/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:507"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:507"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1005",
+      "name": "component/button/primary/typo/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:524"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:524"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1006",
+      "name": "component/button/primary/typo/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:534"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:534"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1007",
+      "name": "component/button/primary/border/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:429"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:429"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1008",
+      "name": "component/button/primary/border/focus",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:434"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:434"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1009",
+      "name": "component/button/secondary/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:386"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:386"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1010",
+      "name": "component/button/secondary/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:391"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:391"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1011",
+      "name": "component/button/secondary/surface/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:396"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:396"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1012",
+      "name": "component/button/secondary/surface/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:401"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:401"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1013",
+      "name": "component/button/secondary/typo/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:508"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:508"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1014",
+      "name": "component/button/secondary/typo/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:525"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:525"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1015",
+      "name": "component/button/secondary/typo/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:535"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:535"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1016",
+      "name": "component/button/secondary/border/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:430"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:430"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1017",
+      "name": "component/button/secondary/border/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:463"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:463"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1018",
+      "name": "component/button/secondary/border/focus",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:434"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:434"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1019",
+      "name": "component/button/ghost/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:387"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:387"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1020",
+      "name": "component/button/ghost/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:392"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:392"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1021",
+      "name": "component/button/ghost/typo/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:509"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:509"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1022",
+      "name": "component/button/ghost/typo/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:526"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:526"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1023",
+      "name": "component/button/ghost/typo/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:536"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:536"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1024",
+      "name": "component/button/clear/typo/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:510"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:510"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1025",
+      "name": "component/button/clear/typo/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:528"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:528"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1026",
+      "name": "component/textfield/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:201"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:201"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1027",
+      "name": "component/textfield/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:206"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:206"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1028",
+      "name": "component/textfield/surface/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:211"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:211"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1029",
+      "name": "component/textfield/surface/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:216"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:216"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1030",
+      "name": "component/textfield/border/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:245"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:245"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1031",
+      "name": "component/textfield/border/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:278"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:278"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1032",
+      "name": "component/textfield/border/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:283"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:283"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1033",
+      "name": "component/textfield/border/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:288"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:288"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1034",
+      "name": "component/textfield/border/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:272"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:272"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1035",
+      "name": "component/textfield/border/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:268"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:268"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1036",
+      "name": "component/textfield/border/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:269"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:269"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1037",
+      "name": "component/textfield/typo/value",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:323"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:323"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1038",
+      "name": "component/textfield/typo/placeholder",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:47:47"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:47:47"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1039",
+      "name": "component/textfield/typo/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:350"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:350"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1040",
+      "name": "component/textfield/surface/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:221"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:221"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1041",
+      "name": "component/textfield/surface/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:224"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:224"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1042",
+      "name": "component/textfield/surface/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:225"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:225"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1043",
+      "name": "component/textfield/typo/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:338"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:338"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1044",
+      "name": "component/textfield/typo/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:334"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:334"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1045",
+      "name": "component/textfield/typo/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:335"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:335"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1046",
+      "name": "component/checkbox/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:387"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:387"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1047",
+      "name": "component/checkbox/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:392"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:392"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1048",
+      "name": "component/checkbox/surface/checked",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:388"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:388"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1049",
+      "name": "component/checkbox/surface/checked/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:393"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:393"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1050",
+      "name": "component/checkbox/surface/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:402"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:402"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1051",
+      "name": "component/checkbox/border/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:431"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:431"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1052",
+      "name": "component/checkbox/border/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:464"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:464"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1053",
+      "name": "component/checkbox/border/checked",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:388"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:388"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1054",
+      "name": "component/checkbox/border/focus",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:434"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:434"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1055",
+      "name": "component/checkbox/border/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:474"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:474"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1056",
+      "name": "component/checkbox/typo/label",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1057",
+      "name": "component/checkbox/typo/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1058",
+      "name": "component/checkbox/icon/checked",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:511"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:511"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1059",
+      "name": "component/badge/surface/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:66"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:66"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1060",
+      "name": "component/badge/surface/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:64"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:64"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1061",
+      "name": "component/badge/surface/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:71"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:71"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1062",
+      "name": "component/badge/surface/normal",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:68"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:68"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1063",
+      "name": "component/badge/surface/neutral",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:57"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:57"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1064",
+      "name": "component/badge/surface/brand",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:60"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:60"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1065",
+      "name": "component/badge/typo/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:154"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:154"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1066",
+      "name": "component/badge/typo/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:150"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:150"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1067",
+      "name": "component/badge/typo/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:151"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:151"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1068",
+      "name": "component/badge/typo/normal",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:153"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:153"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1069",
+      "name": "component/badge/typo/neutral",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:148"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:148"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1070",
+      "name": "component/badge/typo/brand",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:511"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:511"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1071",
+      "name": "component/menu/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1072",
+      "name": "component/menu/surface/item/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0
+        },
+        "77:1": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1073",
+      "name": "component/menu/surface/item/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:16"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:16"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1074",
+      "name": "component/menu/surface/item/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:33"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:33"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1075",
+      "name": "component/menu/surface/item/selected",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:60"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:60"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1076",
+      "name": "component/menu/surface/item/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0
+        },
+        "77:1": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1077",
+      "name": "component/menu/border/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1078",
+      "name": "component/menu/typo/item/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1079",
+      "name": "component/menu/typo/item/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:156"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:156"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1080",
+      "name": "component/menu/typo/item/selected",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:511"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:511"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1081",
+      "name": "component/menu/typo/item/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1082",
+      "name": "component/menu/typo/item/secondary",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1083",
+      "name": "component/informer/surface/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:66"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:66"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1084",
+      "name": "component/informer/surface/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:64"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:64"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1085",
+      "name": "component/informer/surface/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:71"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:71"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1086",
+      "name": "component/informer/surface/normal",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:68"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:68"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1087",
+      "name": "component/informer/surface/neutral",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:69"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:69"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1088",
+      "name": "component/informer/typo/title",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1089",
+      "name": "component/informer/typo/body",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1090",
+      "name": "component/informer/border/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:14"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:14"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1091",
+      "name": "component/informer/border/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:8"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:8"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1092",
+      "name": "component/informer/border/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:9"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:9"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1093",
+      "name": "component/informer/border/normal",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:13"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:13"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1094",
+      "name": "component/informer/border/neutral",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1095",
+      "name": "component/tabs/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0
+        },
+        "77:1": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1096",
+      "name": "component/tabs/surface/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:388"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:388"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1097",
+      "name": "component/tabs/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:17"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:17"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1098",
+      "name": "component/tabs/border/underline",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1099",
+      "name": "component/tabs/border/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:6"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:6"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1100",
+      "name": "component/tabs/typo/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1101",
+      "name": "component/tabs/typo/active",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:143"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:143"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1102",
+      "name": "component/tabs/typo/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1103",
+      "name": "component/tabs/typo/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1104",
+      "name": "component/card/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1105",
+      "name": "component/card/surface/secondary",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:69"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:69"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1106",
+      "name": "component/card/border/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1107",
+      "name": "component/card/typo/title",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1108",
+      "name": "component/card/typo/body",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1109",
+      "name": "component/card/surface/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:15"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:30:15"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1110",
+      "name": "component/typography/color/primary",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:139"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1111",
+      "name": "component/typography/color/secondary",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:140"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1112",
+      "name": "component/typography/color/ghost",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:141"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:141"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1113",
+      "name": "component/typography/color/accent",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:143"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:143"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1114",
+      "name": "component/typography/color/link",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:143"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:143"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1115",
+      "name": "component/typography/color/link/hover",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:159"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:159"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1116",
+      "name": "component/typography/color/success",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:154"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:154"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1117",
+      "name": "component/typography/color/warning",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:150"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:150"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1118",
+      "name": "component/typography/color/alert",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:151"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:151"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1119",
+      "name": "component/typography/color/disabled",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:38:166"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1120",
+      "name": "component/page/surface/default",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1121",
+      "name": "component/page/surface/secondary",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:69"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:69"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1122",
+      "name": "component/page/surface/sidebar",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:11:72"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:100:1123",
+      "name": "component/page/border/divider",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": {
+        "1:0": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        },
+        "77:1": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:23:3"
+        }
+      },
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    }
+  ]
+}
