@@ -1,18 +1,13 @@
 type VariableType = 'COLOR' | 'STRING' | 'FLOAT';
 
-type ValueColor = {
-  r: number;
-  g: number;
-  b: number;
-  a: number;
-};
+export type ValueColor = Record<string, number>;
 
 type ValueFloat = number;
 type ValueString = string;
 
-type ValueAlias = { type: 'VARIABLE_ALIAS'; id: string };
+export type ValueAlias = { type: 'VARIABLE_ALIAS'; id: string };
 
-type ValueByMode<T extends VariableType> =
+export type ValueByMode<T extends VariableType> =
   | (T extends 'COLOR'
       ? ValueColor
       : T extends 'STRING'
@@ -40,3 +35,12 @@ export type Collection = {
   variableIds: string[];
   variables: Variable<'COLOR' | 'STRING' | 'FLOAT'>[];
 };
+
+export type CiFlags = {
+  name: string;
+  path: string;
+  output: string;
+};
+
+// export type ThemeJs = Record<string, Record<string, string>>;
+export type ThemeJs = Record<string, Record<string, string>>;
