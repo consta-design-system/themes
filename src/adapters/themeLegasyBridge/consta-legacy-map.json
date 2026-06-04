@@ -1,0 +1,459 @@
+{
+  "version": 1,
+  "description": "Маппинг легаси CSS-переменных Consta UIKit (Theme gpnDefault/gpnDark) на новый семантический слой Figma (global / control / input).",
+  "legacySource": "ds_consta_original/uikit-dev/src/components/Theme/_color/Theme_color_gpnDefault.css",
+  "semanticSource": "cursor_exp/tokens/figma/semantic.json",
+  "modes": {
+    "light": "1:0",
+    "dark": "77:1"
+  },
+  "groups": {
+    "globalBg": "Фоны страницы и блоков (--color-bg-*)",
+    "globalTypo": "Текст (--color-typo-*)",
+    "globalScroll": "Скроллбар (приближение через border/view)",
+    "globalShadow": "Тени (приближение через surface/special/shadow)",
+    "controlField": "Поля ввода: default / placeholder / border / focus (TextField)",
+    "controlButton": "Кнопки: primary / secondary / ghost / clear + hover",
+    "controlShared": "Общие disabled для контролов"
+  },
+  "mappings": [
+    {
+      "legacy": "color-bg-default",
+      "semantic": "color/global/surface/view/default/primary",
+      "group": "globalBg",
+      "consta": "--color-bg-default"
+    },
+    {
+      "legacy": "color-bg-secondary",
+      "semantic": "color/global/surface/view/default/secondary",
+      "group": "globalBg",
+      "consta": "--color-bg-secondary"
+    },
+    {
+      "legacy": "color-bg-brand",
+      "semantic": "color/global/surface/view/default/accent",
+      "group": "globalBg",
+      "consta": "--color-bg-brand"
+    },
+    {
+      "legacy": "color-bg-link",
+      "semantic": "color/control/surface/view/default/primary",
+      "group": "globalBg",
+      "consta": "--color-bg-link",
+      "note": "В Theme = path 100%; ближайший насыщенный fill — control primary; для фона страницы рассмотрите accent."
+    },
+    {
+      "legacy": "color-bg-border",
+      "semantic": "color/global/border/view/default/primary",
+      "group": "globalBg",
+      "consta": "--color-bg-border"
+    },
+    {
+      "legacy": "color-bg-stripe",
+      "semantic": "color/global/surface/special/stripe",
+      "group": "globalBg",
+      "consta": "--color-bg-stripe"
+    },
+    {
+      "legacy": "color-bg-ghost",
+      "semantic": "color/global/surface/special/soft",
+      "group": "globalBg",
+      "consta": "--color-bg-ghost",
+      "approximate": true,
+      "note": "Theme: phantom ~8%; в новой схеме — special/soft."
+    },
+    {
+      "legacy": "color-bg-tone",
+      "semantic": "color/global/surface/special/tone",
+      "group": "globalBg",
+      "consta": "--color-bg-tone"
+    },
+    {
+      "legacy": "color-bg-soft",
+      "semantic": "color/global/surface/special/soft",
+      "group": "globalBg",
+      "consta": "--color-bg-soft"
+    },
+    {
+      "legacy": "color-bg-system",
+      "semantic": "color/global/surface/status/neutral",
+      "group": "globalBg",
+      "consta": "--color-bg-system",
+      "approximate": true
+    },
+    {
+      "legacy": "color-bg-normal",
+      "semantic": "color/global/surface/status/normal",
+      "group": "globalBg",
+      "consta": "--color-bg-normal"
+    },
+    {
+      "legacy": "color-bg-success",
+      "semantic": "color/global/surface/status/success",
+      "group": "globalBg",
+      "consta": "--color-bg-success"
+    },
+    {
+      "legacy": "color-bg-caution",
+      "semantic": "color/global/surface/status/warning",
+      "group": "globalBg",
+      "consta": "--color-bg-caution",
+      "approximate": true,
+      "note": "В semantic нет surface/status/caution; ближайший тинт — warning (orange)."
+    },
+    {
+      "legacy": "color-bg-warning",
+      "semantic": "color/global/surface/status/warning",
+      "group": "globalBg",
+      "consta": "--color-bg-warning"
+    },
+    {
+      "legacy": "color-bg-alert",
+      "semantic": "color/global/surface/status/alert",
+      "group": "globalBg",
+      "consta": "--color-bg-alert"
+    },
+    {
+      "legacy": "color-bg-critical",
+      "semantic": "color/global/surface/status/critical",
+      "group": "globalBg",
+      "consta": "--color-bg-critical"
+    },
+
+    {
+      "legacy": "color-typo-primary",
+      "semantic": "color/global/typo/view/default/primary",
+      "group": "globalTypo",
+      "consta": "--color-typo-primary"
+    },
+    {
+      "legacy": "color-typo-secondary",
+      "semantic": "color/global/typo/view/default/secondary",
+      "group": "globalTypo",
+      "consta": "--color-typo-secondary"
+    },
+    {
+      "legacy": "color-typo-ghost",
+      "semantic": "color/global/typo/view/default/ghost",
+      "group": "globalTypo",
+      "consta": "--color-typo-ghost"
+    },
+    {
+      "legacy": "color-typo-brand",
+      "semantic": "color/global/typo/view/default/accent",
+      "group": "globalTypo",
+      "consta": "--color-typo-brand"
+    },
+    {
+      "legacy": "color-typo-system",
+      "semantic": "color/global/typo/view/default/secondary",
+      "group": "globalTypo",
+      "consta": "--color-typo-system",
+      "approximate": true
+    },
+    {
+      "legacy": "color-typo-normal",
+      "semantic": "color/global/typo/status/normal",
+      "group": "globalTypo",
+      "consta": "--color-typo-normal"
+    },
+    {
+      "legacy": "color-typo-success",
+      "semantic": "color/global/typo/status/success",
+      "group": "globalTypo",
+      "consta": "--color-typo-success"
+    },
+    {
+      "legacy": "color-typo-caution",
+      "semantic": "color/global/typo/status/caution",
+      "group": "globalTypo",
+      "consta": "--color-typo-caution"
+    },
+    {
+      "legacy": "color-typo-warning",
+      "semantic": "color/global/typo/status/warning",
+      "group": "globalTypo",
+      "consta": "--color-typo-warning"
+    },
+    {
+      "legacy": "color-typo-alert",
+      "semantic": "color/global/typo/status/alert",
+      "group": "globalTypo",
+      "consta": "--color-typo-alert"
+    },
+    {
+      "legacy": "color-typo-critical",
+      "semantic": "color/global/typo/status/critical",
+      "group": "globalTypo",
+      "consta": "--color-typo-critical"
+    },
+    {
+      "legacy": "color-typo-link",
+      "semantic": "color/global/typo/view/default/accent",
+      "group": "globalTypo",
+      "consta": "--color-typo-link",
+      "approximate": true,
+      "note": "Theme: path; в scale — accent/brand."
+    },
+    {
+      "legacy": "color-typo-link-minor",
+      "semantic": "color/global/typo/view/default/secondary",
+      "group": "globalTypo",
+      "consta": "--color-typo-link-minor",
+      "approximate": true
+    },
+    {
+      "legacy": "color-typo-link-hover",
+      "semantic": "color/global/typo/view/hover/accent",
+      "group": "globalTypo",
+      "consta": "--color-typo-link-hover",
+      "approximate": true
+    },
+
+    {
+      "legacy": "color-scroll-bg",
+      "semantic": "color/global/border/view/default/secondary",
+      "group": "globalScroll",
+      "consta": "--color-scroll-bg",
+      "approximate": true
+    },
+    {
+      "legacy": "color-scroll-thumb",
+      "semantic": "color/global/border/view/default/primary",
+      "group": "globalScroll",
+      "consta": "--color-scroll-thumb",
+      "approximate": true
+    },
+    {
+      "legacy": "color-scroll-thumb-hover",
+      "semantic": "color/global/border/view/hover/primary",
+      "group": "globalScroll",
+      "consta": "--color-scroll-thumb-hover",
+      "approximate": true
+    },
+
+    {
+      "legacy": "color-shadow-group-1",
+      "semantic": "color/global/surface/special/shadow",
+      "group": "globalShadow",
+      "consta": "--color-shadow-group-1",
+      "approximate": true
+    },
+    {
+      "legacy": "color-shadow-group-2",
+      "semantic": "color/global/surface/special/shadow",
+      "group": "globalShadow",
+      "consta": "--color-shadow-group-2",
+      "approximate": true,
+      "note": "В новой схеме один shadow-токен; различие group-1/2 — через opacity в Theme."
+    },
+    {
+      "legacy": "color-shadow-layer-1",
+      "semantic": "color/global/surface/special/shadow",
+      "group": "globalShadow",
+      "consta": "--color-shadow-layer-1",
+      "approximate": true
+    },
+    {
+      "legacy": "color-shadow-layer-2",
+      "semantic": "color/global/surface/special/shadow",
+      "group": "globalShadow",
+      "consta": "--color-shadow-layer-2",
+      "approximate": true
+    },
+    {
+      "legacy": "color-shadow-modal-1",
+      "semantic": "color/global/surface/special/shadow",
+      "group": "globalShadow",
+      "consta": "--color-shadow-modal-1",
+      "approximate": true
+    },
+    {
+      "legacy": "color-shadow-modal-2",
+      "semantic": "color/global/surface/special/shadow",
+      "group": "globalShadow",
+      "consta": "--color-shadow-modal-2",
+      "approximate": true
+    },
+
+    {
+      "legacy": "color-control-bg-default",
+      "semantic": "color/input/surface/view/default/primary",
+      "group": "controlField",
+      "consta": "--color-control-bg-default",
+      "componentHints": ["TextField", "Select"]
+    },
+    {
+      "legacy": "color-control-typo-default",
+      "semantic": "color/input/typo/view/default/primary",
+      "group": "controlField",
+      "consta": "--color-control-typo-default"
+    },
+    {
+      "legacy": "color-control-typo-placeholder",
+      "semantic": "color/input/typo/special/default/placeholder",
+      "group": "controlField",
+      "consta": "--color-control-typo-placeholder"
+    },
+    {
+      "legacy": "color-control-bg-border-default",
+      "semantic": "color/input/border/view/default/primary",
+      "group": "controlField",
+      "consta": "--color-control-bg-border-default"
+    },
+    {
+      "legacy": "color-control-bg-border-default-hover",
+      "semantic": "color/input/border/view/hover/primary",
+      "group": "controlField",
+      "consta": "--color-control-bg-border-default-hover"
+    },
+    {
+      "legacy": "color-control-bg-border-focus",
+      "semantic": "color/global/border/state/focus",
+      "group": "controlField",
+      "consta": "--color-control-bg-border-focus",
+      "note": "Обводка focus; в Theme = path l+9%."
+    },
+    {
+      "legacy": "color-control-bg-focus",
+      "semantic": "color/global/border/state/focus",
+      "group": "controlField",
+      "consta": "--color-control-bg-focus",
+      "approximate": true,
+      "note": "В Theme — полупрозрачная тень focus (path 30%); в Figma — сплошной border focus."
+    },
+    {
+      "legacy": "color-control-bg-active",
+      "semantic": "color/global/border/state/active/primary",
+      "group": "controlField",
+      "consta": "--color-control-bg-active",
+      "approximate": true
+    },
+
+    {
+      "legacy": "color-control-bg-primary",
+      "semantic": "color/control/surface/view/default/primary",
+      "group": "controlButton",
+      "consta": "--color-control-bg-primary",
+      "componentHints": ["Button"]
+    },
+    {
+      "legacy": "color-control-bg-primary-hover",
+      "semantic": "color/control/surface/view/hover/primary",
+      "group": "controlButton",
+      "consta": "--color-control-bg-primary-hover"
+    },
+    {
+      "legacy": "color-control-typo-primary",
+      "semantic": "color/control/typo/view/default/primary",
+      "group": "controlButton",
+      "consta": "--color-control-typo-primary"
+    },
+    {
+      "legacy": "color-control-typo-primary-hover",
+      "semantic": "color/control/typo/view/hover/primary",
+      "group": "controlButton",
+      "consta": "--color-control-typo-primary-hover"
+    },
+
+    {
+      "legacy": "color-control-bg-secondary",
+      "semantic": "color/control/surface/view/default/secondary",
+      "group": "controlButton",
+      "consta": "--color-control-bg-secondary"
+    },
+    {
+      "legacy": "color-control-bg-border-secondary",
+      "semantic": "color/control/border/view/default/secondary",
+      "group": "controlButton",
+      "consta": "--color-control-bg-border-secondary"
+    },
+    {
+      "legacy": "color-control-bg-border-secondary-hover",
+      "semantic": "color/control/border/view/hover/secondary",
+      "group": "controlButton",
+      "consta": "--color-control-bg-border-secondary-hover"
+    },
+    {
+      "legacy": "color-control-typo-secondary",
+      "semantic": "color/control/typo/view/default/secondary",
+      "group": "controlButton",
+      "consta": "--color-control-typo-secondary"
+    },
+    {
+      "legacy": "color-control-typo-secondary-hover",
+      "semantic": "color/control/typo/view/hover/secondary",
+      "group": "controlButton",
+      "consta": "--color-control-typo-secondary-hover"
+    },
+
+    {
+      "legacy": "color-control-bg-ghost",
+      "semantic": "color/control/surface/view/default/ghost",
+      "group": "controlButton",
+      "consta": "--color-control-bg-ghost"
+    },
+    {
+      "legacy": "color-control-bg-ghost-hover",
+      "semantic": "color/control/surface/view/hover/ghost",
+      "group": "controlButton",
+      "consta": "--color-control-bg-ghost-hover"
+    },
+    {
+      "legacy": "color-control-typo-ghost",
+      "semantic": "color/control/typo/view/default/ghost",
+      "group": "controlButton",
+      "consta": "--color-control-typo-ghost"
+    },
+    {
+      "legacy": "color-control-typo-ghost-hover",
+      "semantic": "color/control/typo/view/hover/ghost",
+      "group": "controlButton",
+      "consta": "--color-control-typo-ghost-hover"
+    },
+
+    {
+      "legacy": "color-control-bg-clear",
+      "semantic": "color/control/surface/view/default/clear",
+      "group": "controlButton",
+      "consta": "--color-control-bg-clear"
+    },
+    {
+      "legacy": "color-control-bg-clear-hover",
+      "semantic": "color/control/surface/view/hover/clear",
+      "group": "controlButton",
+      "consta": "--color-control-bg-clear-hover"
+    },
+    {
+      "legacy": "color-control-typo-clear",
+      "semantic": "color/control/typo/view/default/clear",
+      "group": "controlButton",
+      "consta": "--color-control-typo-clear"
+    },
+    {
+      "legacy": "color-control-typo-clear-hover",
+      "semantic": "color/control/typo/view/hover/clear",
+      "group": "controlButton",
+      "consta": "--color-control-typo-clear-hover"
+    },
+
+    {
+      "legacy": "color-control-bg-disable",
+      "semantic": "color/control/surface/view/disabled/ghost",
+      "group": "controlShared",
+      "consta": "--color-control-bg-disable"
+    },
+    {
+      "legacy": "color-control-bg-border-disable",
+      "semantic": "color/control/border/view/disabled/secondary",
+      "group": "controlShared",
+      "consta": "--color-control-bg-border-disable"
+    },
+    {
+      "legacy": "color-control-typo-disable",
+      "semantic": "color/control/typo/view/disabled/primary",
+      "group": "controlShared",
+      "consta": "--color-control-typo-disable"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+/*
+ * Legacy Consta bridge — auto-generated. Do not edit by hand.
+ * Run: npm run build:tokens
+ *
+ * Подключение: после tokens.css (новая семантика) добавьте этот файл.
+ * Старые компоненты Consta продолжают читать --color-bg-*, --color-control-*.
+ */
+
+:root,
+[data-theme="light"] {
+  --color-bg-default: var(--color-global-surface-view-default-primary);
+  --color-bg-secondary: var(--color-global-surface-view-default-secondary);
+  --color-bg-brand: var(--color-global-surface-view-default-accent);
+  --color-bg-link: var(--color-control-surface-view-default-primary);
+  --color-bg-border: var(--color-global-border-view-default-primary);
+  --color-bg-stripe: var(--color-global-surface-special-stripe);
+  --color-bg-ghost: var(--color-global-surface-special-soft); /* ~approx */
+  --color-bg-tone: var(--color-global-surface-special-tone);
+  --color-bg-soft: var(--color-global-surface-special-soft);
+  --color-bg-system: var(--color-global-surface-status-neutral); /* ~approx */
+  --color-bg-normal: var(--color-global-surface-status-normal);
+  --color-bg-success: var(--color-global-surface-status-success);
+  --color-bg-caution: var(--color-global-surface-status-warning); /* ~approx */
+  --color-bg-warning: var(--color-global-surface-status-warning);
+  --color-bg-alert: var(--color-global-surface-status-alert);
+  --color-bg-critical: var(--color-global-surface-status-critical);
+  --color-typo-primary: var(--color-global-typo-view-default-primary);
+  --color-typo-secondary: var(--color-global-typo-view-default-secondary);
+  --color-typo-ghost: var(--color-global-typo-view-default-ghost);
+  --color-typo-brand: var(--color-global-typo-view-default-accent);
+  --color-typo-system: var(--color-global-typo-view-default-secondary); /* ~approx */
+  --color-typo-normal: var(--color-global-typo-status-normal);
+  --color-typo-success: var(--color-global-typo-status-success);
+  --color-typo-caution: var(--color-global-typo-status-caution);
+  --color-typo-warning: var(--color-global-typo-status-warning);
+  --color-typo-alert: var(--color-global-typo-status-alert);
+  --color-typo-critical: var(--color-global-typo-status-critical);
+  --color-typo-link: var(--color-global-typo-view-default-accent); /* ~approx */
+  --color-typo-link-minor: var(--color-global-typo-view-default-secondary); /* ~approx */
+  --color-typo-link-hover: var(--color-global-typo-view-hover-accent); /* ~approx */
+  --color-scroll-bg: var(--color-global-border-view-default-secondary); /* ~approx */
+  --color-scroll-thumb: var(--color-global-border-view-default-primary); /* ~approx */
+  --color-scroll-thumb-hover: var(--color-global-border-view-hover-primary); /* ~approx */
+  --color-shadow-group-1: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-group-2: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-layer-1: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-layer-2: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-modal-1: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-modal-2: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-control-bg-default: var(--color-input-surface-view-default-primary);
+  --color-control-typo-default: var(--color-input-typo-view-default-primary);
+  --color-control-typo-placeholder: var(--color-input-typo-special-default-placeholder);
+  --color-control-bg-border-default: var(--color-input-border-view-default-primary);
+  --color-control-bg-border-default-hover: var(--color-input-border-view-hover-primary);
+  --color-control-bg-border-focus: var(--color-global-border-state-focus);
+  --color-control-bg-focus: var(--color-global-border-state-focus); /* ~approx */
+  --color-control-bg-active: var(--color-global-border-state-active-primary); /* ~approx */
+  --color-control-bg-primary: var(--color-control-surface-view-default-primary);
+  --color-control-bg-primary-hover: var(--color-control-surface-view-hover-primary);
+  --color-control-typo-primary: var(--color-control-typo-view-default-primary);
+  --color-control-typo-primary-hover: var(--color-control-typo-view-hover-primary);
+  --color-control-bg-secondary: var(--color-control-surface-view-default-secondary);
+  --color-control-bg-border-secondary: var(--color-control-border-view-default-secondary);
+  --color-control-bg-border-secondary-hover: var(--color-control-border-view-hover-secondary);
+  --color-control-typo-secondary: var(--color-control-typo-view-default-secondary);
+  --color-control-typo-secondary-hover: var(--color-control-typo-view-hover-secondary);
+  --color-control-bg-ghost: var(--color-control-surface-view-default-ghost);
+  --color-control-bg-ghost-hover: var(--color-control-surface-view-hover-ghost);
+  --color-control-typo-ghost: var(--color-control-typo-view-default-ghost);
+  --color-control-typo-ghost-hover: var(--color-control-typo-view-hover-ghost);
+  --color-control-bg-clear: var(--color-control-surface-view-default-clear);
+  --color-control-bg-clear-hover: var(--color-control-surface-view-hover-clear);
+  --color-control-typo-clear: var(--color-control-typo-view-default-clear);
+  --color-control-typo-clear-hover: var(--color-control-typo-view-hover-clear);
+  --color-control-bg-disable: var(--color-control-surface-view-disabled-ghost);
+  --color-control-bg-border-disable: var(--color-control-border-view-disabled-secondary);
+  --color-control-typo-disable: var(--color-control-typo-view-disabled-primary);
+}
+
+[data-theme="dark"] {
+  --color-bg-default: var(--color-global-surface-view-default-primary);
+  --color-bg-secondary: var(--color-global-surface-view-default-secondary);
+  --color-bg-brand: var(--color-global-surface-view-default-accent);
+  --color-bg-link: var(--color-control-surface-view-default-primary);
+  --color-bg-border: var(--color-global-border-view-default-primary);
+  --color-bg-stripe: var(--color-global-surface-special-stripe);
+  --color-bg-ghost: var(--color-global-surface-special-soft); /* ~approx */
+  --color-bg-tone: var(--color-global-surface-special-tone);
+  --color-bg-soft: var(--color-global-surface-special-soft);
+  --color-bg-system: var(--color-global-surface-status-neutral); /* ~approx */
+  --color-bg-normal: var(--color-global-surface-status-normal);
+  --color-bg-success: var(--color-global-surface-status-success);
+  --color-bg-caution: var(--color-global-surface-status-warning); /* ~approx */
+  --color-bg-warning: var(--color-global-surface-status-warning);
+  --color-bg-alert: var(--color-global-surface-status-alert);
+  --color-bg-critical: var(--color-global-surface-status-critical);
+  --color-typo-primary: var(--color-global-typo-view-default-primary);
+  --color-typo-secondary: var(--color-global-typo-view-default-secondary);
+  --color-typo-ghost: var(--color-global-typo-view-default-ghost);
+  --color-typo-brand: var(--color-global-typo-view-default-accent);
+  --color-typo-system: var(--color-global-typo-view-default-secondary); /* ~approx */
+  --color-typo-normal: var(--color-global-typo-status-normal);
+  --color-typo-success: var(--color-global-typo-status-success);
+  --color-typo-caution: var(--color-global-typo-status-caution);
+  --color-typo-warning: var(--color-global-typo-status-warning);
+  --color-typo-alert: var(--color-global-typo-status-alert);
+  --color-typo-critical: var(--color-global-typo-status-critical);
+  --color-typo-link: var(--color-global-typo-view-default-accent); /* ~approx */
+  --color-typo-link-minor: var(--color-global-typo-view-default-secondary); /* ~approx */
+  --color-typo-link-hover: var(--color-global-typo-view-hover-accent); /* ~approx */
+  --color-scroll-bg: var(--color-global-border-view-default-secondary); /* ~approx */
+  --color-scroll-thumb: var(--color-global-border-view-default-primary); /* ~approx */
+  --color-scroll-thumb-hover: var(--color-global-border-view-hover-primary); /* ~approx */
+  --color-shadow-group-1: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-group-2: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-layer-1: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-layer-2: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-modal-1: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-shadow-modal-2: var(--color-global-surface-special-shadow); /* ~approx */
+  --color-control-bg-default: var(--color-input-surface-view-default-primary);
+  --color-control-typo-default: var(--color-input-typo-view-default-primary);
+  --color-control-typo-placeholder: var(--color-input-typo-special-default-placeholder);
+  --color-control-bg-border-default: var(--color-input-border-view-default-primary);
+  --color-control-bg-border-default-hover: var(--color-input-border-view-hover-primary);
+  --color-control-bg-border-focus: var(--color-global-border-state-focus);
+  --color-control-bg-focus: var(--color-global-border-state-focus); /* ~approx */
+  --color-control-bg-active: var(--color-global-border-state-active-primary); /* ~approx */
+  --color-control-bg-primary: var(--color-control-surface-view-default-primary);
+  --color-control-bg-primary-hover: var(--color-control-surface-view-hover-primary);
+  --color-control-typo-primary: var(--color-control-typo-view-default-primary);
+  --color-control-typo-primary-hover: var(--color-control-typo-view-hover-primary);
+  --color-control-bg-secondary: var(--color-control-surface-view-default-secondary);
+  --color-control-bg-border-secondary: var(--color-control-border-view-default-secondary);
+  --color-control-bg-border-secondary-hover: var(--color-control-border-view-hover-secondary);
+  --color-control-typo-secondary: var(--color-control-typo-view-default-secondary);
+  --color-control-typo-secondary-hover: var(--color-control-typo-view-hover-secondary);
+  --color-control-bg-ghost: var(--color-control-surface-view-default-ghost);
+  --color-control-bg-ghost-hover: var(--color-control-surface-view-hover-ghost);
+  --color-control-typo-ghost: var(--color-control-typo-view-default-ghost);
+  --color-control-typo-ghost-hover: var(--color-control-typo-view-hover-ghost);
+  --color-control-bg-clear: var(--color-control-surface-view-default-clear);
+  --color-control-bg-clear-hover: var(--color-control-surface-view-hover-clear);
+  --color-control-typo-clear: var(--color-control-typo-view-default-clear);
+  --color-control-typo-clear-hover: var(--color-control-typo-view-hover-clear);
+  --color-control-bg-disable: var(--color-control-surface-view-disabled-ghost);
+  --color-control-bg-border-disable: var(--color-control-border-view-disabled-secondary);
+  --color-control-typo-disable: var(--color-control-typo-view-disabled-primary);
+}

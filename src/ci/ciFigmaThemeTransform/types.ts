@@ -23,6 +23,10 @@ export type Variable<T extends VariableType> = {
   description: string;
   type: T;
   valuesByMode: Record<string, ValueByMode<T>>;
+  resolvedValuesByMode?: Record<
+    string,
+    { resolvedValue: any; alias: string | null; aliasName?: string }
+  >;
   scopes: string[];
   hiddenFromPublishing: boolean;
   codeSyntax: {};

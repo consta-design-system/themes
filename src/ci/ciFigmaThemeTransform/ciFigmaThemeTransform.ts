@@ -6,17 +6,9 @@
 // node @consta/theme/ci/ciFigmaThemeTransform --path=./bla/bla --output=./bla/bla
 
 import { Command, flags } from '@oclif/command';
-import { time } from 'console';
-import {
-  mkdir,
-  readdir,
-  readFile,
-  readJSON,
-  remove,
-  writeFile,
-} from 'fs-extra';
+import { mkdir, readdir, readJSON, remove, writeFile } from 'fs-extra';
 import logSymbols from 'log-symbols';
-import { join, normalize, resolve } from 'path';
+import { join } from 'path';
 
 import {
   CiFlags,
@@ -24,25 +16,33 @@ import {
   ThemeJs,
   ValueAlias,
   ValueByMode,
-  ValueColor,
   Variable,
 } from './types';
-
-function sleep(ms: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
 
 const parseVarName = (name: string) => {
   return `--${name.split('/').join('-')}`;
 };
 
-const parseVarValueColor = (value: ValueByMode<'COLOR'>) => {
+/**
+ * Записывает в themeJs CSS-переменные для цвета с разложением на каналы.
+ * Ключи каналов (r, g, b, a) берутся динамически из объекта value.
+ * Создаёт переменные для каждого канала и основную переменную с var() ссылками.
+ */
+const setColorCssVariables = (
+  themeJs: ThemeJs,
+  fileName: string,
+  varName: string,
+  value: ValueByMode<'COLOR'>,
+) => {
   const keys = Object.keys(value);
-  return `${keys.join('')}(${keys
-    .map((key) => value[key as keyof typeof value])
-    .join(', ')})`;
+  keys.forEach((key) => {
+    themeJs[fileName][`${varName}-${key}`] = `${
+      value[key as keyof typeof value]
+    }`;
+  });
+  themeJs[fileName][varName] = `${keys.join('')}(var(${keys
+    .map((key) => `${varName}-${key}`)
+    .join('), var(')}))`;
 };
 
 const parseVarValueString = (value: ValueByMode<'STRING'>) => {
@@ -51,13 +51,6 @@ const parseVarValueString = (value: ValueByMode<'STRING'>) => {
 
 const parseVarValueFloat = (value: ValueByMode<'FLOAT'>) => {
   return `${value}px`;
-};
-
-const parseVarAlias = (
-  value: ValueAlias,
-  varsNames: Record<string, string>,
-) => {
-  return `var(${varsNames[value.id]})`;
 };
 
 const isVarAlias = (value: ValueByMode<any>) => {
@@ -95,12 +88,153 @@ const getFileName = (
   return `${formattedThemeName}${formattedModeName}`;
 };
 
+/**
+ * Строит словарь id → resolvedValue из primitives.json.
+ * Использует поле resolvedValuesByMode, которое уже содержит финальные значения.
+ */
+const buildPrimitivesResolvedValues = async (
+  flags: CiFlags,
+): Promise<
+  Record<string, { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }>
+> => {
+  const data: Collection = await readJSON(join(flags.path, 'primitives.json'));
+  const resolved: Record<
+    string,
+    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
+  > = {};
+
+  data.variables.forEach((variable) => {
+    const variableAny = variable as any;
+    const resolvedVBM = variableAny.resolvedValuesByMode as
+      | Record<
+          string,
+          { resolvedValue: any; alias: string | null; aliasName?: string }
+        >
+      | undefined;
+    const modeKeys = Object.keys(resolvedVBM || {});
+    if (modeKeys.length > 0) {
+      const modeKey = modeKeys[0];
+      const resolvedEntry = resolvedVBM?.[modeKey];
+      if (resolvedEntry && resolvedEntry.resolvedValue !== undefined) {
+        resolved[variable.id] = {
+          type: variable.type,
+          value: resolvedEntry.resolvedValue,
+        };
+      }
+    }
+  });
+
+  return resolved;
+};
+
+/**
+ * Строит словарь ref-переменных из semantic.json.
+ * Ref-переменные имеют ID вида VariableID:99:* и ссылаются на base-переменные из primitives.
+ */
+const buildRefVariablesMap = async (
+  flags: CiFlags,
+): Promise<
+  Record<
+    string,
+    {
+      type: 'COLOR' | 'STRING' | 'FLOAT';
+      valuesByMode: Record<string, ValueByMode<any>>;
+    }
+  >
+> => {
+  const data: Collection = await readJSON(join(flags.path, 'semantic.json'));
+  const refVars: Record<
+    string,
+    {
+      type: 'COLOR' | 'STRING' | 'FLOAT';
+      valuesByMode: Record<string, ValueByMode<any>>;
+    }
+  > = {};
+
+  data.variables.forEach((variable) => {
+    // Ref-переменные имеют ID вида VariableID:99:*
+
+    refVars[variable.id] = {
+      type: variable.type,
+      valuesByMode: variable.valuesByMode,
+    };
+  });
+
+  return refVars;
+};
+
+/**
+ * Резолвит raw-значение цвета для COLOR-переменной через цепочку алисов.
+ * Возвращает ValueByMode<'COLOR'> с каналами {r, g, b, a}.
+ */
+const resolveRawColorValue = (
+  modeValue: ValueByMode<any>,
+  modeId: string,
+  refVars: Record<
+    string,
+    {
+      type: 'COLOR' | 'STRING' | 'FLOAT';
+      valuesByMode: Record<string, ValueByMode<any>>;
+    }
+  >,
+  primitivesResolvedValues: Record<
+    string,
+    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
+  >,
+): ValueByMode<'COLOR'> | null => {
+  if (!isVarAlias(modeValue)) {
+    return null;
+  }
+
+  const alias = modeValue as ValueAlias;
+
+  // Шаг 1: ищем ref-переменную по ID алиаса
+  const refVar = refVars[alias.id];
+  if (!refVar) {
+    // Если ref не найден, пробуем сразу искать в primitives
+    const resolved = primitivesResolvedValues[alias.id];
+    if (resolved && resolved.type === 'COLOR') {
+      return resolved.value as ValueByMode<'COLOR'>;
+    }
+    return null;
+  }
+
+  // Шаг 2: берём значение ref-переменной для того же modeId
+  const refModeValue = refVar.valuesByMode[modeId];
+  if (!refModeValue) {
+    return null;
+  }
+
+  // Шаг 3: если ref ссылается на другой алиас — резолвим его из primitives
+  if (isVarAlias(refModeValue)) {
+    const refAlias = refModeValue as ValueAlias;
+    const resolved = primitivesResolvedValues[refAlias.id];
+    if (resolved && resolved.type === 'COLOR') {
+      return resolved.value as ValueByMode<'COLOR'>;
+    }
+    return null;
+  }
+
+  // Шаг 4: если ref имеет прямое значение цвета — возвращаем его
+  return refModeValue as ValueByMode<'COLOR'>;
+};
+
 const parseVar = (
   variable: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
   data: Collection,
   themeJs: ThemeJs,
   themeName: string,
-  varsNames: Record<string, string>,
+  refVars: Record<
+    string,
+    {
+      type: 'COLOR' | 'STRING' | 'FLOAT';
+      valuesByMode: Record<string, ValueByMode<any>>;
+    }
+  >,
+  primitivesResolvedValues: Record<
+    string,
+    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
+  >,
 ) => {
   const keys = Object.keys(variable.valuesByMode);
 
@@ -112,28 +246,44 @@ const parseVar = (
       themeJs[fileName] = {};
     }
 
-    if (isVarAlias(variable.valuesByMode[modeId])) {
-      themeJs[fileName][parseVarName(variable.name)] = parseVarAlias(
-        variable.valuesByMode[modeId] as ValueAlias,
-        varsNames,
-      );
-      return;
-    }
+    const modeValue = variable.valuesByMode[modeId];
+    const varName = parseVarName(variable.name);
+
+    // Для COLOR-переменных — разложение на каналы
     if (isVarColor(variable)) {
-      themeJs[fileName][parseVarName(variable.name)] = parseVarValueColor(
-        variable.valuesByMode[modeId],
+      // Пытаемся получить raw-значение цвета через цепочку алисов
+      const rawColor = resolveRawColorValue(
+        modeValue,
+        modeId,
+        refVars,
+        primitivesResolvedValues,
+      );
+
+      if (rawColor) {
+        setColorCssVariables(themeJs, fileName, varName, rawColor);
+        return;
+      }
+
+      // Если не алиас — парсим прямое значение цвета
+      setColorCssVariables(
+        themeJs,
+        fileName,
+        varName,
+        modeValue as ValueByMode<'COLOR'>,
       );
       return;
     }
+
+    // Для STRING и FLOAT — используем старую логику
     if (isVarString(variable)) {
-      themeJs[fileName][parseVarName(variable.name)] = parseVarValueString(
-        variable.valuesByMode[modeId],
+      themeJs[fileName][varName] = parseVarValueString(
+        modeValue as ValueByMode<'STRING'>,
       );
       return;
     }
     if (isVarFloat(variable)) {
-      themeJs[fileName][parseVarName(variable.name)] = parseVarValueFloat(
-        variable.valuesByMode[modeId],
+      themeJs[fileName][varName] = parseVarValueFloat(
+        modeValue as ValueByMode<'FLOAT'>,
       );
     }
   });
@@ -142,27 +292,38 @@ const parseVar = (
 const parseFile = async (
   flags: CiFlags,
   file: string,
-  varsNames: Record<string, string>,
   themeJs: ThemeJs,
+  refVars: Record<
+    string,
+    {
+      type: 'COLOR' | 'STRING' | 'FLOAT';
+      valuesByMode: Record<string, ValueByMode<any>>;
+    }
+  >,
+  primitivesResolvedValues: Record<
+    string,
+    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
+  >,
 ) => {
   const data: Collection = await readJSON(join(flags.path, file));
 
   data.variables.forEach((variable) => {
-    parseVar(variable, data, themeJs, flags.name, varsNames);
+    // Пропускаем ref-переменные — они не должны попадать в CSS
+    if (variable.id.startsWith('VariableID:99:')) {
+      return;
+    }
+
+    parseVar(
+      variable,
+      data,
+      themeJs,
+      flags.name,
+      refVars,
+      primitivesResolvedValues,
+    );
   });
 
   return themeJs;
-};
-
-const varNameByID = async (flags: CiFlags, file: string) => {
-  const data: Collection = await readJSON(join(flags.path, file));
-  const vars: Record<string, string> = {};
-
-  data.variables.forEach((variable) => {
-    vars[variable.id] = parseVarName(variable.name);
-  });
-
-  return vars;
 };
 
 const ObjectToCss = (obj: Record<string, string>, name: string) => {
@@ -192,24 +353,30 @@ class GenerateCommand extends Command {
       await remove(flags.output);
       await mkdir(flags.output);
 
-      const varsNames = (
-        await Promise.all(
-          files.map(async (fileName) => {
-            const result = await varNameByID(flags, fileName);
-            return result;
-          }),
-        )
-      ).reduce((acc, cur) => {
-        return { ...acc, ...cur };
-      }, {});
+      // Загружаем resolved-значения из primitives.json для base-переменных
+      const primitivesResolvedValues = await buildPrimitivesResolvedValues(
+        flags,
+      );
+
+      // Загружаем ref-переменные из semantic.json
+      const refVars = await buildRefVariablesMap(flags);
+
+      // Находим semantic.json
+      const semanticFileName = files.find((f) => f.includes('semantic'));
+      if (!semanticFileName) {
+        this.error('semantic.json not found');
+        return;
+      }
 
       const themeJs: ThemeJs = {};
 
-      await Promise.all(
-        files.map(async (fileName) => {
-          const result = await parseFile(flags, fileName, varsNames, themeJs);
-          return result;
-        }),
+      // Обрабатываем ТОЛЬКО semantic.json для генерации CSS
+      await parseFile(
+        flags,
+        semanticFileName,
+        themeJs,
+        refVars,
+        primitivesResolvedValues,
       );
 
       const cssFiles = Object.keys(themeJs);
