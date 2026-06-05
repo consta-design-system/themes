@@ -44,6 +44,8 @@ export type CiFlags = {
   name: string;
   path: string;
   output: string;
+  addLegacyBridge: boolean;
+  create: boolean;
 };
 
 // export type ThemeJs = Record<string, Record<string, string>>;

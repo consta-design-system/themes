@@ -6,7 +6,14 @@
 // node @consta/theme/ci/ciFigmaThemeTransform --path=./bla/bla --output=./bla/bla
 
 import { Command, flags } from '@oclif/command';
-import { mkdir, readdir, readJSON, remove, writeFile } from 'fs-extra';
+import {
+  ensureDir,
+  pathExists,
+  readdir,
+  readJSON,
+  remove,
+  writeFile,
+} from 'fs-extra';
 import logSymbols from 'log-symbols';
 import { join } from 'path';
 
@@ -28,6 +35,7 @@ const parseVarName = (name: string) => {
  * Ключи каналов (r, g, b, a) берутся динамически из объекта value.
  * Создаёт переменные для каждого канала и основную переменную с var() ссылками.
  */
+
 const setColorCssVariables = (
   themeJs: ThemeJs,
   fileName: string,
@@ -35,6 +43,8 @@ const setColorCssVariables = (
   value: ValueByMode<'COLOR'>,
 ) => {
   const keys = Object.keys(value);
+  // const colorScheme = keys.join('');
+  // console.log(colorScheme);
   keys.forEach((key) => {
     themeJs[fileName][`${varName}-${key}`] = `${
       value[key as keyof typeof value]
@@ -220,6 +230,7 @@ const resolveRawColorValue = (
 };
 
 const parseVar = (
+  flags: CiFlags,
   variable: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
   data: Collection,
   themeJs: ThemeJs,
@@ -239,7 +250,10 @@ const parseVar = (
   const keys = Object.keys(variable.valuesByMode);
 
   keys.forEach((modeId) => {
-    const modeName = data.modes[modeId];
+    const modeName = flags.name + data.modes[modeId];
+
+    console.log(modeName);
+
     const fileName = getFileName(variable, themeName, modeName);
 
     if (themeJs[fileName] === undefined) {
@@ -308,16 +322,16 @@ const parseFile = async (
   const data: Collection = await readJSON(join(flags.path, file));
 
   data.variables.forEach((variable) => {
-    // Пропускаем ref-переменные — они не должны попадать в CSS
-    if (variable.id.startsWith('VariableID:99:')) {
+    // Если переменная — находится мосте ref, то пропускаем ее
+    if (variable.name.includes('/ref/')) {
       return;
     }
-
     parseVar(
+      flags,
       variable,
       data,
       themeJs,
-      flags.name,
+      'Theme',
       refVars,
       primitivesResolvedValues,
     );
@@ -337,10 +351,114 @@ const ObjectToCss = (obj: Record<string, string>, name: string) => {
   );
 };
 
+const legacyBridge: Record<string, Record<string, string>> = {
+  color: {
+    '--color-bg-default': 'var(--color-global-surface-view-default-primary)',
+    '--color-bg-secondary':
+      'var(--color-global-surface-view-default-secondary)',
+    '--color-bg-brand': 'var(--color-global-surface-view-default-accent)',
+    '--color-bg-link': 'var(--color-control-surface-view-default-primary)',
+    '--color-bg-border': 'var(--color-global-border-view-default-primary)',
+    '--color-bg-stripe': 'var(--color-global-surface-special-stripe)',
+    '--color-bg-ghost': 'var(--color-global-surface-special-soft)',
+    '--color-bg-tone': 'var(--color-global-surface-special-tone)',
+    '--color-bg-soft': 'var(--color-global-surface-special-soft)',
+    '--color-bg-system': 'var(--color-global-surface-status-neutral)',
+    '--color-bg-normal': 'var(--color-global-surface-status-normal)',
+    '--color-bg-success': 'var(--color-global-surface-status-success)',
+    '--color-bg-caution': 'var(--color-global-surface-status-warning)',
+    '--color-bg-warning': 'var(--color-global-surface-status-warning)',
+    '--color-bg-alert': 'var(--color-global-surface-status-alert)',
+    '--color-bg-critical': 'var(--color-global-surface-status-critical)',
+    '--color-typo-primary': 'var(--color-global-typo-view-default-primary)',
+    '--color-typo-secondary': 'var(--color-global-typo-view-default-secondary)',
+    '--color-typo-ghost': 'var(--color-global-typo-view-default-ghost)',
+    '--color-typo-brand': 'var(--color-global-typo-view-default-accent)',
+    '--color-typo-system': 'var(--color-global-typo-view-default-secondary)',
+    '--color-typo-normal': 'var(--color-global-typo-status-normal)',
+    '--color-typo-success': 'var(--color-global-typo-status-success)',
+    '--color-typo-caution': 'var(--color-global-typo-status-caution)',
+    '--color-typo-warning': 'var(--color-global-typo-status-warning)',
+    '--color-typo-alert': 'var(--color-global-typo-status-alert)',
+    '--color-typo-critical': 'var(--color-global-typo-status-critical)',
+    '--color-typo-link': 'var(--color-global-typo-view-default-accent)',
+    '--color-typo-link-minor':
+      'var(--color-global-typo-view-default-secondary)',
+    '--color-typo-link-hover': 'var(--color-global-typo-view-hover-accent)',
+    '--color-scroll-bg': 'var(--color-global-border-view-default-secondary)',
+    '--color-scroll-thumb': 'var(--color-global-border-view-default-primary)',
+    '--color-scroll-thumb-hover':
+      'var(--color-global-border-view-hover-primary)',
+    '--color-shadow-group-1': 'var(--color-global-surface-special-shadow)',
+    '--color-shadow-group-2': 'var(--color-global-surface-special-shadow)',
+    '--color-shadow-layer-1': 'var(--color-global-surface-special-shadow)',
+    '--color-shadow-layer-2': 'var(--color-global-surface-special-shadow)',
+    '--color-shadow-modal-1': 'var(--color-global-surface-special-shadow)',
+    '--color-shadow-modal-2': 'var(--color-global-surface-special-shadow)',
+    '--color-control-bg-default':
+      'var(--color-input-surface-view-default-primary)',
+    '--color-control-typo-default':
+      'var(--color-input-typo-view-default-primary)',
+    '--color-control-typo-placeholder':
+      'var(--color-input-typo-special-default-placeholder)',
+    '--color-control-bg-border-default':
+      'var(--color-input-border-view-default-primary)',
+    '--color-control-bg-border-default-hover':
+      'var(--color-input-border-view-hover-primary)',
+    '--color-control-bg-border-focus': 'var(--color-global-border-state-focus)',
+    '--color-control-bg-focus': 'var(--color-global-border-state-focus)',
+    '--color-control-bg-active':
+      'var(--color-global-border-state-active-primary)',
+    '--color-control-bg-primary':
+      'var(--color-control-surface-view-default-primary)',
+    '--color-control-bg-primary-hover':
+      'var(--color-control-surface-view-hover-primary)',
+    '--color-control-typo-primary':
+      'var(--color-control-typo-view-default-primary)',
+    '--color-control-typo-primary-hover':
+      'var(--color-control-typo-view-hover-primary)',
+    '--color-control-bg-secondary':
+      'var(--color-control-surface-view-default-secondary)',
+    '--color-control-bg-border-secondary':
+      'var(--color-control-border-view-default-secondary)',
+    '--color-control-bg-border-secondary-hover':
+      'var(--color-control-border-view-hover-secondary)',
+    '--color-control-typo-secondary':
+      'var(--color-control-typo-view-default-secondary)',
+    '--color-control-typo-secondary-hover':
+      'var(--color-control-typo-view-hover-secondary)',
+    '--color-control-bg-ghost':
+      'var(--color-control-surface-view-default-ghost)',
+    '--color-control-bg-ghost-hover':
+      'var(--color-control-surface-view-hover-ghost)',
+    '--color-control-typo-ghost':
+      'var(--color-control-typo-view-default-ghost)',
+    '--color-control-typo-ghost-hover':
+      'var(--color-control-typo-view-hover-ghost)',
+    '--color-control-bg-clear':
+      'var(--color-control-surface-view-default-clear)',
+    '--color-control-bg-clear-hover':
+      'var(--color-control-surface-view-hover-clear)',
+    '--color-control-typo-clear':
+      'var(--color-control-typo-view-default-clear)',
+    '--color-control-typo-clear-hover':
+      'var(--color-control-typo-view-hover-clear)',
+    '--color-control-bg-disable':
+      'var(--color-control-surface-view-disabled-ghost)',
+    '--color-control-bg-border-disable':
+      'var(--color-control-border-view-disabled-secondary)',
+    '--color-control-typo-disable':
+      'var(--color-control-typo-view-disabled-primary)',
+  },
+};
+
+const legacyBridgeKeys = Object.keys(legacyBridge);
+
 class GenerateCommand extends Command {
   async run() {
     const hrStart = process.hrtime();
     const { flags } = this.parse<CiFlags, {}>(GenerateCommand as any);
+
     this.log(logSymbols.info, `generating theme in ${flags.path} ...`);
 
     try {
@@ -349,9 +467,6 @@ class GenerateCommand extends Command {
       );
 
       this.log(logSymbols.info, `detected files ${files.join(', ')} ...`);
-
-      await remove(flags.output);
-      await mkdir(flags.output);
 
       // Загружаем resolved-значения из primitives.json для base-переменных
       const primitivesResolvedValues = await buildPrimitivesResolvedValues(
@@ -370,7 +485,6 @@ class GenerateCommand extends Command {
 
       const themeJs: ThemeJs = {};
 
-      // Обрабатываем ТОЛЬКО semantic.json для генерации CSS
       await parseFile(
         flags,
         semanticFileName,
@@ -383,10 +497,30 @@ class GenerateCommand extends Command {
 
       console.log(cssFiles);
 
+      if (flags.addLegacyBridge) {
+        cssFiles.map((fileName) => {
+          legacyBridgeKeys.map((key) => {
+            if (fileName.includes(`_${key}_`)) {
+              themeJs[fileName] = {
+                ...themeJs[fileName],
+                ...legacyBridge[key],
+              };
+            }
+          });
+        });
+      }
+
       await Promise.all(
         cssFiles.map(async (fileName) => {
+          const outputPathDir = join(flags.output);
+          const outputPathFile = join(outputPathDir, `${fileName}.css`);
+          await ensureDir(outputPathDir);
+          if (await pathExists(outputPathFile)) {
+            await remove(outputPathFile);
+          }
+
           await writeFile(
-            `${join(flags.output, fileName)}.css`,
+            outputPathFile,
             ObjectToCss(themeJs[fileName], fileName),
           );
         }),
@@ -405,16 +539,24 @@ class GenerateCommand extends Command {
 
 GenerateCommand.flags = {
   path: flags.string({
-    description: 'The path to a build config file.',
+    description: 'The input path',
     default: undefined,
   }),
   output: flags.string({
-    description: 'The path to a build config file.',
-    default: undefined,
+    description: 'The output path',
+    default: 'src/themes',
   }),
   name: flags.string({
     description: 'Theme name',
-    default: 'KukiPuki',
+    default: 'app',
+  }),
+  create: flags.boolean({
+    description: 'Create a new theme',
+    default: false,
+  }),
+  addLegacyBridge: flags.boolean({
+    description: 'Add legacy bridge',
+    default: false,
   }),
 };
 

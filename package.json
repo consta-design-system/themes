@@ -39,7 +39,10 @@
     "stand:start": "cross-env NODE_ENV=development webpack serve --open --progress --mode development --hot --progress --config node_modules/@consta/stand/webpack.config.js",
     "start": "yarn stand:generate && yarn stand:start",
     "rm:dist": "node ./scripts/rm.js --path=./dist",
-    "rm:build": "node ./scripts/rm.js --path=./build"
+    "rm:build": "node ./scripts/rm.js --path=./build",
+    "theme:generate": "yarn babel src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.ts --out-file src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js && node ./src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js --path=./src/ci/ciFigmaThemeTransform/__mocks__/figmaExport --output=./src/ci/ciFigmaThemeTransform/__mocks__/cssExport --addLegacyBridge",
+    "theme:build": "yarn theme:generate && yarn build:css",
+    "theme:start": "yarn theme:generate && yarn theme:build && yarn stand:start"
   },
   "files": [
     "*",
@@ -104,7 +107,6 @@
     "@consta/icons": "^1.0.0",
     "@consta/stand": "^0.0.141",
     "@mdx-js/loader": "^2.1.5",
-    "@oclif/command": "^1.8.16",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
@@ -146,7 +148,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "file-loader": "^6.2.0",
-    "fs-extra": "^10.0.1",
     "github-release-notes": "^0.17.3",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
@@ -155,7 +156,6 @@
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "lint-staged": "^13.0.3",
-    "log-symbols": "^7.0.1",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss": "^8.4.12",
     "postcss-cli": "^10.0.0",
@@ -207,6 +207,11 @@
     "webpack-dev-server": "^4.8.1",
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
+  },
+  "dependencies": {
+    "@oclif/command": "^1.8.16",
+    "fs-extra": "^10.0.1",
+    "log-symbols": "^7.0.1"
   },
   "homepage": "http://consta.design/libs/themes"
 }

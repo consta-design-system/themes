@@ -648,10 +648,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -670,10 +667,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -692,10 +686,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -714,9 +705,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -735,10 +724,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -757,10 +743,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -779,10 +762,7 @@
           "id": "VariableID:99:1130"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -801,10 +781,7 @@
           "id": "VariableID:99:1132"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -823,10 +800,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -845,10 +819,7 @@
           "id": "VariableID:99:1136"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -867,10 +838,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -889,10 +857,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -911,10 +876,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -933,10 +895,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -955,10 +914,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -977,9 +933,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -998,9 +952,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1019,9 +971,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1040,10 +990,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1062,9 +1009,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1083,9 +1028,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1104,9 +1047,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1125,9 +1066,7 @@
           "id": "VariableID:99:1148"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1146,9 +1085,7 @@
           "id": "VariableID:99:1147"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1167,9 +1104,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1188,9 +1123,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1209,9 +1142,7 @@
           "id": "VariableID:99:1154"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1230,9 +1161,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1251,9 +1180,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1272,9 +1199,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1293,9 +1218,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1314,10 +1237,7 @@
           "id": "VariableID:99:1161"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1336,10 +1256,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1358,10 +1275,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1380,10 +1294,7 @@
           "id": "VariableID:99:1163"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1402,10 +1313,7 @@
           "id": "VariableID:99:1165"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1424,10 +1332,7 @@
           "id": "VariableID:99:1165"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1446,10 +1351,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1468,10 +1370,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1490,10 +1389,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1512,10 +1408,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1534,10 +1427,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1556,10 +1446,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1578,10 +1465,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1600,10 +1484,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1622,10 +1503,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1644,10 +1522,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1666,10 +1541,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1688,10 +1560,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1710,10 +1579,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1732,10 +1598,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1754,10 +1617,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1776,10 +1636,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1798,10 +1655,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1820,10 +1674,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1842,10 +1693,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1864,10 +1712,7 @@
           "id": "VariableID:99:1169"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1886,10 +1731,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1908,10 +1750,7 @@
           "id": "VariableID:99:1171"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1930,10 +1769,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1952,10 +1788,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1974,10 +1807,7 @@
           "id": "VariableID:99:1173"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -1996,10 +1826,7 @@
           "id": "VariableID:99:1175"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2018,10 +1845,7 @@
           "id": "VariableID:99:1175"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2040,9 +1864,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2061,10 +1883,7 @@
           "id": "VariableID:99:1169"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2083,10 +1902,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2105,10 +1921,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2127,10 +1940,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2149,10 +1959,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2171,10 +1978,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2193,10 +1997,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2215,10 +2016,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2237,10 +2035,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2259,10 +2054,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2281,10 +2073,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2303,10 +2092,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2325,9 +2111,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2346,9 +2130,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2367,9 +2149,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2388,9 +2168,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2409,9 +2187,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2430,9 +2206,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2451,9 +2225,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2472,9 +2244,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2493,9 +2263,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2514,9 +2282,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2535,9 +2301,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2556,9 +2320,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2577,9 +2339,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2598,9 +2358,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2619,9 +2377,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2640,9 +2396,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2661,9 +2415,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2682,9 +2434,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2703,9 +2453,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2724,9 +2472,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2745,9 +2491,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2766,9 +2510,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2787,9 +2529,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2808,9 +2548,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2829,9 +2567,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2850,9 +2586,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2871,9 +2605,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2892,9 +2624,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2913,9 +2643,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2934,9 +2662,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2955,9 +2681,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2976,9 +2700,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -2997,9 +2719,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3018,9 +2738,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3039,9 +2757,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3060,9 +2776,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3081,9 +2795,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3102,9 +2814,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3123,9 +2833,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3144,9 +2852,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3165,9 +2871,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3186,9 +2890,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3207,9 +2909,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3228,9 +2928,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3249,9 +2947,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3270,9 +2966,7 @@
           "id": "VariableID:99:1122"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3291,9 +2985,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3312,9 +3004,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3333,9 +3023,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3354,9 +3042,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3375,9 +3061,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3396,9 +3080,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3417,9 +3099,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3438,9 +3118,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3459,9 +3137,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3480,9 +3156,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3501,9 +3175,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3522,9 +3194,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3543,9 +3213,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3564,9 +3232,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3585,9 +3251,7 @@
           "id": "VariableID:99:1184"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3606,9 +3270,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3627,9 +3289,7 @@
           "id": "VariableID:99:1124"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3648,9 +3308,7 @@
           "id": "VariableID:99:1155"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3669,9 +3327,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3690,9 +3346,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3711,9 +3365,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3732,9 +3384,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3753,9 +3403,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3774,9 +3422,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3795,9 +3441,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3816,9 +3460,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3837,9 +3479,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3858,9 +3498,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3879,9 +3517,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3900,9 +3536,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3921,9 +3555,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3942,9 +3574,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3963,9 +3593,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -3984,9 +3612,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4005,9 +3631,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4026,9 +3650,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4047,9 +3669,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4068,9 +3688,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4089,9 +3707,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4110,9 +3726,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4131,9 +3745,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4152,9 +3764,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4173,9 +3783,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4194,9 +3802,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4215,9 +3821,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4236,9 +3840,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4257,9 +3859,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4278,9 +3878,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4299,9 +3897,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4320,9 +3916,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4341,9 +3935,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4362,9 +3954,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4383,9 +3973,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4404,9 +3992,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4425,9 +4011,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4446,9 +4030,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4467,9 +4049,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4488,9 +4068,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4509,9 +4087,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4530,9 +4106,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4551,9 +4125,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4572,10 +4144,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4594,10 +4163,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4616,10 +4182,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4638,10 +4201,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4660,10 +4220,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4682,10 +4239,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4704,10 +4258,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4726,10 +4277,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4748,10 +4296,7 @@
           "id": "VariableID:99:1136"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4770,10 +4315,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4792,10 +4334,7 @@
           "id": "VariableID:99:1132"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4814,10 +4353,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4836,10 +4372,7 @@
           "id": "VariableID:99:1161"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4858,10 +4391,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4880,10 +4410,7 @@
           "id": "VariableID:99:1163"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4902,10 +4429,7 @@
           "id": "VariableID:99:1165"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4924,10 +4448,7 @@
           "id": "VariableID:99:1171"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4946,10 +4467,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4968,10 +4486,7 @@
           "id": "VariableID:99:1173"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -4990,10 +4505,7 @@
           "id": "VariableID:99:1175"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5012,10 +4524,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5034,10 +4543,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5056,10 +4562,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5078,10 +4581,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5100,9 +4600,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -5121,9 +4619,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5142,9 +4638,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5163,9 +4657,7 @@
           "id": "VariableID:99:1148"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5184,9 +4676,7 @@
           "id": "VariableID:99:1154"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5205,9 +4695,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5226,9 +4714,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5247,9 +4733,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5268,9 +4752,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5289,9 +4771,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5310,9 +4790,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5331,9 +4809,7 @@
           "id": "VariableID:99:1153"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5352,9 +4828,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5373,9 +4847,7 @@
           "id": "VariableID:99:1145"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5394,9 +4866,7 @@
           "id": "VariableID:99:1147"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5415,9 +4885,7 @@
           "id": "VariableID:99:1185"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5436,9 +4904,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5457,9 +4923,7 @@
           "id": "VariableID:99:1186"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5478,9 +4942,7 @@
           "id": "VariableID:99:1149"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5499,9 +4961,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5520,9 +4980,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5541,9 +4999,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5562,9 +5018,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5583,9 +5037,7 @@
           "id": "VariableID:99:1122"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -5604,9 +5056,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -5625,9 +5075,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5646,9 +5094,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5667,9 +5113,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -5688,9 +5132,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -5709,9 +5151,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5730,9 +5170,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5751,9 +5189,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5772,9 +5208,7 @@
           "id": "VariableID:99:1184"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5793,9 +5227,7 @@
           "id": "VariableID:99:1122"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5814,9 +5246,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5835,9 +5265,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5856,9 +5284,7 @@
           "id": "VariableID:99:1124"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5877,9 +5303,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5898,9 +5322,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5919,9 +5341,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5940,9 +5360,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5961,9 +5379,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -5982,10 +5398,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6004,10 +5417,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6026,10 +5436,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6048,10 +5455,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6070,10 +5474,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6092,10 +5493,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6114,10 +5512,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6136,10 +5531,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6158,10 +5550,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6180,10 +5569,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6202,10 +5588,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6224,10 +5607,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6246,10 +5626,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6268,10 +5645,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6290,10 +5664,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6312,10 +5683,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6334,10 +5702,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6356,10 +5721,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6378,10 +5740,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6400,10 +5759,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6422,10 +5778,7 @@
           "id": "VariableID:99:1136"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6444,10 +5797,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6466,10 +5816,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6488,10 +5835,7 @@
           "id": "VariableID:99:1132"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6510,10 +5854,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6532,10 +5873,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6554,10 +5892,7 @@
           "id": "VariableID:99:1161"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6576,10 +5911,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6598,10 +5930,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6620,10 +5949,7 @@
           "id": "VariableID:99:1163"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6642,10 +5968,7 @@
           "id": "VariableID:99:1165"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6664,10 +5987,7 @@
           "id": "VariableID:99:1171"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6686,10 +6006,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6708,10 +6025,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6730,10 +6044,7 @@
           "id": "VariableID:99:1165"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6752,10 +6063,7 @@
           "id": "VariableID:99:1173"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6774,10 +6082,7 @@
           "id": "VariableID:99:1175"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6796,10 +6101,7 @@
           "id": "VariableID:99:1175"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6818,10 +6120,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6840,10 +6139,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6862,10 +6158,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6884,10 +6177,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6906,10 +6196,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6928,10 +6215,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -6950,9 +6234,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -6971,9 +6253,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -6992,9 +6272,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7013,9 +6291,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7034,9 +6310,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -7055,9 +6329,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -7076,10 +6348,7 @@
           "id": "VariableID:99:1169"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7098,9 +6367,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7119,10 +6386,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7141,10 +6405,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7163,10 +6424,7 @@
           "id": "VariableID:99:1130"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7185,10 +6443,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7207,10 +6462,7 @@
           "id": "VariableID:99:1169"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7229,10 +6481,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7251,10 +6500,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7273,10 +6519,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7295,10 +6538,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7317,10 +6557,7 @@
           "id": "VariableID:99:1169"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7339,10 +6576,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7361,9 +6595,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7382,9 +6614,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7403,9 +6633,7 @@
           "id": "VariableID:99:1148"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7424,9 +6652,7 @@
           "id": "VariableID:99:1147"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7445,9 +6671,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7466,9 +6690,7 @@
           "id": "VariableID:99:1154"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7487,10 +6709,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7509,10 +6728,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7531,10 +6747,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7553,10 +6766,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7575,9 +6785,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7596,9 +6804,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7617,9 +6823,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7638,9 +6842,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7659,9 +6861,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7680,9 +6880,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7701,9 +6899,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7722,9 +6918,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7743,9 +6937,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7764,9 +6956,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7785,9 +6975,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7806,9 +6994,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7827,9 +7013,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7848,9 +7032,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7869,9 +7051,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7890,9 +7070,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7911,9 +7089,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7932,9 +7108,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7953,9 +7127,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7974,9 +7146,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -7995,9 +7165,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8016,9 +7184,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8037,9 +7203,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8058,9 +7222,7 @@
           "id": "VariableID:99:1159"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8079,9 +7241,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8100,9 +7260,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8121,9 +7279,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8142,9 +7298,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8163,9 +7317,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8184,9 +7336,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8205,9 +7355,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -8226,9 +7374,7 @@
           "id": "VariableID:99:1191"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -8247,9 +7393,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8268,9 +7412,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8289,9 +7431,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -8310,9 +7450,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -8331,9 +7469,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8352,9 +7488,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8373,9 +7507,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8394,9 +7526,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8415,9 +7545,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8436,9 +7564,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8457,9 +7583,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8478,9 +7602,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8499,9 +7621,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8520,9 +7640,7 @@
           "id": "VariableID:99:1184"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8541,9 +7659,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8562,9 +7678,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8583,9 +7697,7 @@
           "id": "VariableID:99:1193"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8604,9 +7716,7 @@
           "id": "VariableID:99:1124"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8625,9 +7735,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8646,9 +7754,7 @@
           "id": "VariableID:99:1124"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8667,9 +7773,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8688,9 +7792,7 @@
           "id": "VariableID:99:1195"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8709,9 +7811,7 @@
           "id": "VariableID:99:1122"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8730,9 +7830,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8751,9 +7849,7 @@
           "id": "VariableID:99:1122"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8772,9 +7868,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8793,9 +7887,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8814,9 +7906,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8835,9 +7925,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8856,9 +7944,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8877,9 +7963,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8898,9 +7982,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8919,9 +8001,7 @@
           "id": "VariableID:99:1168"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8940,9 +8020,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8961,9 +8039,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -8982,9 +8058,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9003,9 +8077,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9024,9 +8096,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9045,9 +8115,7 @@
           "id": "VariableID:99:1158"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9066,9 +8134,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9087,9 +8153,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9108,9 +8172,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9129,9 +8191,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9150,9 +8210,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9171,9 +8229,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9192,9 +8248,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9213,9 +8267,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9234,9 +8286,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9255,9 +8305,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9276,9 +8324,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9297,9 +8343,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9318,9 +8362,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9339,9 +8381,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9360,9 +8400,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9381,9 +8419,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9402,9 +8438,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9423,9 +8457,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9444,9 +8476,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9465,9 +8495,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9486,9 +8514,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9507,9 +8533,7 @@
           "id": "VariableID:99:1196"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9528,9 +8552,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9549,9 +8571,7 @@
           "id": "VariableID:99:1197"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9570,9 +8590,7 @@
           "id": "VariableID:99:1198"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9591,9 +8609,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9612,9 +8628,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9633,9 +8647,7 @@
           "id": "VariableID:99:1148"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9654,9 +8666,7 @@
           "id": "VariableID:99:1154"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9675,9 +8685,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9696,9 +8704,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9717,9 +8723,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9738,9 +8742,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9759,9 +8761,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9780,9 +8780,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9801,9 +8799,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9822,9 +8818,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9843,9 +8837,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9864,9 +8856,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9885,10 +8875,7 @@
           "id": "VariableID:99:1136"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9907,10 +8894,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9929,10 +8913,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9951,10 +8932,7 @@
           "id": "VariableID:99:1132"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9973,10 +8951,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -9995,10 +8970,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10017,10 +8989,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10039,10 +9008,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10061,10 +9027,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10083,10 +9046,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10105,10 +9065,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10127,10 +9084,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10149,10 +9103,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10171,10 +9122,7 @@
           "id": "VariableID:99:1123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10193,10 +9141,7 @@
           "id": "VariableID:99:1130"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10215,9 +9160,7 @@
           "id": "VariableID:99:1140"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10236,9 +9179,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10257,9 +9198,7 @@
           "id": "VariableID:99:1125"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10278,9 +9217,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10299,9 +9236,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10320,9 +9255,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10341,9 +9274,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10362,9 +9293,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10383,9 +9312,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10404,9 +9331,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10425,9 +9350,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10446,9 +9369,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10467,9 +9388,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10488,9 +9407,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10509,9 +9426,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10530,9 +9445,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10551,9 +9464,7 @@
           "id": "VariableID:99:1122"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10572,9 +9483,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10593,9 +9502,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10614,9 +9521,7 @@
           "id": "VariableID:99:1177"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10635,9 +9540,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10656,9 +9559,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10677,9 +9578,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10698,9 +9597,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10719,9 +9616,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10740,9 +9635,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10761,9 +9654,7 @@
           "id": "VariableID:99:1178"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10782,9 +9673,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10803,9 +9692,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10824,9 +9711,7 @@
           "id": "VariableID:99:1178"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10845,9 +9730,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10866,10 +9749,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10888,10 +9768,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10910,10 +9787,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10932,10 +9806,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10954,10 +9825,7 @@
           "id": "VariableID:99:1142"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10976,10 +9844,7 @@
           "id": "VariableID:99:1136"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -10998,10 +9863,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11020,10 +9882,7 @@
           "id": "VariableID:99:1126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11042,10 +9901,7 @@
           "id": "VariableID:99:1132"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11064,10 +9920,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11086,10 +9939,7 @@
           "id": "VariableID:99:1134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11108,10 +9958,7 @@
           "id": "VariableID:99:1169"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11130,10 +9977,7 @@
           "id": "VariableID:99:1128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11152,10 +9996,7 @@
           "id": "VariableID:99:1129"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11174,10 +10015,7 @@
           "id": "VariableID:99:1130"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11196,9 +10034,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11217,9 +10053,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11238,9 +10072,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11259,9 +10091,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11280,9 +10110,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11301,9 +10129,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11322,9 +10148,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11343,9 +10167,7 @@
           "id": "VariableID:99:1150"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11364,9 +10186,7 @@
           "id": "VariableID:99:1143"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11385,9 +10205,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11406,9 +10224,7 @@
           "id": "VariableID:99:1157"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11427,9 +10243,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11448,9 +10262,7 @@
           "id": "VariableID:99:1191"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11469,9 +10281,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11490,9 +10300,7 @@
           "id": "VariableID:99:1137"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11511,9 +10319,7 @@
           "id": "VariableID:99:1141"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11532,9 +10338,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11553,9 +10357,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11574,9 +10376,7 @@
           "id": "VariableID:99:1156"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11595,9 +10395,7 @@
           "id": "VariableID:99:1144"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11616,9 +10414,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11637,9 +10433,7 @@
           "id": "VariableID:99:1178"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11658,9 +10452,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11679,9 +10471,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11700,9 +10490,7 @@
           "id": "VariableID:99:1178"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11721,9 +10509,7 @@
           "id": "VariableID:99:1139"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11742,9 +10528,7 @@
           "id": "VariableID:99:1154"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11763,9 +10547,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11784,9 +10566,7 @@
           "id": "VariableID:99:1148"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11805,9 +10585,7 @@
           "id": "VariableID:99:1147"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11826,9 +10604,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11847,9 +10623,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11868,9 +10642,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11889,9 +10661,7 @@
           "id": "VariableID:99:1184"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11910,9 +10680,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11931,9 +10699,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11952,9 +10718,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11973,9 +10737,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -11994,9 +10756,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12015,9 +10775,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12036,9 +10794,7 @@
           "id": "VariableID:99:1154"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12057,9 +10813,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12078,9 +10832,7 @@
           "id": "VariableID:99:1148"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12099,9 +10851,7 @@
           "id": "VariableID:99:1147"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12120,9 +10870,7 @@
           "id": "VariableID:99:1146"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12141,9 +10889,7 @@
           "id": "VariableID:99:1151"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12162,9 +10908,7 @@
           "id": "VariableID:99:1152"
         }
       },
-      "scopes": [
-        "STROKE_COLOR"
-      ],
+      "scopes": ["STROKE_COLOR"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12183,9 +10927,7 @@
           "id": "VariableID:99:1184"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12204,9 +10946,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12225,9 +10965,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12246,9 +10984,7 @@
           "id": "VariableID:99:1182"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12267,9 +11003,7 @@
           "id": "VariableID:99:1180"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12288,9 +11022,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12309,9 +11041,7 @@
           "id": "VariableID:99:1176"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12330,10 +11060,7 @@
           "id": "VariableID:1:484"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12352,10 +11079,7 @@
           "id": "VariableID:1:477"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12374,10 +11098,7 @@
           "id": "VariableID:1:471"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12396,10 +11117,7 @@
           "id": "VariableID:1:478"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12418,10 +11136,7 @@
           "id": "VariableID:1:472"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12440,10 +11155,7 @@
           "id": "VariableID:1:127"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12462,10 +11174,7 @@
           "id": "VariableID:1:130"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12484,10 +11193,7 @@
           "id": "VariableID:1:124"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12506,10 +11212,7 @@
           "id": "VariableID:1:473"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12528,10 +11231,7 @@
           "id": "VariableID:1:341"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12550,10 +11250,7 @@
           "id": "VariableID:1:339"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12572,10 +11269,7 @@
           "id": "VariableID:1:274"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12594,10 +11288,7 @@
           "id": "VariableID:1:265"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12616,10 +11307,7 @@
           "id": "VariableID:1:205"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12638,10 +11326,7 @@
           "id": "VariableID:1:199"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12660,10 +11345,7 @@
           "id": "VariableID:1:485"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12682,10 +11364,7 @@
           "id": "VariableID:1:133"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12704,10 +11383,7 @@
           "id": "VariableID:1:476"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12726,10 +11402,7 @@
           "id": "VariableID:1:479"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12748,10 +11421,7 @@
           "id": "VariableID:1:474"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12770,10 +11440,7 @@
           "id": "VariableID:99:1000"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12792,10 +11459,7 @@
           "id": "VariableID:1:119"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12814,10 +11478,7 @@
           "id": "VariableID:1:120"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12836,10 +11497,7 @@
           "id": "VariableID:1:342"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12858,10 +11516,7 @@
           "id": "VariableID:1:336"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12880,10 +11535,7 @@
           "id": "VariableID:1:261"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12902,10 +11554,7 @@
           "id": "VariableID:1:260"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12924,10 +11573,7 @@
           "id": "VariableID:1:259"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12946,10 +11592,7 @@
           "id": "VariableID:1:470"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12968,10 +11611,7 @@
           "id": "VariableID:1:482"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -12990,10 +11630,7 @@
           "id": "VariableID:1:483"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13012,10 +11649,7 @@
           "id": "VariableID:1:202"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13034,10 +11668,7 @@
           "id": "VariableID:1:194"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13056,10 +11687,7 @@
           "id": "VariableID:1:480"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13078,10 +11706,7 @@
           "id": "VariableID:1:469"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13100,10 +11725,7 @@
           "id": "VariableID:1:128"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13122,10 +11744,7 @@
           "id": "VariableID:1:123"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13144,10 +11763,7 @@
           "id": "VariableID:1:132"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13166,10 +11782,7 @@
           "id": "VariableID:1:201"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13188,10 +11801,7 @@
           "id": "VariableID:1:190"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13210,10 +11820,7 @@
           "id": "VariableID:1:343"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13232,10 +11839,7 @@
           "id": "VariableID:1:335"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13254,10 +11858,7 @@
           "id": "VariableID:1:264"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13276,10 +11877,7 @@
           "id": "VariableID:1:266"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13298,10 +11896,7 @@
           "id": "VariableID:1:131"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13320,10 +11915,7 @@
           "id": "VariableID:1:134"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13342,10 +11934,7 @@
           "id": "VariableID:1:481"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13364,10 +11953,7 @@
           "id": "VariableID:1:125"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13386,10 +11972,7 @@
           "id": "VariableID:1:191"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13408,10 +11991,7 @@
           "id": "VariableID:1:196"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13430,10 +12010,7 @@
           "id": "VariableID:1:333"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13452,10 +12029,7 @@
           "id": "VariableID:1:337"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13474,10 +12048,7 @@
           "id": "VariableID:1:267"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13496,10 +12067,7 @@
           "id": "VariableID:1:268"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13518,10 +12086,7 @@
           "id": "VariableID:1:475"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13540,10 +12105,7 @@
           "id": "VariableID:1:129"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13562,10 +12124,7 @@
           "id": "VariableID:1:126"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13584,10 +12143,7 @@
           "id": "VariableID:1:338"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13606,10 +12162,7 @@
           "id": "VariableID:1:344"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13628,10 +12181,7 @@
           "id": "VariableID:1:273"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13650,10 +12200,7 @@
           "id": "VariableID:1:270"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13672,10 +12219,7 @@
           "id": "VariableID:1:195"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13694,10 +12238,7 @@
           "id": "VariableID:1:198"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13716,10 +12257,7 @@
           "id": "VariableID:1:197"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13738,10 +12276,7 @@
           "id": "VariableID:1:329"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13760,10 +12295,7 @@
           "id": "VariableID:1:200"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13782,10 +12314,7 @@
           "id": "VariableID:1:332"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13804,10 +12333,7 @@
           "id": "VariableID:1:269"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13826,10 +12352,7 @@
           "id": "VariableID:1:399"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13848,10 +12371,7 @@
           "id": "VariableID:1:401"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13870,10 +12390,7 @@
           "id": "VariableID:1:404"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13892,10 +12409,7 @@
           "id": "VariableID:1:406"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13914,10 +12428,7 @@
           "id": "VariableID:1:412"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13936,10 +12447,7 @@
           "id": "VariableID:1:400"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13958,10 +12466,7 @@
           "id": "VariableID:1:330"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -13980,10 +12485,7 @@
           "id": "VariableID:1:262"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     },
@@ -14002,10 +12504,7 @@
           "id": "VariableID:1:192"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL"],
       "hiddenFromPublishing": true,
       "codeSyntax": {}
     }
