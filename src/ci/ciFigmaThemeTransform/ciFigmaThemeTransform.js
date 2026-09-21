@@ -4,259 +4,349 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 var _command = require("@oclif/command");
 var _fsExtra = require("fs-extra");
-var _logSymbols = _interopRequireDefault(require("log-symbols"));
 var _path = require("path");
+var _googleFonts = require("./googleFonts");
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-const parseVarName = name => {
-  return `--${name.split('/').join('-')}`;
-};
-const setColorCssVariables = (themeJs, fileName, varName, value) => {
-  const keys = Object.keys(value);
-  keys.forEach(key => {
-    themeJs[fileName][`${varName}-${key}`] = `${value[key]}`;
-  });
-  themeJs[fileName][varName] = `${keys.join('')}(var(${keys.map(key => `${varName}-${key}`).join('), var(')}))`;
-};
-const parseVarValueString = value => {
-  return `${value}`;
-};
-const parseVarValueFloat = value => {
-  return `${value}px`;
-};
-const isVarAlias = value => {
-  return value.type === 'VARIABLE_ALIAS';
-};
-const isVarColor = value => {
-  return value.type === 'COLOR';
-};
-const isVarString = value => {
-  return value.type === 'STRING';
-};
-const isVarFloat = value => {
-  return value.type === 'FLOAT';
-};
-const getFileName = (variable, themeName, modeName) => {
-  const formattedThemeName = themeName.replaceAll(' ', '');
-  const formattedModeName = `_${variable.name.split('/')[0]}_${modeName}`.replaceAll(' ', '').toLocaleLowerCase();
-  return `${formattedThemeName}${formattedModeName}`;
-};
-const buildPrimitivesResolvedValues = async flags => {
-  const data = await (0, _fsExtra.readJSON)((0, _path.join)(flags.path, 'primitives.json'));
-  const resolved = {};
-  data.variables.forEach(variable => {
-    const variableAny = variable;
-    const resolvedVBM = variableAny.resolvedValuesByMode;
-    const modeKeys = Object.keys(resolvedVBM || {});
-    if (modeKeys.length > 0) {
-      const modeKey = modeKeys[0];
-      const resolvedEntry = resolvedVBM === null || resolvedVBM === void 0 ? void 0 : resolvedVBM[modeKey];
-      if (resolvedEntry && resolvedEntry.resolvedValue !== undefined) {
-        resolved[variable.id] = {
-          type: variable.type,
-          value: resolvedEntry.resolvedValue
-        };
-      }
-    }
-  });
-  return resolved;
-};
-const buildRefVariablesMap = async flags => {
-  const data = await (0, _fsExtra.readJSON)((0, _path.join)(flags.path, 'semantic.json'));
-  const refVars = {};
-  data.variables.forEach(variable => {
-    refVars[variable.id] = {
-      type: variable.type,
-      valuesByMode: variable.valuesByMode
-    };
-  });
-  return refVars;
-};
-const resolveRawColorValue = (modeValue, modeId, refVars, primitivesResolvedValues) => {
-  if (!isVarAlias(modeValue)) {
+const REFERENCE_REGEX = /^\{(.+)\}$/;
+const toVarName = path => `--${path.join('-')}`;
+const parseVarName = path => `--${path.slice(0, -1).join('-')}`;
+const getFileName = (modifier, valueModifier) => `Theme_${modifier}_${valueModifier}`;
+const getReferencePath = value => {
+  if (typeof value !== 'string') {
     return null;
   }
-  const alias = modeValue;
-  const refVar = refVars[alias.id];
-  if (!refVar) {
-    const resolved = primitivesResolvedValues[alias.id];
-    if (resolved && resolved.type === 'COLOR') {
-      return resolved.value;
-    }
-    return null;
-  }
-  const refModeValue = refVar.valuesByMode[modeId];
-  if (!refModeValue) {
-    return null;
-  }
-  if (isVarAlias(refModeValue)) {
-    const refAlias = refModeValue;
-    const resolved = primitivesResolvedValues[refAlias.id];
-    if (resolved && resolved.type === 'COLOR') {
-      return resolved.value;
-    }
-    return null;
-  }
-  return refModeValue;
+  const match = REFERENCE_REGEX.exec(value.trim());
+  return match ? match[1] : null;
 };
-const parseVar = (flags, variable, data, themeJs, themeName, refVars, primitivesResolvedValues) => {
-  const keys = Object.keys(variable.valuesByMode);
-  keys.forEach(modeId => {
-    const modeName = flags.modValuePrefix + data.modes[modeId];
-    console.log(modeName);
-    const fileName = getFileName(variable, themeName, modeName);
-    if (themeJs[fileName] === undefined) {
-      themeJs[fileName] = {};
-    }
-    const modeValue = variable.valuesByMode[modeId];
-    const varName = parseVarName(variable.name);
-    if (isVarColor(variable)) {
-      const rawColor = resolveRawColorValue(modeValue, modeId, refVars, primitivesResolvedValues);
-      if (rawColor) {
-        setColorCssVariables(themeJs, fileName, varName, rawColor);
+const quoteFontFamily = font => {
+  if (/\s/.test(font)) {
+    return `"${font}"`;
+  }
+  return font;
+};
+const isTypoFamilyVar = varName => varName.includes('typo') && varName.includes('family');
+const getFirstFontFamily = value => {
+  const trimmed = value.trim();
+  if (!trimmed || trimmed.startsWith('var(')) {
+    return null;
+  }
+  const first = trimmed.split(',')[0].trim();
+  if (!first) {
+    return null;
+  }
+  return first.replace(/^["']|["']$/g, '');
+};
+const FONT_FORMATS = {
+  woff2: 'woff2',
+  woff: 'woff',
+  ttf: 'truetype',
+  otf: 'opentype'
+};
+const FONT_FILE_REGEX = /^(.+)-(\d+)\.(woff2|woff|ttf|otf)$/i;
+const collectFontFiles = async (fontsPath, family) => {
+  const result = new Map();
+  if (!fontsPath || !(await (0, _fsExtra.pathExists)(fontsPath))) {
+    return result;
+  }
+  const walk = async dir => {
+    const entries = await (0, _fsExtra.readdir)(dir);
+    const tasks = entries.map(async entry => {
+      const fullPath = (0, _path.join)(dir, entry);
+      const stat = await (0, _fsExtra.lstat)(fullPath);
+      if (stat.isDirectory()) {
+        await walk(fullPath);
         return;
       }
-      setColorCssVariables(themeJs, fileName, varName, modeValue);
-      return;
+      const match = FONT_FILE_REGEX.exec(entry);
+      if (match && match[1] === family) {
+        const weight = Number(match[2]);
+        if (!result.has(weight)) {
+          result.set(weight, []);
+        }
+        result.get(weight).push({
+          name: entry,
+          sourcePath: fullPath
+        });
+      }
+    });
+    await Promise.all(tasks);
+  };
+  await walk(fontsPath);
+  return result;
+};
+const buildFontFace = (family, weight, files) => {
+  const sorted = [...files].sort((a, b) => {
+    const extA = a.name.split('.').pop().toLowerCase();
+    const extB = b.name.split('.').pop().toLowerCase();
+    if (extA === extB) {
+      return 0;
     }
-    if (isVarString(variable)) {
-      themeJs[fileName][varName] = parseVarValueString(modeValue);
-      return;
-    }
-    if (isVarFloat(variable)) {
-      themeJs[fileName][varName] = parseVarValueFloat(modeValue);
-    }
+    return extA === 'woff2' ? -1 : 1;
   });
+  const src = sorted.map(file => {
+    const ext = file.name.split('.').pop().toLowerCase();
+    const format = FONT_FORMATS[ext] || ext;
+    return `    url('${file.name}') format('${format}')`;
+  }).join(',\n');
+  return ['@font-face {', `  font-family: ${family};`, `  src:\n${src};`, `  font-weight: ${weight};`, '  font-style: normal;', '}'].join('\n');
 };
-const parseFile = async (flags, file, themeJs, refVars, primitivesResolvedValues) => {
-  const data = await (0, _fsExtra.readJSON)((0, _path.join)(flags.path, file));
-  data.variables.forEach(variable => {
-    if (variable.name.includes('/ref/')) {
+const buildSubsetFontFace = (family, font) => {
+  const lines = ['@font-face {', `  font-family: ${quoteFontFamily(family)};`, `  font-style: ${font.style};`, `  font-weight: ${font.weight};`, `  src: url('${font.fileName}') format('woff2');`];
+  if (font.unicodeRange) {
+    lines.push(`  unicode-range: ${font.unicodeRange};`);
+  }
+  lines.push('}');
+  return lines.join('\n');
+};
+const resolveValue = ($type, $value) => {
+  if (typeof $value === 'string') {
+    const match = REFERENCE_REGEX.exec($value.trim());
+    if (match) {
+      return `var(--${match[1].split('.').join('-')})`;
+    }
+    return $value;
+  }
+  if (typeof $value === 'number') {
+    return `${$value}`;
+  }
+  if (Array.isArray($value)) {
+    if ($type === 'cubicBezier') {
+      return `cubic-bezier(${$value.join(',')})`;
+    }
+    if ($type === 'fontFamily') {
+      return $value.map(quoteFontFamily).join(', ');
+    }
+    return $value.join(', ');
+  }
+  if ($value && typeof $value === 'object') {
+    if (Array.isArray($value.components)) {
+      const [lightness, chroma, hue] = $value.components;
+      const alpha = $value.alpha !== undefined ? $value.alpha : 1;
+      return `oklch(${lightness} ${chroma} ${hue} / ${alpha})`;
+    }
+    if (typeof $value.hex === 'string') {
+      return $value.hex;
+    }
+    if ($value.value !== undefined) {
+      const unit = $value.unit || '';
+      return `${$value.value}${unit}`;
+    }
+  }
+  return `${$value}`;
+};
+const setColorCssVariables = (themeJs, fileName, varName, $value) => {
+  const referencePath = getReferencePath($value);
+  let lightness;
+  let chroma;
+  let hue;
+  let alpha;
+  if (referencePath) {
+    const targetVar = toVarName(referencePath.split('.'));
+    lightness = `var(${targetVar}-l)`;
+    chroma = `var(${targetVar}-c)`;
+    hue = `var(${targetVar}-h)`;
+    alpha = `var(${targetVar}-a)`;
+  } else if ($value && typeof $value === 'object' && Array.isArray($value.components)) {
+    lightness = `${$value.components[0]}`;
+    chroma = `${$value.components[1]}`;
+    hue = `${$value.components[2]}`;
+    alpha = `${$value.alpha !== undefined ? $value.alpha : 1}`;
+  } else {
+    themeJs[fileName][varName] = resolveValue('color', $value);
+    return;
+  }
+  themeJs[fileName][`${varName}-l`] = lightness;
+  themeJs[fileName][`${varName}-c`] = chroma;
+  themeJs[fileName][`${varName}-h`] = hue;
+  themeJs[fileName][`${varName}-a`] = alpha;
+  themeJs[fileName][varName] = `oklch(var(${varName}-l) var(${varName}-c) var(${varName}-h) / var(${varName}-a))`;
+};
+const collectTokens = (node, path, themeJs) => {
+  if (node && typeof node === 'object') {
+    if ('$type' in node) {
+      const modifier = path[0];
+      const valueModifier = path[path.length - 1];
+      const fileName = getFileName(modifier, valueModifier);
+      const varName = parseVarName(path);
+      if (!themeJs[fileName]) {
+        themeJs[fileName] = {};
+      }
+      if (node.$type === 'color') {
+        setColorCssVariables(themeJs, fileName, varName, node.$value);
+      } else {
+        themeJs[fileName][varName] = resolveValue(node.$type, node.$value);
+      }
       return;
     }
-    parseVar(flags, variable, data, themeJs, 'Theme', refVars, primitivesResolvedValues);
-  });
-  return themeJs;
-};
-const ObjectToCss = (obj, name) => {
-  return `.${name}` + `{` + `\n${Object.keys(obj).map(key => `${key}: ${obj[key]};`).join('\n')}\n` + `}`;
-};
-const legacyBridge = {
-  color: {
-    '--color-bg-default': 'var(--color-global-surface-view-default-primary)',
-    '--color-bg-secondary': 'var(--color-global-surface-view-default-secondary)',
-    '--color-bg-brand': 'var(--color-global-surface-view-default-accent)',
-    '--color-bg-link': 'var(--color-control-surface-view-default-primary)',
-    '--color-bg-border': 'var(--color-global-border-view-default-primary)',
-    '--color-bg-stripe': 'var(--color-global-surface-special-stripe)',
-    '--color-bg-ghost': 'var(--color-global-surface-special-soft)',
-    '--color-bg-tone': 'var(--color-global-surface-special-tone)',
-    '--color-bg-soft': 'var(--color-global-surface-special-soft)',
-    '--color-bg-system': 'var(--color-global-surface-status-neutral)',
-    '--color-bg-normal': 'var(--color-global-surface-status-normal)',
-    '--color-bg-success': 'var(--color-global-surface-status-success)',
-    '--color-bg-caution': 'var(--color-global-surface-status-warning)',
-    '--color-bg-warning': 'var(--color-global-surface-status-warning)',
-    '--color-bg-alert': 'var(--color-global-surface-status-alert)',
-    '--color-bg-critical': 'var(--color-global-surface-status-critical)',
-    '--color-typo-primary': 'var(--color-global-typo-view-default-primary)',
-    '--color-typo-secondary': 'var(--color-global-typo-view-default-secondary)',
-    '--color-typo-ghost': 'var(--color-global-typo-view-default-ghost)',
-    '--color-typo-brand': 'var(--color-global-typo-view-default-accent)',
-    '--color-typo-system': 'var(--color-global-typo-view-default-secondary)',
-    '--color-typo-normal': 'var(--color-global-typo-status-normal)',
-    '--color-typo-success': 'var(--color-global-typo-status-success)',
-    '--color-typo-caution': 'var(--color-global-typo-status-caution)',
-    '--color-typo-warning': 'var(--color-global-typo-status-warning)',
-    '--color-typo-alert': 'var(--color-global-typo-status-alert)',
-    '--color-typo-critical': 'var(--color-global-typo-status-critical)',
-    '--color-typo-link': 'var(--color-global-typo-view-default-accent)',
-    '--color-typo-link-minor': 'var(--color-global-typo-view-default-secondary)',
-    '--color-typo-link-hover': 'var(--color-global-typo-view-hover-accent)',
-    '--color-scroll-bg': 'var(--color-global-border-view-default-secondary)',
-    '--color-scroll-thumb': 'var(--color-global-border-view-default-primary)',
-    '--color-scroll-thumb-hover': 'var(--color-global-border-view-hover-primary)',
-    '--color-shadow-group-1': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-group-2': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-layer-1': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-layer-2': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-modal-1': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-modal-2': 'var(--color-global-surface-special-shadow)',
-    '--color-control-bg-default': 'var(--color-input-surface-view-default-primary)',
-    '--color-control-typo-default': 'var(--color-input-typo-view-default-primary)',
-    '--color-control-typo-placeholder': 'var(--color-input-typo-special-default-placeholder)',
-    '--color-control-bg-border-default': 'var(--color-input-border-view-default-primary)',
-    '--color-control-bg-border-default-hover': 'var(--color-input-border-view-hover-primary)',
-    '--color-control-bg-border-focus': 'var(--color-global-border-state-focus)',
-    '--color-control-bg-focus': 'var(--color-global-border-state-focus)',
-    '--color-control-bg-active': 'var(--color-global-border-state-active-primary)',
-    '--color-control-bg-primary': 'var(--color-control-surface-view-default-primary)',
-    '--color-control-bg-primary-hover': 'var(--color-control-surface-view-hover-primary)',
-    '--color-control-typo-primary': 'var(--color-control-typo-view-default-primary)',
-    '--color-control-typo-primary-hover': 'var(--color-control-typo-view-hover-primary)',
-    '--color-control-bg-secondary': 'var(--color-control-surface-view-default-secondary)',
-    '--color-control-bg-border-secondary': 'var(--color-control-border-view-default-secondary)',
-    '--color-control-bg-border-secondary-hover': 'var(--color-control-border-view-hover-secondary)',
-    '--color-control-typo-secondary': 'var(--color-control-typo-view-default-secondary)',
-    '--color-control-typo-secondary-hover': 'var(--color-control-typo-view-hover-secondary)',
-    '--color-control-bg-ghost': 'var(--color-control-surface-view-default-ghost)',
-    '--color-control-bg-ghost-hover': 'var(--color-control-surface-view-hover-ghost)',
-    '--color-control-typo-ghost': 'var(--color-control-typo-view-default-ghost)',
-    '--color-control-typo-ghost-hover': 'var(--color-control-typo-view-hover-ghost)',
-    '--color-control-bg-clear': 'var(--color-control-surface-view-default-clear)',
-    '--color-control-bg-clear-hover': 'var(--color-control-surface-view-hover-clear)',
-    '--color-control-typo-clear': 'var(--color-control-typo-view-default-clear)',
-    '--color-control-typo-clear-hover': 'var(--color-control-typo-view-hover-clear)',
-    '--color-control-bg-disable': 'var(--color-control-surface-view-disabled-ghost)',
-    '--color-control-bg-border-disable': 'var(--color-control-border-view-disabled-secondary)',
-    '--color-control-typo-disable': 'var(--color-control-typo-view-disabled-primary)'
+    Object.keys(node).forEach(key => {
+      collectTokens(node[key], [...path, key], themeJs);
+    });
   }
 };
-const legacyBridgeKeys = Object.keys(legacyBridge);
+const getModifier = fileName => fileName.replace(/^Theme_/, '').replace(/_[^_]+$/, '');
+const readBridgeFile = async (bridgesPath, modifier) => {
+  if (!bridgesPath) {
+    return null;
+  }
+  const bridgeFile = (0, _path.join)(bridgesPath, `${modifier}.css`);
+  if (!(await (0, _fsExtra.pathExists)(bridgeFile))) {
+    return null;
+  }
+  const content = await (0, _fsExtra.readFile)(bridgeFile, 'utf8');
+  const declarations = {};
+  const declarationRegex = /(--[\w-]+)\s*:\s*([^;]+);/g;
+  let match;
+  while ((match = declarationRegex.exec(content)) !== null) {
+    const value = match[2].trim();
+    if (value) {
+      declarations[match[1]] = value;
+    }
+  }
+  return declarations;
+};
+const distributeBaseVars = themeJs => {
+  const files = Object.keys(themeJs);
+  const baseFile = files.find(f => f.startsWith('Theme_base_'));
+  if (!baseFile) {
+    return;
+  }
+  const prefix = '--base-';
+  Object.keys(themeJs[baseFile]).forEach(varName => {
+    if (!varName.startsWith(prefix)) {
+      return;
+    }
+    const rest = varName.slice(prefix.length);
+    const group = rest.split('-')[0];
+    files.filter(fileName => fileName !== baseFile && fileName.startsWith(`Theme_${group}_`)).forEach(fileName => {
+      themeJs[fileName][varName] = themeJs[baseFile][varName];
+    });
+  });
+};
+const ObjectToCss = (obj, name) => `.${name}{` + `\n${Object.keys(obj).map(key => `${key}: ${obj[key]};`).join('\n')}` + `\n}`;
 class GenerateCommand extends _command.Command {
   async run() {
     const hrStart = process.hrtime();
     const {
       flags
     } = this.parse(GenerateCommand);
-    this.log(_logSymbols.default.info, `generating theme in ${flags.path} ...`);
+    this.log(`generating theme in ${flags.path} ...`);
     try {
-      const files = (await (0, _fsExtra.readdir)(flags.path)).filter(file => file.endsWith('.json'));
-      this.log(_logSymbols.default.info, `detected files ${files.join(', ')} ...`);
-      const primitivesResolvedValues = await buildPrimitivesResolvedValues(flags);
-      const refVars = await buildRefVariablesMap(flags);
-      const semanticFileName = files.find(f => f.includes('semantic'));
-      if (!semanticFileName) {
-        this.error('semantic.json not found');
-        return;
-      }
+      const data = await (0, _fsExtra.readJSON)((0, _path.join)(flags.path, flags.file));
+      this.log(`parsing ${flags.file} ...`);
       const themeJs = {};
-      await parseFile(flags, semanticFileName, themeJs, refVars, primitivesResolvedValues);
-      const cssFiles = Object.keys(themeJs);
-      console.log(cssFiles);
+      collectTokens(data, [], themeJs);
       if (flags.addLegacyBridge) {
-        cssFiles.map(fileName => {
-          legacyBridgeKeys.map(key => {
-            if (fileName.includes(`_${key}_`)) {
-              themeJs[fileName] = _objectSpread(_objectSpread({}, themeJs[fileName]), legacyBridge[key]);
-            }
-          });
+        distributeBaseVars(themeJs);
+        Object.keys(themeJs).filter(fileName => fileName.startsWith('Theme_base_')).forEach(fileName => {
+          delete themeJs[fileName];
         });
       }
+      const cssFiles = Object.keys(themeJs);
+      this.log(`detected theme files: ${cssFiles.join(', ')}`);
+      if (flags.addLegacyBridge) {
+        const modifiers = [...new Set(cssFiles.map(getModifier))];
+        await Promise.all(modifiers.map(async modifier => {
+          const bridge = await readBridgeFile(flags.bridges, modifier);
+          if (!bridge) {
+            return;
+          }
+          cssFiles.filter(fileName => getModifier(fileName) === modifier).forEach(fileName => {
+            themeJs[fileName] = _objectSpread(_objectSpread({}, themeJs[fileName]), bridge);
+          });
+        }));
+      }
+      const outputPathDir = (0, _path.join)(flags.output);
+      await (0, _fsExtra.ensureDir)(outputPathDir);
+      if (flags.clean) {
+        const existing = await (0, _fsExtra.readdir)(outputPathDir);
+        await Promise.all(existing.map(async entry => {
+          const entryPath = (0, _path.join)(outputPathDir, entry);
+          if (await (0, _fsExtra.pathExists)(entryPath)) {
+            await (0, _fsExtra.remove)(entryPath);
+          }
+        }));
+      }
+      const fontFacesByFile = {};
+      const copiedFonts = new Set();
       await Promise.all(cssFiles.map(async fileName => {
-        const outputPathDir = (0, _path.join)(flags.output);
+        if (getModifier(fileName) !== 'typo') {
+          return;
+        }
+        const declarations = themeJs[fileName];
+        const families = new Set();
+        Object.keys(declarations).forEach(varName => {
+          if (!isTypoFamilyVar(varName)) {
+            return;
+          }
+          const family = getFirstFontFamily(declarations[varName]);
+          if (family) {
+            families.add(family);
+          }
+        });
+        const familyList = [...families];
+        const blocksResults = await Promise.all(familyList.map(async family => {
+          const faces = [];
+          const copyTasks = [];
+          const filesByWeight = await collectFontFiles(flags.fonts, family);
+          if (filesByWeight.size === 0) {
+            let downloaded = [];
+            try {
+              downloaded = await (0, _googleFonts.downloadGoogleFont)(family, flags.fonts);
+            } catch (err) {
+              this.log(`failed to download font "${family}" from Google Fonts: ${err instanceof Error ? err.message : err}`);
+            }
+            downloaded.forEach(font => {
+              faces.push(buildSubsetFontFace(family, font));
+              if (copiedFonts.has(font.fileName)) {
+                return;
+              }
+              copiedFonts.add(font.fileName);
+              copyTasks.push((0, _fsExtra.copy)(font.sourcePath, (0, _path.join)(outputPathDir, font.fileName)));
+            });
+            if (downloaded.length > 0) {
+              this.log(`downloaded "${family}" from Google Fonts`);
+            }
+            await Promise.all(copyTasks);
+            return faces;
+          }
+          filesByWeight.forEach((files, weight) => {
+            faces.push(buildFontFace(family, weight, files));
+            files.forEach(file => {
+              if (copiedFonts.has(file.name)) {
+                return;
+              }
+              copiedFonts.add(file.name);
+              copyTasks.push((0, _fsExtra.copy)(file.sourcePath, (0, _path.join)(outputPathDir, file.name)));
+            });
+          });
+          await Promise.all(copyTasks);
+          return faces;
+        }));
+        const blocks = [];
+        blocksResults.forEach(faces => {
+          blocks.push(...faces);
+        });
+        if (blocks.length > 0) {
+          fontFacesByFile[fileName] = blocks.join('\n\n');
+        }
+      }));
+      if (Object.keys(fontFacesByFile).length > 0) {
+        this.log(`generated @font-face for: ${Object.keys(fontFacesByFile).join(', ')}`);
+      }
+      await Promise.all(cssFiles.map(async fileName => {
         const outputPathFile = (0, _path.join)(outputPathDir, `${fileName}.css`);
-        await (0, _fsExtra.ensureDir)(outputPathDir);
         if (await (0, _fsExtra.pathExists)(outputPathFile)) {
           await (0, _fsExtra.remove)(outputPathFile);
         }
-        await (0, _fsExtra.writeFile)(outputPathFile, ObjectToCss(themeJs[fileName], fileName));
+        const css = fontFacesByFile[fileName] ? `${fontFacesByFile[fileName]}\n\n${ObjectToCss(themeJs[fileName], fileName)}` : ObjectToCss(themeJs[fileName], fileName);
+        await (0, _fsExtra.writeFile)(outputPathFile, css);
       }));
     } catch (err) {
       this.error(err);
     }
     const hrEnd = process.hrtime(hrStart);
-    this.log(_logSymbols.default.success, `${flags.path} is transformed!`);
+    this.log(`${flags.path} is transformed!`);
     this.log(`Execution time: ${hrEnd[0]}s`);
   }
 }
@@ -265,20 +355,28 @@ GenerateCommand.flags = {
     description: 'The input path',
     default: undefined
   }),
+  file: _command.flags.string({
+    description: 'The input file name',
+    default: 'consta-neo.tokens.json'
+  }),
   output: _command.flags.string({
     description: 'The output path',
-    default: 'src/themes'
+    default: 'src/theme'
   }),
-  modValuePrefix: _command.flags.string({
-    description: 'Theme name',
-    default: 'app'
+  bridges: _command.flags.string({
+    description: 'Path to the folder with CSS bridge files (<modifier>.css)',
+    default: (0, _path.join)(__dirname, '__mocks__', 'cssBridges')
   }),
-  create: _command.flags.boolean({
-    description: 'Create a new theme',
-    default: false
+  fonts: _command.flags.string({
+    description: 'Path to the folder with font files (searched for @font-face generation)',
+    default: (0, _path.join)(__dirname, 'fonts')
   }),
   addLegacyBridge: _command.flags.boolean({
-    description: 'Add legacy bridge',
+    description: 'Add legacy bridge and distribute base variables',
+    default: false
+  }),
+  clean: _command.flags.boolean({
+    description: 'Clean the export directory before generation',
     default: false
   })
 };

@@ -1,528 +1,645 @@
-// запуск бабеля для проверке в dev
-// yarn babel src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.ts --out-file src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js --watch
-// запуск скрипта в dev
-// node ./src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js --path=./src/ci/ciFigmaThemeTransform/__mocks__/figmaExport --output=./src/ci/ciFigmaThemeTransform/__mocks__/cssExport
-// запуск скрипта в prod
-// node @consta/theme/ci/ciFigmaThemeTransform --path=./bla/bla --output=./bla/bla
+// Генератор CSS-тем из Design Tokens (DTCG 2025.10), выгруженных из Figma.
+//
+// Запуск в dev (babel компилирует .ts -> .js):
+//   yarn theme:generate
+// или вручную:
+//   yarn babel src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.ts --out-file src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js
+//   node ./src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js --path=./src/ci/ciFigmaThemeTransform/__mocks__/figmaExport --output=./src/theme --addLegacyBridge
+//
+// Флаг --addLegacyBridge:
+//   * раскидывает переменные модификатора base по файлам других модификаторов
+//     (ориентир — ключ сразу после "base": --base-border-* -> Theme_border_*.css);
+//   * не создаёт файл модификатора base;
+//   * добавляет мосты совместимости из папки --bridges в файлы своих модификаторов.
+//
+// Флаг --bridges=<path>: путь к папке с CSS-файлами мостов (<modifier>.css).
+// Файл моста добавляется в тему, если существует, например color.css ->
+// Theme_color_*.css. По умолчанию используется папка __mocks__/cssBridges.
+//
+// Флаг --clean: полностью очищает папку экспорта перед генерацией,
+// чтобы удалить устаревшие файлы прошлых запусков.
+//
+// Принцип разбиения на файлы:
+//   Первый сегмент пути — модификатор темы, последний сегмент — значение модификатора.
+//   На каждую пару «модификатор + значение» создаётся отдельный CSS-файл.
+//
+//   Примеры:
+//     base.border.width.1.default      -> Theme_base_default.css,  переменная --base-border-width-1
+//     color.control.border.focus.light -> Theme_color_light.css,   переменная --color-control-border-focus
+//
+// Поддерживаемые типы:
+//   color        { colorSpace, components, alpha, hex }        -> каналы -l/-c/-h/-a + oklch(var(-l) var(-c) var(-h) / var(-a))
+//   dimension    { value, unit }                               -> "1px"
+//   duration     { value, unit }                               -> "500ms"
+//   cubicBezier  [a, b, c, d]                                  -> cubic-bezier(a, b, c, d)
+//   fontFamily   ["Inter", "-apple-system", ...]               -> "Inter", -apple-system, ...
+//   string                                                      -> строка как есть
+//   number / fontWeight                                         -> число
+//
+// Любой тип может иметь значение-ссылку на другую переменную вида "{a.b.c}":
+//   {base.border.width.1} -> var(--base-border-width-1)
 
 import { Command, flags } from '@oclif/command';
 import {
+  copy,
   ensureDir,
+  lstat,
   pathExists,
   readdir,
+  readFile,
   readJSON,
   remove,
   writeFile,
 } from 'fs-extra';
-import logSymbols from 'log-symbols';
 import { join } from 'path';
 
-import {
-  CiFlags,
-  Collection,
-  ThemeJs,
-  ValueAlias,
-  ValueByMode,
-  Variable,
-} from './types';
+import { DownloadedGoogleFont, downloadGoogleFont } from './googleFonts';
 
-const parseVarName = (name: string) => {
-  return `--${name.split('/').join('-')}`;
+export type ThemeJs = Record<string, Record<string, string>>;
+
+const REFERENCE_REGEX = /^\{(.+)\}$/;
+
+const toVarName = (path: string[]) => `--${path.join('-')}`;
+
+const parseVarName = (path: string[]) => `--${path.slice(0, -1).join('-')}`;
+
+const getFileName = (modifier: string, valueModifier: string) =>
+  `Theme_${modifier}_${valueModifier}`;
+
+/**
+ * Возвращает путь ссылки "{a.b.c}" в виде "a.b.c" или null, если это не ссылка.
+ */
+const getReferencePath = (value: any): string | null => {
+  if (typeof value !== 'string') {
+    return null;
+  }
+  const match = REFERENCE_REGEX.exec(value.trim());
+  return match ? match[1] : null;
+};
+
+const quoteFontFamily = (font: string) => {
+  // Имена с пробелами в font-family нужно брать в кавычки.
+  if (/\s/.test(font)) {
+    return `"${font}"`;
+  }
+  return font;
 };
 
 /**
- * Записывает в themeJs CSS-переменные для цвета с разложением на каналы.
- * Ключи каналов (r, g, b, a) берутся динамически из объекта value.
- * Создаёт переменные для каждого канала и основную переменную с var() ссылками.
+ * Переменная считается «семейством шрифтов», если в её имени встречаются
+ * и признак "typo", и признак "family". Примеры:
+ *   --base-typo-family-primary, --typo-global-family-body и т.п.
  */
+const isTypoFamilyVar = (varName: string) =>
+  varName.includes('typo') && varName.includes('family');
 
+/**
+ * Достаёт первое имя семейства из значения font-family.
+ * "Inter, -apple-system, ..." -> "Inter".
+ * Ссылки вида "var(--…)" не являются литеральным списком — возвращаем null.
+ */
+const getFirstFontFamily = (value: string): string | null => {
+  const trimmed = value.trim();
+  if (!trimmed || trimmed.startsWith('var(')) {
+    return null;
+  }
+  const first = trimmed.split(',')[0].trim();
+  if (!first) {
+    return null;
+  }
+  return first.replace(/^["']|["']$/g, '');
+};
+
+// Поддерживаемые расширения шрифтов и соответствующие им CSS-форматы.
+const FONT_FORMATS: Record<string, string> = {
+  woff2: 'woff2',
+  woff: 'woff',
+  ttf: 'truetype',
+  otf: 'opentype',
+};
+
+type FontFile = { name: string; sourcePath: string };
+
+const FONT_FILE_REGEX = /^(.+)-(\d+)\.(woff2|woff|ttf|otf)$/i;
+
+/**
+ * Рекурсивно ищет файлы шрифтов указанного семейства в папке fonts
+ * и группирует их по весу. Имя файла вида "<Family>-<weight>.<ext>".
+ * Поиск ведётся рекурсивно, поэтому шрифты могут лежать как прямо в папке,
+ * так и в подпапке с именем семейства (например fonts/Inter/Inter-100.woff2).
+ */
+const collectFontFiles = async (
+  fontsPath: string,
+  family: string,
+): Promise<Map<number, FontFile[]>> => {
+  const result = new Map<number, FontFile[]>();
+
+  if (!fontsPath || !(await pathExists(fontsPath))) {
+    return result;
+  }
+
+  const walk = async (dir: string): Promise<void> => {
+    const entries = await readdir(dir);
+    const tasks = entries.map(async (entry) => {
+      const fullPath = join(dir, entry);
+      const stat = await lstat(fullPath);
+      if (stat.isDirectory()) {
+        await walk(fullPath);
+        return;
+      }
+      const match = FONT_FILE_REGEX.exec(entry);
+      if (match && match[1] === family) {
+        const weight = Number(match[2]);
+        if (!result.has(weight)) {
+          result.set(weight, []);
+        }
+        result.get(weight)!.push({ name: entry, sourcePath: fullPath });
+      }
+    });
+    await Promise.all(tasks);
+  };
+
+  await walk(fontsPath);
+  return result;
+};
+
+/**
+ * Формирует блок @font-face для одного начертания:
+ *   @font-face {
+ *     font-family: Inter;
+ *     src:
+ *       url('Inter-100.woff2') format('woff2'),
+ *       url('Inter-100.woff') format('woff');
+ *     font-weight: 100;
+ *     font-style: normal;
+ *   }
+ * Более современные форматы (woff2) идут первыми.
+ */
+const buildFontFace = (
+  family: string,
+  weight: number,
+  files: FontFile[],
+): string => {
+  const sorted = [...files].sort((a, b) => {
+    const extA = a.name.split('.').pop()!.toLowerCase();
+    const extB = b.name.split('.').pop()!.toLowerCase();
+    if (extA === extB) {
+      return 0;
+    }
+    return extA === 'woff2' ? -1 : 1;
+  });
+
+  const src = sorted
+    .map((file) => {
+      const ext = file.name.split('.').pop()!.toLowerCase();
+      const format = FONT_FORMATS[ext] || ext;
+      return `    url('${file.name}') format('${format}')`;
+    })
+    .join(',\n');
+
+  return [
+    '@font-face {',
+    `  font-family: ${family};`,
+    `  src:\n${src};`,
+    `  font-weight: ${weight};`,
+    '  font-style: normal;',
+    '}',
+  ].join('\n');
+};
+
+/**
+ * Формирует блок @font-face для скачанной из Google Fonts грани.
+ * В отличие от локальных файлов, каждая грань соответствует одному подмножеству
+ * глифов (latin, cyrillic и т.д.) и содержит unicode-range, поэтому на одну пару
+ * «семейство + вес» может приходиться несколько блоков:
+ *   @font-face {
+ *     font-family: "Roboto Mono";
+ *     font-style: normal;
+ *     font-weight: 300;
+ *     src: url('Roboto-Mono-300-latin.woff2') format('woff2');
+ *     unicode-range: U+0000-00FF, ...;
+ *   }
+ */
+const buildSubsetFontFace = (
+  family: string,
+  font: DownloadedGoogleFont,
+): string => {
+  const lines = [
+    '@font-face {',
+    `  font-family: ${quoteFontFamily(family)};`,
+    `  font-style: ${font.style};`,
+    `  font-weight: ${font.weight};`,
+    `  src: url('${font.fileName}') format('woff2');`,
+  ];
+  if (font.unicodeRange) {
+    lines.push(`  unicode-range: ${font.unicodeRange};`);
+  }
+  lines.push('}');
+  return lines.join('\n');
+};
+
+/**
+ * Преобразует значение токена в CSS-значение.
+ * Ссылки вида "{a.b.c}" превращаются в var(--a-b-c).
+ */
+const resolveValue = ($type: string, $value: any): string => {
+  // Строка: либо ссылка на другую переменную, либо литеральное значение.
+  if (typeof $value === 'string') {
+    const match = REFERENCE_REGEX.exec($value.trim());
+    if (match) {
+      return `var(--${match[1].split('.').join('-')})`;
+    }
+    return $value;
+  }
+
+  // Число (number, fontWeight, а также raw-значения без единиц).
+  if (typeof $value === 'number') {
+    return `${$value}`;
+  }
+
+  // Массив: cubic-bezier или font-family.
+  if (Array.isArray($value)) {
+    if ($type === 'cubicBezier') {
+      return `cubic-bezier(${$value.join(',')})`;
+    }
+    if ($type === 'fontFamily') {
+      return $value.map(quoteFontFamily).join(', ');
+    }
+    return $value.join(', ');
+  }
+
+  if ($value && typeof $value === 'object') {
+    // Цвет (color): { colorSpace, components, alpha, hex }.
+    // Сохраняем в oklch(), всегда указывая альфа-канал.
+    if (Array.isArray($value.components)) {
+      const [lightness, chroma, hue] = $value.components;
+      const alpha = $value.alpha !== undefined ? $value.alpha : 1;
+      return `oklch(${lightness} ${chroma} ${hue} / ${alpha})`;
+    }
+    if (typeof $value.hex === 'string') {
+      return $value.hex;
+    }
+
+    // Размерность и длительность (dimension / duration): { value, unit }.
+    if ($value.value !== undefined) {
+      const unit = $value.unit || '';
+      return `${$value.value}${unit}`;
+    }
+  }
+
+  return `${$value}`;
+};
+
+/**
+ * Раскладывает цвет на CSS-переменные каналов -l/-c/-h/-a и собирает итоговую
+ * переменную в oklch(). Если значение — ссылка на другую переменную {a.b.c},
+ * каналы тоже ссылаются на каналы целевой переменной (…-l/-c/-h/-a).
+ */
 const setColorCssVariables = (
   themeJs: ThemeJs,
   fileName: string,
   varName: string,
-  value: ValueByMode<'COLOR'>,
+  $value: any,
 ) => {
-  const keys = Object.keys(value);
-  // const colorScheme = keys.join('');
-  // console.log(colorScheme);
-  keys.forEach((key) => {
-    themeJs[fileName][`${varName}-${key}`] = `${
-      value[key as keyof typeof value]
-    }`;
-  });
-  themeJs[fileName][varName] = `${keys.join('')}(var(${keys
-    .map((key) => `${varName}-${key}`)
-    .join('), var(')}))`;
-};
+  const referencePath = getReferencePath($value);
 
-const parseVarValueString = (value: ValueByMode<'STRING'>) => {
-  return `${value}`;
-};
+  let lightness: string;
+  let chroma: string;
+  let hue: string;
+  let alpha: string;
 
-const parseVarValueFloat = (value: ValueByMode<'FLOAT'>) => {
-  return `${value}px`;
-};
+  if (referencePath) {
+    const targetVar = toVarName(referencePath.split('.'));
+    lightness = `var(${targetVar}-l)`;
+    chroma = `var(${targetVar}-c)`;
+    hue = `var(${targetVar}-h)`;
+    alpha = `var(${targetVar}-a)`;
+  } else if (
+    $value &&
+    typeof $value === 'object' &&
+    Array.isArray($value.components)
+  ) {
+    lightness = `${$value.components[0]}`;
+    chroma = `${$value.components[1]}`;
+    hue = `${$value.components[2]}`;
+    alpha = `${$value.alpha !== undefined ? $value.alpha : 1}`;
+  } else {
+    // Нестандартный цвет — fallback через общий резолвер.
+    themeJs[fileName][varName] = resolveValue('color', $value);
+    return;
+  }
 
-const isVarAlias = (value: ValueByMode<any>) => {
-  return (value as ValueAlias).type === 'VARIABLE_ALIAS';
-};
-
-const isVarColor = (
-  value: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
-): value is Variable<'COLOR'> => {
-  return value.type === 'COLOR';
-};
-
-const isVarString = (
-  value: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
-): value is Variable<'STRING'> => {
-  return value.type === 'STRING';
-};
-
-const isVarFloat = (
-  value: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
-): value is Variable<'FLOAT'> => {
-  return value.type === 'FLOAT';
-};
-
-const getFileName = (
-  variable: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
-  themeName: string,
-  modeName: string,
-) => {
-  const formattedThemeName = themeName.replaceAll(' ', '');
-  const formattedModeName = `_${variable.name.split('/')[0]}_${modeName}`
-    .replaceAll(' ', '')
-    .toLocaleLowerCase();
-
-  return `${formattedThemeName}${formattedModeName}`;
+  themeJs[fileName][`${varName}-l`] = lightness;
+  themeJs[fileName][`${varName}-c`] = chroma;
+  themeJs[fileName][`${varName}-h`] = hue;
+  themeJs[fileName][`${varName}-a`] = alpha;
+  themeJs[fileName][
+    varName
+  ] = `oklch(var(${varName}-l) var(${varName}-c) var(${varName}-h) / var(${varName}-a))`;
 };
 
 /**
- * Строит словарь id → resolvedValue из primitives.json.
- * Использует поле resolvedValuesByMode, которое уже содержит финальные значения.
+ * Рекурсивно обходит дерево токенов. Токеном считается узел с ключом "$type".
+ * Первый сегмент пути — модификатор темы, последний — значение модификатора.
  */
-const buildPrimitivesResolvedValues = async (
-  flags: CiFlags,
-): Promise<
-  Record<string, { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }>
-> => {
-  const data: Collection = await readJSON(join(flags.path, 'primitives.json'));
-  const resolved: Record<
-    string,
-    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
-  > = {};
+const collectTokens = (node: any, path: string[], themeJs: ThemeJs) => {
+  if (node && typeof node === 'object') {
+    if ('$type' in node) {
+      const modifier = path[0];
+      const valueModifier = path[path.length - 1];
+      const fileName = getFileName(modifier, valueModifier);
+      const varName = parseVarName(path);
 
-  data.variables.forEach((variable) => {
-    const variableAny = variable as any;
-    const resolvedVBM = variableAny.resolvedValuesByMode as
-      | Record<
-          string,
-          { resolvedValue: any; alias: string | null; aliasName?: string }
-        >
-      | undefined;
-    const modeKeys = Object.keys(resolvedVBM || {});
-    if (modeKeys.length > 0) {
-      const modeKey = modeKeys[0];
-      const resolvedEntry = resolvedVBM?.[modeKey];
-      if (resolvedEntry && resolvedEntry.resolvedValue !== undefined) {
-        resolved[variable.id] = {
-          type: variable.type,
-          value: resolvedEntry.resolvedValue,
-        };
-      }
-    }
-  });
-
-  return resolved;
-};
-
-/**
- * Строит словарь ref-переменных из semantic.json.
- * Ref-переменные имеют ID вида VariableID:99:* и ссылаются на base-переменные из primitives.
- */
-const buildRefVariablesMap = async (
-  flags: CiFlags,
-): Promise<
-  Record<
-    string,
-    {
-      type: 'COLOR' | 'STRING' | 'FLOAT';
-      valuesByMode: Record<string, ValueByMode<any>>;
-    }
-  >
-> => {
-  const data: Collection = await readJSON(join(flags.path, 'semantic.json'));
-  const refVars: Record<
-    string,
-    {
-      type: 'COLOR' | 'STRING' | 'FLOAT';
-      valuesByMode: Record<string, ValueByMode<any>>;
-    }
-  > = {};
-
-  data.variables.forEach((variable) => {
-    // Ref-переменные имеют ID вида VariableID:99:*
-
-    refVars[variable.id] = {
-      type: variable.type,
-      valuesByMode: variable.valuesByMode,
-    };
-  });
-
-  return refVars;
-};
-
-/**
- * Резолвит raw-значение цвета для COLOR-переменной через цепочку алисов.
- * Возвращает ValueByMode<'COLOR'> с каналами {r, g, b, a}.
- */
-const resolveRawColorValue = (
-  modeValue: ValueByMode<any>,
-  modeId: string,
-  refVars: Record<
-    string,
-    {
-      type: 'COLOR' | 'STRING' | 'FLOAT';
-      valuesByMode: Record<string, ValueByMode<any>>;
-    }
-  >,
-  primitivesResolvedValues: Record<
-    string,
-    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
-  >,
-): ValueByMode<'COLOR'> | null => {
-  if (!isVarAlias(modeValue)) {
-    return null;
-  }
-
-  const alias = modeValue as ValueAlias;
-
-  // Шаг 1: ищем ref-переменную по ID алиаса
-  const refVar = refVars[alias.id];
-  if (!refVar) {
-    // Если ref не найден, пробуем сразу искать в primitives
-    const resolved = primitivesResolvedValues[alias.id];
-    if (resolved && resolved.type === 'COLOR') {
-      return resolved.value as ValueByMode<'COLOR'>;
-    }
-    return null;
-  }
-
-  // Шаг 2: берём значение ref-переменной для того же modeId
-  const refModeValue = refVar.valuesByMode[modeId];
-  if (!refModeValue) {
-    return null;
-  }
-
-  // Шаг 3: если ref ссылается на другой алиас — резолвим его из primitives
-  if (isVarAlias(refModeValue)) {
-    const refAlias = refModeValue as ValueAlias;
-    const resolved = primitivesResolvedValues[refAlias.id];
-    if (resolved && resolved.type === 'COLOR') {
-      return resolved.value as ValueByMode<'COLOR'>;
-    }
-    return null;
-  }
-
-  // Шаг 4: если ref имеет прямое значение цвета — возвращаем его
-  return refModeValue as ValueByMode<'COLOR'>;
-};
-
-const parseVar = (
-  flags: CiFlags,
-  variable: Variable<'COLOR' | 'STRING' | 'FLOAT'>,
-  data: Collection,
-  themeJs: ThemeJs,
-  themeName: string,
-  refVars: Record<
-    string,
-    {
-      type: 'COLOR' | 'STRING' | 'FLOAT';
-      valuesByMode: Record<string, ValueByMode<any>>;
-    }
-  >,
-  primitivesResolvedValues: Record<
-    string,
-    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
-  >,
-) => {
-  const keys = Object.keys(variable.valuesByMode);
-
-  keys.forEach((modeId) => {
-    const modeName = flags.name + data.modes[modeId];
-
-    console.log(modeName);
-
-    const fileName = getFileName(variable, themeName, modeName);
-
-    if (themeJs[fileName] === undefined) {
-      themeJs[fileName] = {};
-    }
-
-    const modeValue = variable.valuesByMode[modeId];
-    const varName = parseVarName(variable.name);
-
-    // Для COLOR-переменных — разложение на каналы
-    if (isVarColor(variable)) {
-      // Пытаемся получить raw-значение цвета через цепочку алисов
-      const rawColor = resolveRawColorValue(
-        modeValue,
-        modeId,
-        refVars,
-        primitivesResolvedValues,
-      );
-
-      if (rawColor) {
-        setColorCssVariables(themeJs, fileName, varName, rawColor);
-        return;
+      if (!themeJs[fileName]) {
+        themeJs[fileName] = {};
       }
 
-      // Если не алиас — парсим прямое значение цвета
-      setColorCssVariables(
-        themeJs,
-        fileName,
-        varName,
-        modeValue as ValueByMode<'COLOR'>,
-      );
+      if (node.$type === 'color') {
+        setColorCssVariables(themeJs, fileName, varName, node.$value);
+      } else {
+        themeJs[fileName][varName] = resolveValue(node.$type, node.$value);
+      }
       return;
     }
 
-    // Для STRING и FLOAT — используем старую логику
-    if (isVarString(variable)) {
-      themeJs[fileName][varName] = parseVarValueString(
-        modeValue as ValueByMode<'STRING'>,
-      );
+    Object.keys(node).forEach((key) => {
+      collectTokens(node[key], [...path, key], themeJs);
+    });
+  }
+};
+
+/**
+ * Достаёт имя модификатора из имени файла темы.
+ * "Theme_color_light" -> "color".
+ */
+const getModifier = (fileName: string) =>
+  fileName.replace(/^Theme_/, '').replace(/_[^_]+$/, '');
+
+/**
+ * Читает CSS-файл моста совместимости для модификатора из папки bridges.
+ * Файл должен называться "<modifier>.css" и содержать объявления вида:
+ *   --color-bg-default: var(--color-global-surface-view-default-primary);
+ * Возвращает словарь объявлений или null, если файла нет / путь не задан.
+ */
+const readBridgeFile = async (
+  bridgesPath: string | undefined,
+  modifier: string,
+): Promise<Record<string, string> | null> => {
+  if (!bridgesPath) {
+    return null;
+  }
+
+  const bridgeFile = join(bridgesPath, `${modifier}.css`);
+
+  if (!(await pathExists(bridgeFile))) {
+    return null;
+  }
+
+  const content = await readFile(bridgeFile, 'utf8');
+  const declarations: Record<string, string> = {};
+
+  // Извлекаем все объявления вида "--name: value;" независимо от обёртки
+  // (:root { … }), комментариев и переносов строк.
+  const declarationRegex = /(--[\w-]+)\s*:\s*([^;]+);/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = declarationRegex.exec(content)) !== null) {
+    const value = match[2].trim();
+    if (value) {
+      declarations[match[1]] = value;
+    }
+  }
+
+  return declarations;
+};
+
+/**
+ * Раскидывает переменные модификатора base по файлам других модификаторов.
+ * Ориентир — ключ сразу после "base": --base-border-* -> Theme_border_*.css,
+ * --base-color-* -> Theme_color_*.css и т.д. Сам файл Theme_base_*.css в этом
+ * режиме не создаётся — он удаляется вызывающим кодом после распределения.
+ */
+const distributeBaseVars = (themeJs: ThemeJs) => {
+  const files = Object.keys(themeJs);
+  const baseFile = files.find((f) => f.startsWith('Theme_base_'));
+
+  if (!baseFile) {
+    return;
+  }
+
+  const prefix = '--base-';
+
+  Object.keys(themeJs[baseFile]).forEach((varName) => {
+    if (!varName.startsWith(prefix)) {
       return;
     }
-    if (isVarFloat(variable)) {
-      themeJs[fileName][varName] = parseVarValueFloat(
-        modeValue as ValueByMode<'FLOAT'>,
-      );
-    }
+
+    const rest = varName.slice(prefix.length);
+    const group = rest.split('-')[0];
+
+    files
+      .filter(
+        (fileName) =>
+          fileName !== baseFile && fileName.startsWith(`Theme_${group}_`),
+      )
+      .forEach((fileName) => {
+        themeJs[fileName][varName] = themeJs[baseFile][varName];
+      });
   });
 };
 
-const parseFile = async (
-  flags: CiFlags,
-  file: string,
-  themeJs: ThemeJs,
-  refVars: Record<
-    string,
-    {
-      type: 'COLOR' | 'STRING' | 'FLOAT';
-      valuesByMode: Record<string, ValueByMode<any>>;
-    }
-  >,
-  primitivesResolvedValues: Record<
-    string,
-    { type: 'COLOR' | 'STRING' | 'FLOAT'; value: any }
-  >,
-) => {
-  const data: Collection = await readJSON(join(flags.path, file));
-
-  data.variables.forEach((variable) => {
-    // Если переменная — находится мосте ref, то пропускаем ее
-    if (variable.name.includes('/ref/')) {
-      return;
-    }
-    parseVar(
-      flags,
-      variable,
-      data,
-      themeJs,
-      'Theme',
-      refVars,
-      primitivesResolvedValues,
-    );
-  });
-
-  return themeJs;
-};
-
-const ObjectToCss = (obj: Record<string, string>, name: string) => {
-  return (
-    `.${name}` +
-    `{` +
-    `\n${Object.keys(obj)
-      .map((key) => `${key}: ${obj[key]};`)
-      .join('\n')}\n` +
-    `}`
-  );
-};
-
-const legacyBridge: Record<string, Record<string, string>> = {
-  color: {
-    '--color-bg-default': 'var(--color-global-surface-view-default-primary)',
-    '--color-bg-secondary':
-      'var(--color-global-surface-view-default-secondary)',
-    '--color-bg-brand': 'var(--color-global-surface-view-default-accent)',
-    '--color-bg-link': 'var(--color-control-surface-view-default-primary)',
-    '--color-bg-border': 'var(--color-global-border-view-default-primary)',
-    '--color-bg-stripe': 'var(--color-global-surface-special-stripe)',
-    '--color-bg-ghost': 'var(--color-global-surface-special-soft)',
-    '--color-bg-tone': 'var(--color-global-surface-special-tone)',
-    '--color-bg-soft': 'var(--color-global-surface-special-soft)',
-    '--color-bg-system': 'var(--color-global-surface-status-neutral)',
-    '--color-bg-normal': 'var(--color-global-surface-status-normal)',
-    '--color-bg-success': 'var(--color-global-surface-status-success)',
-    '--color-bg-caution': 'var(--color-global-surface-status-warning)',
-    '--color-bg-warning': 'var(--color-global-surface-status-warning)',
-    '--color-bg-alert': 'var(--color-global-surface-status-alert)',
-    '--color-bg-critical': 'var(--color-global-surface-status-critical)',
-    '--color-typo-primary': 'var(--color-global-typo-view-default-primary)',
-    '--color-typo-secondary': 'var(--color-global-typo-view-default-secondary)',
-    '--color-typo-ghost': 'var(--color-global-typo-view-default-ghost)',
-    '--color-typo-brand': 'var(--color-global-typo-view-default-accent)',
-    '--color-typo-system': 'var(--color-global-typo-view-default-secondary)',
-    '--color-typo-normal': 'var(--color-global-typo-status-normal)',
-    '--color-typo-success': 'var(--color-global-typo-status-success)',
-    '--color-typo-caution': 'var(--color-global-typo-status-caution)',
-    '--color-typo-warning': 'var(--color-global-typo-status-warning)',
-    '--color-typo-alert': 'var(--color-global-typo-status-alert)',
-    '--color-typo-critical': 'var(--color-global-typo-status-critical)',
-    '--color-typo-link': 'var(--color-global-typo-view-default-accent)',
-    '--color-typo-link-minor':
-      'var(--color-global-typo-view-default-secondary)',
-    '--color-typo-link-hover': 'var(--color-global-typo-view-hover-accent)',
-    '--color-scroll-bg': 'var(--color-global-border-view-default-secondary)',
-    '--color-scroll-thumb': 'var(--color-global-border-view-default-primary)',
-    '--color-scroll-thumb-hover':
-      'var(--color-global-border-view-hover-primary)',
-    '--color-shadow-group-1': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-group-2': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-layer-1': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-layer-2': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-modal-1': 'var(--color-global-surface-special-shadow)',
-    '--color-shadow-modal-2': 'var(--color-global-surface-special-shadow)',
-    '--color-control-bg-default':
-      'var(--color-input-surface-view-default-primary)',
-    '--color-control-typo-default':
-      'var(--color-input-typo-view-default-primary)',
-    '--color-control-typo-placeholder':
-      'var(--color-input-typo-special-default-placeholder)',
-    '--color-control-bg-border-default':
-      'var(--color-input-border-view-default-primary)',
-    '--color-control-bg-border-default-hover':
-      'var(--color-input-border-view-hover-primary)',
-    '--color-control-bg-border-focus': 'var(--color-global-border-state-focus)',
-    '--color-control-bg-focus': 'var(--color-global-border-state-focus)',
-    '--color-control-bg-active':
-      'var(--color-global-border-state-active-primary)',
-    '--color-control-bg-primary':
-      'var(--color-control-surface-view-default-primary)',
-    '--color-control-bg-primary-hover':
-      'var(--color-control-surface-view-hover-primary)',
-    '--color-control-typo-primary':
-      'var(--color-control-typo-view-default-primary)',
-    '--color-control-typo-primary-hover':
-      'var(--color-control-typo-view-hover-primary)',
-    '--color-control-bg-secondary':
-      'var(--color-control-surface-view-default-secondary)',
-    '--color-control-bg-border-secondary':
-      'var(--color-control-border-view-default-secondary)',
-    '--color-control-bg-border-secondary-hover':
-      'var(--color-control-border-view-hover-secondary)',
-    '--color-control-typo-secondary':
-      'var(--color-control-typo-view-default-secondary)',
-    '--color-control-typo-secondary-hover':
-      'var(--color-control-typo-view-hover-secondary)',
-    '--color-control-bg-ghost':
-      'var(--color-control-surface-view-default-ghost)',
-    '--color-control-bg-ghost-hover':
-      'var(--color-control-surface-view-hover-ghost)',
-    '--color-control-typo-ghost':
-      'var(--color-control-typo-view-default-ghost)',
-    '--color-control-typo-ghost-hover':
-      'var(--color-control-typo-view-hover-ghost)',
-    '--color-control-bg-clear':
-      'var(--color-control-surface-view-default-clear)',
-    '--color-control-bg-clear-hover':
-      'var(--color-control-surface-view-hover-clear)',
-    '--color-control-typo-clear':
-      'var(--color-control-typo-view-default-clear)',
-    '--color-control-typo-clear-hover':
-      'var(--color-control-typo-view-hover-clear)',
-    '--color-control-bg-disable':
-      'var(--color-control-surface-view-disabled-ghost)',
-    '--color-control-bg-border-disable':
-      'var(--color-control-border-view-disabled-secondary)',
-    '--color-control-typo-disable':
-      'var(--color-control-typo-view-disabled-primary)',
-  },
-};
-
-const legacyBridgeKeys = Object.keys(legacyBridge);
+const ObjectToCss = (obj: Record<string, string>, name: string) =>
+  `.${name}{` +
+  `\n${Object.keys(obj)
+    .map((key) => `${key}: ${obj[key]};`)
+    .join('\n')}` +
+  `\n}`;
 
 class GenerateCommand extends Command {
   async run() {
     const hrStart = process.hrtime();
     const { flags } = this.parse<CiFlags, {}>(GenerateCommand as any);
 
-    this.log(logSymbols.info, `generating theme in ${flags.path} ...`);
+    this.log(`generating theme in ${flags.path} ...`);
 
     try {
-      const files = (await readdir(flags.path)).filter((file) =>
-        file.endsWith('.json'),
-      );
+      const data = await readJSON(join(flags.path, flags.file));
 
-      this.log(logSymbols.info, `detected files ${files.join(', ')} ...`);
-
-      // Загружаем resolved-значения из primitives.json для base-переменных
-      const primitivesResolvedValues = await buildPrimitivesResolvedValues(
-        flags,
-      );
-
-      // Загружаем ref-переменные из semantic.json
-      const refVars = await buildRefVariablesMap(flags);
-
-      // Находим semantic.json
-      const semanticFileName = files.find((f) => f.includes('semantic'));
-      if (!semanticFileName) {
-        this.error('semantic.json not found');
-        return;
-      }
+      this.log(`parsing ${flags.file} ...`);
 
       const themeJs: ThemeJs = {};
+      collectTokens(data, [], themeJs);
 
-      await parseFile(
-        flags,
-        semanticFileName,
-        themeJs,
-        refVars,
-        primitivesResolvedValues,
-      );
+      if (flags.addLegacyBridge) {
+        // Раскидываем base-переменные по файлам соответствующих модификаторов.
+        distributeBaseVars(themeJs);
+        // Файл модификатора base в этом режиме не создаём —
+        // его переменные уже попали в файлы своих групп.
+        Object.keys(themeJs)
+          .filter((fileName) => fileName.startsWith('Theme_base_'))
+          .forEach((fileName) => {
+            delete themeJs[fileName];
+          });
+      }
 
       const cssFiles = Object.keys(themeJs);
 
-      console.log(cssFiles);
+      this.log(`detected theme files: ${cssFiles.join(', ')}`);
 
       if (flags.addLegacyBridge) {
-        cssFiles.map((fileName) => {
-          legacyBridgeKeys.map((key) => {
-            if (fileName.includes(`_${key}_`)) {
-              themeJs[fileName] = {
-                ...themeJs[fileName],
-                ...legacyBridge[key],
-              };
+        // Добавляем мосты совместимости из файлов папки bridges
+        // (для каждого модификатора — если такой файл существует).
+        const modifiers = [...new Set(cssFiles.map(getModifier))];
+        await Promise.all(
+          modifiers.map(async (modifier) => {
+            const bridge = await readBridgeFile(flags.bridges, modifier);
+            if (!bridge) {
+              return;
+            }
+            cssFiles
+              .filter((fileName) => getModifier(fileName) === modifier)
+              .forEach((fileName) => {
+                themeJs[fileName] = {
+                  ...themeJs[fileName],
+                  ...bridge,
+                };
+              });
+          }),
+        );
+      }
+
+      // При необходимости полностью очищаем папку экспорта,
+      // чтобы удалить устаревшие файлы прошлых запусков.
+      const outputPathDir = join(flags.output);
+      await ensureDir(outputPathDir);
+
+      if (flags.clean) {
+        const existing = await readdir(outputPathDir);
+        await Promise.all(
+          existing.map(async (entry) => {
+            const entryPath = join(outputPathDir, entry);
+            if (await pathExists(entryPath)) {
+              await remove(entryPath);
+            }
+          }),
+        );
+      }
+
+      // Собираем @font-face для типографических файлов (модификатор "typo").
+      // Для переменных семейства шрифтов (в имени есть "typo" и "family")
+      // берём первое семейство из значения и ищем его файлы в папке fonts.
+      // Найденные шрифты копируются в папку результата.
+      const fontFacesByFile: Record<string, string> = {};
+      const copiedFonts = new Set<string>();
+
+      await Promise.all(
+        cssFiles.map(async (fileName) => {
+          if (getModifier(fileName) !== 'typo') {
+            return;
+          }
+          const declarations = themeJs[fileName];
+          const families = new Set<string>();
+
+          Object.keys(declarations).forEach((varName) => {
+            if (!isTypoFamilyVar(varName)) {
+              return;
+            }
+            const family = getFirstFontFamily(declarations[varName]);
+            if (family) {
+              families.add(family);
             }
           });
-        });
+
+          const familyList = [...families];
+          const blocksResults = await Promise.all(
+            familyList.map(async (family) => {
+              const faces: string[] = [];
+              const copyTasks: Array<Promise<void>> = [];
+
+              const filesByWeight = await collectFontFiles(flags.fonts, family);
+
+              if (filesByWeight.size === 0) {
+                // Локальных файлов шрифта нет — пробуем скачать из Google Fonts,
+                // сохранить в папку fonts (кэш) и использовать для @font-face.
+                let downloaded: DownloadedGoogleFont[] = [];
+                try {
+                  downloaded = await downloadGoogleFont(family, flags.fonts);
+                } catch (err) {
+                  this.log(
+                    `failed to download font "${family}" from Google Fonts: ${
+                      err instanceof Error ? err.message : err
+                    }`,
+                  );
+                }
+                downloaded.forEach((font) => {
+                  faces.push(buildSubsetFontFace(family, font));
+                  if (copiedFonts.has(font.fileName)) {
+                    return;
+                  }
+                  copiedFonts.add(font.fileName);
+                  copyTasks.push(
+                    copy(font.sourcePath, join(outputPathDir, font.fileName)),
+                  );
+                });
+                if (downloaded.length > 0) {
+                  this.log(`downloaded "${family}" from Google Fonts`);
+                }
+                await Promise.all(copyTasks);
+                return faces;
+              }
+
+              filesByWeight.forEach((files, weight) => {
+                faces.push(buildFontFace(family, weight, files));
+                files.forEach((file) => {
+                  if (copiedFonts.has(file.name)) {
+                    return;
+                  }
+                  copiedFonts.add(file.name);
+                  copyTasks.push(
+                    copy(file.sourcePath, join(outputPathDir, file.name)),
+                  );
+                });
+              });
+
+              await Promise.all(copyTasks);
+              return faces;
+            }),
+          );
+
+          const blocks: string[] = [];
+          blocksResults.forEach((faces) => {
+            blocks.push(...faces);
+          });
+
+          if (blocks.length > 0) {
+            fontFacesByFile[fileName] = blocks.join('\n\n');
+          }
+        }),
+      );
+
+      if (Object.keys(fontFacesByFile).length > 0) {
+        this.log(
+          `generated @font-face for: ${Object.keys(fontFacesByFile).join(
+            ', ',
+          )}`,
+        );
       }
 
       await Promise.all(
         cssFiles.map(async (fileName) => {
-          const outputPathDir = join(flags.output);
           const outputPathFile = join(outputPathDir, `${fileName}.css`);
-          await ensureDir(outputPathDir);
           if (await pathExists(outputPathFile)) {
             await remove(outputPathFile);
           }
 
-          await writeFile(
-            outputPathFile,
-            ObjectToCss(themeJs[fileName], fileName),
-          );
+          const css = fontFacesByFile[fileName]
+            ? `${fontFacesByFile[fileName]}\n\n${ObjectToCss(
+                themeJs[fileName],
+                fileName,
+              )}`
+            : ObjectToCss(themeJs[fileName], fileName);
+
+          await writeFile(outputPathFile, css);
         }),
       );
     } catch (err) {
@@ -531,7 +648,7 @@ class GenerateCommand extends Command {
 
     const hrEnd = process.hrtime(hrStart);
 
-    this.log(logSymbols.success, `${flags.path} is transformed!`);
+    this.log(`${flags.path} is transformed!`);
 
     this.log(`Execution time: ${hrEnd[0]}s`);
   }
@@ -542,22 +659,45 @@ GenerateCommand.flags = {
     description: 'The input path',
     default: undefined,
   }),
+  file: flags.string({
+    description: 'The input file name',
+    default: 'consta-neo.tokens.json',
+  }),
   output: flags.string({
     description: 'The output path',
-    default: 'src/themes',
+    default: 'src/theme',
   }),
-  name: flags.string({
-    description: 'Theme name',
-    default: 'app',
+  bridges: flags.string({
+    description: 'Path to the folder with CSS bridge files (<modifier>.css)',
+    // Путь указывается относительно файла скрипта (__dirname),
+    // чтобы не зависеть от директории запуска.
+    default: join(__dirname, '__mocks__', 'cssBridges'),
   }),
-  create: flags.boolean({
-    description: 'Create a new theme',
-    default: false,
+  fonts: flags.string({
+    description:
+      'Path to the folder with font files (searched for @font-face generation)',
+    // Папка шрифтов: по умолчанию <скрипт>/fonts. Внутри могут лежать как
+    // файлы напрямую, так и подпапки с именами семейств (fonts/Inter/...).
+    default: join(__dirname, 'fonts'),
   }),
   addLegacyBridge: flags.boolean({
-    description: 'Add legacy bridge',
+    description: 'Add legacy bridge and distribute base variables',
     default: false,
   }),
+  clean: flags.boolean({
+    description: 'Clean the export directory before generation',
+    default: false,
+  }),
+};
+
+type CiFlags = {
+  path: string;
+  file: string;
+  output: string;
+  bridges: string;
+  fonts: string;
+  addLegacyBridge: boolean;
+  clean: boolean;
 };
 
 GenerateCommand.run();

@@ -1,0 +1,24 @@
+.Theme_size_default{
+--size-control-height-l: var(--base-space-4xl);
+--size-control-height-m: var(--base-space-3xl);
+--size-control-height-s: var(--base-space-2xl);
+--size-control-height-xs: var(--base-space-xl);
+--size-control-icon-l: var(--base-space-xl);
+--size-control-icon-m: var(--base-space-l);
+--size-control-icon-s: var(--base-space-m);
+--size-control-icon-xs: var(--base-space-s);
+--size-control-indicator-l: var(--base-space-l);
+--size-control-indicator-m: var(--base-space-m);
+--size-control-indicator-s: var(--base-space-s);
+--size-global-badge: var(--base-size-xs);
+--size-global-slot: var(--base-size-s);
+--size-global-thumbnail: var(--base-size-l);
+--base-size-2xl: 60px;
+--base-size-3xl: 80px;
+--base-size-4xl: 120px;
+--base-size-l: 32px;
+--base-size-m: 24px;
+--base-size-s: 16px;
+--base-size-xl: 40px;
+--base-size-xs: 12px;
+}
