@@ -224,12 +224,18 @@ const buildSubsetFontFace = (
   family: string,
   font: DownloadedGoogleFont,
 ): string => {
+  // Более современные форматы (woff2) идут первыми, за ними — woff-fallback.
+  const sources = [`    url('${font.fileName}') format('woff2')`];
+  if (font.woffFileName) {
+    sources.push(`    url('${font.woffFileName}') format('woff')`);
+  }
+
   const lines = [
     '@font-face {',
     `  font-family: ${quoteFontFamily(family)};`,
     `  font-style: ${font.style};`,
     `  font-weight: ${font.weight};`,
-    `  src: url('${font.fileName}') format('woff2');`,
+    `  src:\n${sources.join(',\n')};`,
   ];
   if (font.unicodeRange) {
     lines.push(`  unicode-range: ${font.unicodeRange};`);
@@ -573,13 +579,23 @@ class GenerateCommand extends Command {
                 }
                 downloaded.forEach((font) => {
                   faces.push(buildSubsetFontFace(family, font));
-                  if (copiedFonts.has(font.fileName)) {
-                    return;
+                  const filesToCopy: Array<{
+                    name: string;
+                    sourcePath: string;
+                  }> = [{ name: font.fileName, sourcePath: font.sourcePath }];
+                  if (font.woffFileName && font.woffSourcePath) {
+                    filesToCopy.push({
+                      name: font.woffFileName,
+                      sourcePath: font.woffSourcePath,
+                    });
                   }
-                  copiedFonts.add(font.fileName);
-                  copyTasks.push(
-                    copy(font.sourcePath, join(outputPathDir, font.fileName)),
-                  );
+                  filesToCopy.forEach(({ name, sourcePath }) => {
+                    if (copiedFonts.has(name)) {
+                      return;
+                    }
+                    copiedFonts.add(name);
+                    copyTasks.push(copy(sourcePath, join(outputPathDir, name)));
+                  });
                 });
                 if (downloaded.length > 0) {
                   this.log(`downloaded "${family}" from Google Fonts`);

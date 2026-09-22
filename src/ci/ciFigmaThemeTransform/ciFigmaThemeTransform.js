@@ -92,7 +92,11 @@ const buildFontFace = (family, weight, files) => {
   return ['@font-face {', `  font-family: ${family};`, `  src:\n${src};`, `  font-weight: ${weight};`, '  font-style: normal;', '}'].join('\n');
 };
 const buildSubsetFontFace = (family, font) => {
-  const lines = ['@font-face {', `  font-family: ${quoteFontFamily(family)};`, `  font-style: ${font.style};`, `  font-weight: ${font.weight};`, `  src: url('${font.fileName}') format('woff2');`];
+  const sources = [`    url('${font.fileName}') format('woff2')`];
+  if (font.woffFileName) {
+    sources.push(`    url('${font.woffFileName}') format('woff')`);
+  }
+  const lines = ['@font-face {', `  font-family: ${quoteFontFamily(family)};`, `  font-style: ${font.style};`, `  font-weight: ${font.weight};`, `  src:\n${sources.join(',\n')};`];
   if (font.unicodeRange) {
     lines.push(`  unicode-range: ${font.unicodeRange};`);
   }
@@ -298,11 +302,26 @@ class GenerateCommand extends _command.Command {
             }
             downloaded.forEach(font => {
               faces.push(buildSubsetFontFace(family, font));
-              if (copiedFonts.has(font.fileName)) {
-                return;
+              const filesToCopy = [{
+                name: font.fileName,
+                sourcePath: font.sourcePath
+              }];
+              if (font.woffFileName && font.woffSourcePath) {
+                filesToCopy.push({
+                  name: font.woffFileName,
+                  sourcePath: font.woffSourcePath
+                });
               }
-              copiedFonts.add(font.fileName);
-              copyTasks.push((0, _fsExtra.copy)(font.sourcePath, (0, _path.join)(outputPathDir, font.fileName)));
+              filesToCopy.forEach(({
+                name,
+                sourcePath
+              }) => {
+                if (copiedFonts.has(name)) {
+                  return;
+                }
+                copiedFonts.add(name);
+                copyTasks.push((0, _fsExtra.copy)(sourcePath, (0, _path.join)(outputPathDir, name)));
+              });
             });
             if (downloaded.length > 0) {
               this.log(`downloaded "${family}" from Google Fonts`);
