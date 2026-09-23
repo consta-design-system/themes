@@ -289,24 +289,29 @@ class GenerateCommand extends _command.Command {
         }));
       }
       const fontFacesByFile = {};
-      const copiedFonts = new Set();
-      const fontOutputDir = (0, _path.join)(outputPathDir, '_typo');
-      await (0, _fsExtra.ensureDir)(fontOutputDir);
+      const globalVars = {};
+      Object.keys(themeJs).forEach(fileName => {
+        Object.assign(globalVars, themeJs[fileName]);
+      });
       await Promise.all(cssFiles.map(async fileName => {
-        if (getModifier(fileName) !== 'typo') {
-          return;
-        }
         const declarations = themeJs[fileName];
         const families = new Set();
         Object.keys(declarations).forEach(varName => {
           if (!isTypoFamilyVar(varName)) {
             return;
           }
-          const family = getFirstFontFamily(declarations[varName]);
+          const family = resolveFontFamily(declarations[varName], globalVars);
           if (family) {
             families.add(family);
           }
         });
+        if (families.size === 0) {
+          return;
+        }
+        const modifier = getModifier(fileName);
+        const fontOutputDir = (0, _path.join)(outputPathDir, `_${modifier}`);
+        await (0, _fsExtra.ensureDir)(fontOutputDir);
+        const copiedFonts = new Set();
         const familyList = [...families];
         const blocksResults = await Promise.all(familyList.map(async family => {
           const faces = [];

@@ -561,21 +561,22 @@ class GenerateCommand extends Command {
         );
       }
 
-      // Собираем @font-face для типографических файлов (модификатор "typo").
-      // Для переменных семейства шрифтов (в имени есть "typo" и "family")
-      // берём первое семейство из значения и ищем его файлы в папке fonts.
-      // Найденные шрифты копируются в подпапку модификатора, где они
-      // используются (src/theme/_typo/...).
+      // Собираем @font-face для всех модификаторов, где объявлены переменные
+      // семейства шрифтов (в имени переменной есть и "typo", и "family").
+      // Шрифты копируются в подпапку того модификатора, где объявлена
+      // переменная, а блоки @font-face добавляются в начало CSS этого файла.
       const fontFacesByFile: Record<string, string> = {};
-      const copiedFonts = new Set<string>();
-      const fontOutputDir = join(outputPathDir, '_typo');
-      await ensureDir(fontOutputDir);
+
+      // Глобальный словарь всех переменных тем — нужен для разворачивания
+      // ссылок вида var(--base-typo-family-primary) в литеральные списки
+      // семейств при определении имени семейства шрифта.
+      const globalVars: Record<string, string> = {};
+      Object.keys(themeJs).forEach((fileName) => {
+        Object.assign(globalVars, themeJs[fileName]);
+      });
 
       await Promise.all(
         cssFiles.map(async (fileName) => {
-          if (getModifier(fileName) !== 'typo') {
-            return;
-          }
           const declarations = themeJs[fileName];
           const families = new Set<string>();
 
@@ -583,11 +584,22 @@ class GenerateCommand extends Command {
             if (!isTypoFamilyVar(varName)) {
               return;
             }
-            const family = getFirstFontFamily(declarations[varName]);
+            const family = resolveFontFamily(declarations[varName], globalVars);
             if (family) {
               families.add(family);
             }
           });
+
+          if (families.size === 0) {
+            return;
+          }
+
+          // Шрифты модификатора кладём в его собственную подпапку экспорта,
+          // рядом с CSS-файлом, который на них ссылается.
+          const modifier = getModifier(fileName);
+          const fontOutputDir = join(outputPathDir, `_${modifier}`);
+          await ensureDir(fontOutputDir);
+          const copiedFonts = new Set<string>();
 
           const familyList = [...families];
           const blocksResults = await Promise.all(
