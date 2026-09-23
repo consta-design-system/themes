@@ -110,6 +110,36 @@ const getFirstFontFamily = (value: string): string | null => {
   return first.replace(/^["']|["']$/g, '');
 };
 
+/**
+ * По значению переменной семейства шрифтов возвращает имя первого семейства.
+ * Значение может быть прямым списком ("Inter, -apple-system, ...") либо ссылкой
+ * вида "var(--base-typo-family-primary)" на другую переменную темы. Ссылки
+ * разворачиваются через глобальный словарь переменных до тех пор, пока не будет
+ * встречен литеральный список. Циклы и висячие ссылки приводят к null.
+ */
+const resolveFontFamily = (
+  value: string,
+  globalVars: Record<string, string>,
+): string | null => {
+  let current = value.trim();
+  const seen = new Set<string>();
+
+  while (current.startsWith('var(')) {
+    const match = /^var\((--[\w-]+)\)$/.exec(current);
+    if (!match || seen.has(match[1])) {
+      return null;
+    }
+    seen.add(match[1]);
+    const next = globalVars[match[1]];
+    if (next === undefined) {
+      return null;
+    }
+    current = next.trim();
+  }
+
+  return getFirstFontFamily(current);
+};
+
 // Поддерживаемые расширения шрифтов и соответствующие им CSS-форматы.
 const FONT_FORMATS: Record<string, string> = {
   woff2: 'woff2',
@@ -534,9 +564,12 @@ class GenerateCommand extends Command {
       // Собираем @font-face для типографических файлов (модификатор "typo").
       // Для переменных семейства шрифтов (в имени есть "typo" и "family")
       // берём первое семейство из значения и ищем его файлы в папке fonts.
-      // Найденные шрифты копируются в папку результата.
+      // Найденные шрифты копируются в подпапку модификатора, где они
+      // используются (src/theme/_typo/...).
       const fontFacesByFile: Record<string, string> = {};
       const copiedFonts = new Set<string>();
+      const fontOutputDir = join(outputPathDir, '_typo');
+      await ensureDir(fontOutputDir);
 
       await Promise.all(
         cssFiles.map(async (fileName) => {
@@ -594,7 +627,7 @@ class GenerateCommand extends Command {
                       return;
                     }
                     copiedFonts.add(name);
-                    copyTasks.push(copy(sourcePath, join(outputPathDir, name)));
+                    copyTasks.push(copy(sourcePath, join(fontOutputDir, name)));
                   });
                 });
                 if (downloaded.length > 0) {
@@ -612,7 +645,7 @@ class GenerateCommand extends Command {
                   }
                   copiedFonts.add(file.name);
                   copyTasks.push(
-                    copy(file.sourcePath, join(outputPathDir, file.name)),
+                    copy(file.sourcePath, join(fontOutputDir, file.name)),
                   );
                 });
               });
@@ -643,7 +676,12 @@ class GenerateCommand extends Command {
 
       await Promise.all(
         cssFiles.map(async (fileName) => {
-          const outputPathFile = join(outputPathDir, `${fileName}.css`);
+          // Раскладываем выходные CSS по подпапкам модификаторов:
+          // Theme_color_light.css -> _color/Theme_color_light.css.
+          const modifierDir = join(outputPathDir, `_${getModifier(fileName)}`);
+          await ensureDir(modifierDir);
+
+          const outputPathFile = join(modifierDir, `${fileName}.css`);
           if (await pathExists(outputPathFile)) {
             await remove(outputPathFile);
           }
@@ -687,7 +725,7 @@ GenerateCommand.flags = {
     description: 'Path to the folder with CSS bridge files (<modifier>.css)',
     // Путь указывается относительно файла скрипта (__dirname),
     // чтобы не зависеть от директории запуска.
-    default: join(__dirname, '__mocks__', 'cssBridges'),
+    default: join(__dirname, 'cssBridges'),
   }),
   fonts: flags.string({
     description:

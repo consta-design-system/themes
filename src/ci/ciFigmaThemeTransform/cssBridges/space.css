@@ -1,0 +1,21 @@
+/* Мост совместимости для модификатора space.
+   Старые CSS-переменные ссылаются на новые из этого модификатора.
+   Файл подключается генератором автоматически, если существует.
+
+   Исходник: Theme_space_gpnDefault.css (@consta/uikit 5.33.3).
+   Старая шкала --space-* — примитив, а не семантика, поэтому мост ведёт
+   на примитивный слой --base-space-*. Значения совпадают 1:1. */
+:root {
+  --space-3xs: var(--base-space-3xs);
+  --space-2xs: var(--base-space-2xs);
+  --space-xs: var(--base-space-xs);
+  --space-s: var(--base-space-s);
+  --space-m: var(--base-space-m);
+  --space-l: var(--base-space-l);
+  --space-xl: var(--base-space-xl);
+  --space-2xl: var(--base-space-2xl);
+  --space-3xl: var(--base-space-3xl);
+  --space-4xl: var(--base-space-4xl);
+  --space-5xl: var(--base-space-5xl);
+  --space-6xl: var(--base-space-6xl);
+}

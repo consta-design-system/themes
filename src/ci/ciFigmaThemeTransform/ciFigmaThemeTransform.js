@@ -37,6 +37,23 @@ const getFirstFontFamily = value => {
   }
   return first.replace(/^["']|["']$/g, '');
 };
+const resolveFontFamily = (value, globalVars) => {
+  let current = value.trim();
+  const seen = new Set();
+  while (current.startsWith('var(')) {
+    const match = /^var\((--[\w-]+)\)$/.exec(current);
+    if (!match || seen.has(match[1])) {
+      return null;
+    }
+    seen.add(match[1]);
+    const next = globalVars[match[1]];
+    if (next === undefined) {
+      return null;
+    }
+    current = next.trim();
+  }
+  return getFirstFontFamily(current);
+};
 const FONT_FORMATS = {
   woff2: 'woff2',
   woff: 'woff',
@@ -273,6 +290,8 @@ class GenerateCommand extends _command.Command {
       }
       const fontFacesByFile = {};
       const copiedFonts = new Set();
+      const fontOutputDir = (0, _path.join)(outputPathDir, '_typo');
+      await (0, _fsExtra.ensureDir)(fontOutputDir);
       await Promise.all(cssFiles.map(async fileName => {
         if (getModifier(fileName) !== 'typo') {
           return;
@@ -320,7 +339,7 @@ class GenerateCommand extends _command.Command {
                   return;
                 }
                 copiedFonts.add(name);
-                copyTasks.push((0, _fsExtra.copy)(sourcePath, (0, _path.join)(outputPathDir, name)));
+                copyTasks.push((0, _fsExtra.copy)(sourcePath, (0, _path.join)(fontOutputDir, name)));
               });
             });
             if (downloaded.length > 0) {
@@ -336,7 +355,7 @@ class GenerateCommand extends _command.Command {
                 return;
               }
               copiedFonts.add(file.name);
-              copyTasks.push((0, _fsExtra.copy)(file.sourcePath, (0, _path.join)(outputPathDir, file.name)));
+              copyTasks.push((0, _fsExtra.copy)(file.sourcePath, (0, _path.join)(fontOutputDir, file.name)));
             });
           });
           await Promise.all(copyTasks);
@@ -354,7 +373,9 @@ class GenerateCommand extends _command.Command {
         this.log(`generated @font-face for: ${Object.keys(fontFacesByFile).join(', ')}`);
       }
       await Promise.all(cssFiles.map(async fileName => {
-        const outputPathFile = (0, _path.join)(outputPathDir, `${fileName}.css`);
+        const modifierDir = (0, _path.join)(outputPathDir, `_${getModifier(fileName)}`);
+        await (0, _fsExtra.ensureDir)(modifierDir);
+        const outputPathFile = (0, _path.join)(modifierDir, `${fileName}.css`);
         if (await (0, _fsExtra.pathExists)(outputPathFile)) {
           await (0, _fsExtra.remove)(outputPathFile);
         }
@@ -384,7 +405,7 @@ GenerateCommand.flags = {
   }),
   bridges: _command.flags.string({
     description: 'Path to the folder with CSS bridge files (<modifier>.css)',
-    default: (0, _path.join)(__dirname, '__mocks__', 'cssBridges')
+    default: (0, _path.join)(__dirname, 'cssBridges')
   }),
   fonts: _command.flags.string({
     description: 'Path to the folder with font files (searched for @font-face generation)',
