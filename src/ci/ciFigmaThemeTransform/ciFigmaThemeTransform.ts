@@ -53,7 +53,10 @@ import {
 } from 'fs-extra';
 import { join } from 'path';
 
-import { DownloadedGoogleFont, downloadGoogleFont } from './googleFonts';
+import {
+  DownloadedGoogleFont,
+  downloadGoogleFont,
+} from '##/ci/ciFigmaThemeTransform/googleFonts';
 
 export type ThemeJs = Record<string, Record<string, string>>;
 
