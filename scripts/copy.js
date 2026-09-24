@@ -2,7 +2,6 @@ const { copy } = require('fs-extra');
 
 const { Command, flags } = require('@oclif/command');
 const logSymbols = require('log-symbols');
-const { remove } = require('fs-extra');
 
 class GenerateCommand extends Command {
   async safeInvokeHook(hook) {
