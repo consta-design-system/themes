@@ -22,7 +22,7 @@
 // Результат пишется в папку <fonts>/<Family>/, чтобы повторные запуски не ходили
 // в сеть (кэширование), а сам генератор копировал файлы в выходную папку темы.
 
-import { ensureDir, writeFile } from 'fs-extra';
+import { ensureDir, pathExists, readFile, writeFile } from 'fs-extra';
 import { get as httpsGet } from 'https';
 import { join } from 'path';
 
@@ -56,6 +56,110 @@ export type DownloadedGoogleFont = GoogleFontFace & {
   sourcePath: string;
   woffFileName?: string;
   woffSourcePath?: string;
+};
+
+// Имя файла-манифеста, в котором хранятся метаданные скачанного семейства,
+// чтобы при повторном запуске не ходить в сеть за шрифтами (кэширование).
+const CACHE_FILE_NAME = '.google-fonts-cache.json';
+
+// Формат кеш-манифеста. Хранит только сериализуемые поля граней и имена файлов
+// (sourcePath восстанавливается из пути папки семейства при чтении).
+type FontCacheEntry = {
+  weight: string;
+  style: string;
+  subset: string;
+  unicodeRange: string;
+  fileName: string;
+  woffFileName?: string;
+};
+
+type FontCache = {
+  family: string;
+  faces: FontCacheEntry[];
+};
+
+/**
+ * Читает кеш-манифест семейства из папки <fonts>/<Family>/. Если манифест
+ * существует и все упомянутые в нём файлы на месте — возвращает список
+ * скачанных граней без обращения к сети. Иначе возвращает null.
+ */
+const readCache = async (
+  dir: string,
+  family: string,
+): Promise<DownloadedGoogleFont[] | null> => {
+  const cachePath = join(dir, CACHE_FILE_NAME);
+  if (!(await pathExists(cachePath))) {
+    return null;
+  }
+
+  let cache: FontCache;
+  try {
+    cache = JSON.parse(await readFile(cachePath, 'utf8')) as FontCache;
+  } catch {
+    return null;
+  }
+
+  if (cache.family !== family || !Array.isArray(cache.faces)) {
+    return null;
+  }
+
+  // Проверяем, что все файлы манифеста физически существуют.
+  const allPaths: string[] = [];
+  cache.faces.forEach((entry) => {
+    allPaths.push(join(dir, entry.fileName));
+    if (entry.woffFileName) {
+      allPaths.push(join(dir, entry.woffFileName));
+    }
+  });
+
+  const existence = await Promise.all(allPaths.map((p) => pathExists(p)));
+  if (existence.some((exists) => !exists)) {
+    return null;
+  }
+
+  const result: DownloadedGoogleFont[] = cache.faces.map((entry) => {
+    const sourcePath = join(dir, entry.fileName);
+    const woffSourcePath = entry.woffFileName
+      ? join(dir, entry.woffFileName)
+      : undefined;
+    return {
+      weight: entry.weight,
+      style: entry.style,
+      subset: entry.subset,
+      unicodeRange: entry.unicodeRange,
+      url: '',
+      fileName: entry.fileName,
+      sourcePath,
+      woffFileName: entry.woffFileName,
+      woffSourcePath,
+    };
+  });
+
+  return result.length > 0 ? result : null;
+};
+
+/**
+ * Пишет кеш-манифест семейства в папку <fonts>/<Family>/.
+ */
+const writeCache = async (
+  dir: string,
+  family: string,
+  fonts: DownloadedGoogleFont[],
+): Promise<void> => {
+  const faces: FontCacheEntry[] = fonts.map((font) => ({
+    weight: font.weight,
+    style: font.style,
+    subset: font.subset,
+    unicodeRange: font.unicodeRange,
+    fileName: font.fileName,
+    woffFileName: font.woffFileName,
+  }));
+  const cache: FontCache = { family, faces };
+  await writeFile(
+    join(dir, CACHE_FILE_NAME),
+    JSON.stringify(cache, null, 2),
+    'utf8',
+  );
 };
 
 /**
@@ -223,14 +327,24 @@ const attachWoffFallback = async (
  * Скачивает все начертания семейства из Google Fonts в папку <fonts>/<Family>/.
  * Для каждого веса/подмножества скачиваются woff2 (современный браузер) и, если
  * доступен, woff (fallback для старых браузеров). Файлы сохраняются рядом.
- * Если шрифт уже частично или полностью скачан, файлы всё равно перезаписываются —
- * это гарантирует актуальность после обновления шрифта на стороне Google.
+ *
+ * Кэширование: рядом с файлами пишется манифест .google-fonts-cache.json, по
+ * которому повторные запуски возвращают уже скачанные грани без запроса в сеть.
+ * Это экономит трафик и время при многократной генерации тем.
  */
 export const downloadGoogleFont = async (
   family: string,
   fontsPath: string,
 ): Promise<DownloadedGoogleFont[]> => {
   const trimmed = family.trim();
+  const dir = join(fontsPath, family);
+
+  // Если шрифт уже скачан ранее — возвращаем его из кеша без обращения к сети.
+  const cached = await readCache(dir, family);
+  if (cached) {
+    return cached;
+  }
+
   const candidates = [trimmed, humanizeFamilyName(trimmed)];
 
   // Пробелы в имени семейства Google Fonts принимает только как "+",
@@ -258,7 +372,6 @@ export const downloadGoogleFont = async (
     ? await attachWoffFallback(woff2Faces, toUrl(candidate))
     : woff2Faces;
 
-  const dir = join(fontsPath, family);
   await ensureDir(dir);
 
   const prefix = slugify(family);
@@ -309,6 +422,9 @@ export const downloadGoogleFont = async (
       return result;
     }),
   );
+
+  // Сохраняем метаданные, чтобы следующие запуски не качали шрифты заново.
+  await writeCache(dir, family, downloaded);
 
   return downloaded;
 };

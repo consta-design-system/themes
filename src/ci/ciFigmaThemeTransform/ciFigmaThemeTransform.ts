@@ -59,17 +59,18 @@ export type ThemeJs = Record<string, Record<string, string>>;
 
 const REFERENCE_REGEX = /^\{(.+)\}$/;
 
-const toVarName = (path: string[]) => `--${path.join('-')}`;
+export const toVarName = (path: string[]) => `--${path.join('-')}`;
 
-const parseVarName = (path: string[]) => `--${path.slice(0, -1).join('-')}`;
+export const parseVarName = (path: string[]) =>
+  `--${path.slice(0, -1).join('-')}`;
 
-const getFileName = (modifier: string, valueModifier: string) =>
+export const getFileName = (modifier: string, valueModifier: string) =>
   `Theme_${modifier}_${valueModifier}`;
 
 /**
  * Возвращает путь ссылки "{a.b.c}" в виде "a.b.c" или null, если это не ссылка.
  */
-const getReferencePath = (value: any): string | null => {
+export const getReferencePath = (value: any): string | null => {
   if (typeof value !== 'string') {
     return null;
   }
@@ -90,7 +91,7 @@ const quoteFontFamily = (font: string) => {
  * и признак "typo", и признак "family". Примеры:
  *   --base-typo-family-primary, --typo-global-family-body и т.п.
  */
-const isTypoFamilyVar = (varName: string) =>
+export const isTypoFamilyVar = (varName: string) =>
   varName.includes('typo') && varName.includes('family');
 
 /**
@@ -98,7 +99,7 @@ const isTypoFamilyVar = (varName: string) =>
  * "Inter, -apple-system, ..." -> "Inter".
  * Ссылки вида "var(--…)" не являются литеральным списком — возвращаем null.
  */
-const getFirstFontFamily = (value: string): string | null => {
+export const getFirstFontFamily = (value: string): string | null => {
   const trimmed = value.trim();
   if (!trimmed || trimmed.startsWith('var(')) {
     return null;
@@ -117,7 +118,7 @@ const getFirstFontFamily = (value: string): string | null => {
  * разворачиваются через глобальный словарь переменных до тех пор, пока не будет
  * встречен литеральный список. Циклы и висячие ссылки приводят к null.
  */
-const resolveFontFamily = (
+export const resolveFontFamily = (
   value: string,
   globalVars: Record<string, string>,
 ): string | null => {
@@ -158,7 +159,7 @@ const FONT_FILE_REGEX = /^(.+)-(\d+)\.(woff2|woff|ttf|otf)$/i;
  * Поиск ведётся рекурсивно, поэтому шрифты могут лежать как прямо в папке,
  * так и в подпапке с именем семейства (например fonts/Inter/Inter-100.woff2).
  */
-const collectFontFiles = async (
+export const collectFontFiles = async (
   fontsPath: string,
   family: string,
 ): Promise<Map<number, FontFile[]>> => {
@@ -205,7 +206,7 @@ const collectFontFiles = async (
  *   }
  * Более современные форматы (woff2) идут первыми.
  */
-const buildFontFace = (
+export const buildFontFace = (
   family: string,
   weight: number,
   files: FontFile[],
@@ -250,7 +251,7 @@ const buildFontFace = (
  *     unicode-range: U+0000-00FF, ...;
  *   }
  */
-const buildSubsetFontFace = (
+export const buildSubsetFontFace = (
   family: string,
   font: DownloadedGoogleFont,
 ): string => {
@@ -278,7 +279,7 @@ const buildSubsetFontFace = (
  * Преобразует значение токена в CSS-значение.
  * Ссылки вида "{a.b.c}" превращаются в var(--a-b-c).
  */
-const resolveValue = ($type: string, $value: any): string => {
+export const resolveValue = ($type: string, $value: any): string => {
   // Строка: либо ссылка на другую переменную, либо литеральное значение.
   if (typeof $value === 'string') {
     const match = REFERENCE_REGEX.exec($value.trim());
@@ -331,7 +332,7 @@ const resolveValue = ($type: string, $value: any): string => {
  * переменную в oklch(). Если значение — ссылка на другую переменную {a.b.c},
  * каналы тоже ссылаются на каналы целевой переменной (…-l/-c/-h/-a).
  */
-const setColorCssVariables = (
+export const setColorCssVariables = (
   themeJs: ThemeJs,
   fileName: string,
   varName: string,
@@ -378,7 +379,7 @@ const setColorCssVariables = (
  * Рекурсивно обходит дерево токенов. Токеном считается узел с ключом "$type".
  * Первый сегмент пути — модификатор темы, последний — значение модификатора.
  */
-const collectTokens = (node: any, path: string[], themeJs: ThemeJs) => {
+export const collectTokens = (node: any, path: string[], themeJs: ThemeJs) => {
   if (node && typeof node === 'object') {
     if ('$type' in node) {
       const modifier = path[0];
@@ -408,7 +409,7 @@ const collectTokens = (node: any, path: string[], themeJs: ThemeJs) => {
  * Достаёт имя модификатора из имени файла темы.
  * "Theme_color_light" -> "color".
  */
-const getModifier = (fileName: string) =>
+export const getModifier = (fileName: string) =>
   fileName.replace(/^Theme_/, '').replace(/_[^_]+$/, '');
 
 /**
@@ -417,7 +418,7 @@ const getModifier = (fileName: string) =>
  *   --color-bg-default: var(--color-global-surface-view-default-primary);
  * Возвращает словарь объявлений или null, если файла нет / путь не задан.
  */
-const readBridgeFile = async (
+export const readBridgeFile = async (
   bridgesPath: string | undefined,
   modifier: string,
 ): Promise<Record<string, string> | null> => {
@@ -455,7 +456,7 @@ const readBridgeFile = async (
  * --base-color-* -> Theme_color_*.css и т.д. Сам файл Theme_base_*.css в этом
  * режиме не создаётся — он удаляется вызывающим кодом после распределения.
  */
-const distributeBaseVars = (themeJs: ThemeJs) => {
+export const distributeBaseVars = (themeJs: ThemeJs) => {
   const files = Object.keys(themeJs);
   const baseFile = files.find((f) => f.startsWith('Theme_base_'));
 
@@ -484,12 +485,247 @@ const distributeBaseVars = (themeJs: ThemeJs) => {
   });
 };
 
-const ObjectToCss = (obj: Record<string, string>, name: string) =>
+export const ObjectToCss = (obj: Record<string, string>, name: string) =>
   `.${name}{` +
   `\n${Object.keys(obj)
     .map((key) => `${key}: ${obj[key]};`)
     .join('\n')}` +
   `\n}`;
+
+/**
+ * Опции генерации тем. Совпадают с флагами CLI-команды.
+ */
+export type GenerateThemeOptions = {
+  path: string;
+  file: string;
+  output: string;
+  bridges: string;
+  fonts: string;
+  addLegacyBridge: boolean;
+  clean: boolean;
+};
+
+/**
+ * Логгер, который используется генератором для вывода прогресса.
+ */
+export type LogFn = (message: string) => void;
+
+/**
+ * Ядро генератора: читает токены, собирает CSS-переменные, применяет мосты,
+ * генерирует @font-face и пишет результат в папку экспорта. Вынесено из
+ * CLI-команды отдельной функцией, чтобы её можно было покрывать тестами
+ * без запуска @oclif.
+ */
+export const generateTheme = async (
+  options: GenerateThemeOptions,
+  log: LogFn,
+): Promise<void> => {
+  const data = await readJSON(join(options.path, options.file));
+
+  log(`parsing ${options.file} ...`);
+
+  const themeJs: ThemeJs = {};
+  collectTokens(data, [], themeJs);
+
+  if (options.addLegacyBridge) {
+    // Раскидываем base-переменные по файлам соответствующих модификаторов.
+    distributeBaseVars(themeJs);
+    // Файл модификатора base в этом режиме не создаём —
+    // его переменные уже попали в файлы своих групп.
+    Object.keys(themeJs)
+      .filter((fileName) => fileName.startsWith('Theme_base_'))
+      .forEach((fileName) => {
+        delete themeJs[fileName];
+      });
+  }
+
+  const cssFiles = Object.keys(themeJs);
+
+  log(`detected theme files: ${cssFiles.join(', ')}`);
+
+  if (options.addLegacyBridge) {
+    // Добавляем мосты совместимости из файлов папки bridges
+    // (для каждого модификатора — если такой файл существует).
+    const modifiers = [...new Set(cssFiles.map(getModifier))];
+    await Promise.all(
+      modifiers.map(async (modifier) => {
+        const bridge = await readBridgeFile(options.bridges, modifier);
+        if (!bridge) {
+          return;
+        }
+        cssFiles
+          .filter((fileName) => getModifier(fileName) === modifier)
+          .forEach((fileName) => {
+            themeJs[fileName] = {
+              ...themeJs[fileName],
+              ...bridge,
+            };
+          });
+      }),
+    );
+  }
+
+  // При необходимости полностью очищаем папку экспорта,
+  // чтобы удалить устаревшие файлы прошлых запусков.
+  const outputPathDir = join(options.output);
+  await ensureDir(outputPathDir);
+
+  if (options.clean) {
+    const existing = await readdir(outputPathDir);
+    await Promise.all(
+      existing.map(async (entry) => {
+        const entryPath = join(outputPathDir, entry);
+        if (await pathExists(entryPath)) {
+          await remove(entryPath);
+        }
+      }),
+    );
+  }
+
+  // Собираем @font-face для всех модификаторов, где объявлены переменные
+  // семейства шрифтов (в имени переменной есть и "typo", и "family").
+  // Шрифты копируются в подпапку того модификатора, где объявлена
+  // переменная, а блоки @font-face добавляются в начало CSS этого файла.
+  const fontFacesByFile: Record<string, string> = {};
+
+  // Глобальный словарь всех переменных тем — нужен для разворачивания
+  // ссылок вида var(--base-typo-family-primary) в литеральные списки
+  // семейств при определении имени семейства шрифта.
+  const globalVars: Record<string, string> = {};
+  Object.keys(themeJs).forEach((fileName) => {
+    Object.assign(globalVars, themeJs[fileName]);
+  });
+
+  await Promise.all(
+    cssFiles.map(async (fileName) => {
+      const declarations = themeJs[fileName];
+      const families = new Set<string>();
+
+      Object.keys(declarations).forEach((varName) => {
+        if (!isTypoFamilyVar(varName)) {
+          return;
+        }
+        const family = resolveFontFamily(declarations[varName], globalVars);
+        if (family) {
+          families.add(family);
+        }
+      });
+
+      if (families.size === 0) {
+        return;
+      }
+
+      // Шрифты модификатора кладём в его собственную подпапку экспорта,
+      // рядом с CSS-файлом, который на них ссылается.
+      const modifier = getModifier(fileName);
+      const fontOutputDir = join(outputPathDir, `_${modifier}`);
+      await ensureDir(fontOutputDir);
+      const copiedFonts = new Set<string>();
+
+      const familyList = [...families];
+      const blocksResults = await Promise.all(
+        familyList.map(async (family) => {
+          const faces: string[] = [];
+          const copyTasks: Array<Promise<void>> = [];
+
+          const filesByWeight = await collectFontFiles(options.fonts, family);
+
+          if (filesByWeight.size === 0) {
+            // Локальных файлов шрифта нет — пробуем скачать из Google Fonts,
+            // сохранить в папку fonts (кэш) и использовать для @font-face.
+            let downloaded: DownloadedGoogleFont[] = [];
+            try {
+              downloaded = await downloadGoogleFont(family, options.fonts);
+            } catch (err) {
+              log(
+                `failed to download font "${family}" from Google Fonts: ${
+                  err instanceof Error ? err.message : err
+                }`,
+              );
+            }
+            downloaded.forEach((font) => {
+              faces.push(buildSubsetFontFace(family, font));
+              const filesToCopy: Array<{
+                name: string;
+                sourcePath: string;
+              }> = [{ name: font.fileName, sourcePath: font.sourcePath }];
+              if (font.woffFileName && font.woffSourcePath) {
+                filesToCopy.push({
+                  name: font.woffFileName,
+                  sourcePath: font.woffSourcePath,
+                });
+              }
+              filesToCopy.forEach(({ name, sourcePath }) => {
+                if (copiedFonts.has(name)) {
+                  return;
+                }
+                copiedFonts.add(name);
+                copyTasks.push(copy(sourcePath, join(fontOutputDir, name)));
+              });
+            });
+            if (downloaded.length > 0) {
+              log(`downloaded "${family}" from Google Fonts`);
+            }
+            await Promise.all(copyTasks);
+            return faces;
+          }
+
+          filesByWeight.forEach((files, weight) => {
+            faces.push(buildFontFace(family, weight, files));
+            files.forEach((file) => {
+              if (copiedFonts.has(file.name)) {
+                return;
+              }
+              copiedFonts.add(file.name);
+              copyTasks.push(
+                copy(file.sourcePath, join(fontOutputDir, file.name)),
+              );
+            });
+          });
+
+          await Promise.all(copyTasks);
+          return faces;
+        }),
+      );
+
+      const blocks: string[] = [];
+      blocksResults.forEach((faces) => {
+        blocks.push(...faces);
+      });
+
+      if (blocks.length > 0) {
+        fontFacesByFile[fileName] = blocks.join('\n\n');
+      }
+    }),
+  );
+
+  if (Object.keys(fontFacesByFile).length > 0) {
+    log(`generated @font-face for: ${Object.keys(fontFacesByFile).join(', ')}`);
+  }
+
+  await Promise.all(
+    cssFiles.map(async (fileName) => {
+      // Раскладываем выходные CSS по подпапкам модификаторов:
+      // Theme_color_light.css -> _color/Theme_color_light.css.
+      const modifierDir = join(outputPathDir, `_${getModifier(fileName)}`);
+      await ensureDir(modifierDir);
+
+      const outputPathFile = join(modifierDir, `${fileName}.css`);
+      if (await pathExists(outputPathFile)) {
+        await remove(outputPathFile);
+      }
+
+      const css = fontFacesByFile[fileName]
+        ? `${fontFacesByFile[fileName]}\n\n${ObjectToCss(
+            themeJs[fileName],
+            fileName,
+          )}`
+        : ObjectToCss(themeJs[fileName], fileName);
+
+      await writeFile(outputPathFile, css);
+    }),
+  );
+};
 
 class GenerateCommand extends Command {
   async run() {
@@ -499,215 +735,7 @@ class GenerateCommand extends Command {
     this.log(`generating theme in ${flags.path} ...`);
 
     try {
-      const data = await readJSON(join(flags.path, flags.file));
-
-      this.log(`parsing ${flags.file} ...`);
-
-      const themeJs: ThemeJs = {};
-      collectTokens(data, [], themeJs);
-
-      if (flags.addLegacyBridge) {
-        // Раскидываем base-переменные по файлам соответствующих модификаторов.
-        distributeBaseVars(themeJs);
-        // Файл модификатора base в этом режиме не создаём —
-        // его переменные уже попали в файлы своих групп.
-        Object.keys(themeJs)
-          .filter((fileName) => fileName.startsWith('Theme_base_'))
-          .forEach((fileName) => {
-            delete themeJs[fileName];
-          });
-      }
-
-      const cssFiles = Object.keys(themeJs);
-
-      this.log(`detected theme files: ${cssFiles.join(', ')}`);
-
-      if (flags.addLegacyBridge) {
-        // Добавляем мосты совместимости из файлов папки bridges
-        // (для каждого модификатора — если такой файл существует).
-        const modifiers = [...new Set(cssFiles.map(getModifier))];
-        await Promise.all(
-          modifiers.map(async (modifier) => {
-            const bridge = await readBridgeFile(flags.bridges, modifier);
-            if (!bridge) {
-              return;
-            }
-            cssFiles
-              .filter((fileName) => getModifier(fileName) === modifier)
-              .forEach((fileName) => {
-                themeJs[fileName] = {
-                  ...themeJs[fileName],
-                  ...bridge,
-                };
-              });
-          }),
-        );
-      }
-
-      // При необходимости полностью очищаем папку экспорта,
-      // чтобы удалить устаревшие файлы прошлых запусков.
-      const outputPathDir = join(flags.output);
-      await ensureDir(outputPathDir);
-
-      if (flags.clean) {
-        const existing = await readdir(outputPathDir);
-        await Promise.all(
-          existing.map(async (entry) => {
-            const entryPath = join(outputPathDir, entry);
-            if (await pathExists(entryPath)) {
-              await remove(entryPath);
-            }
-          }),
-        );
-      }
-
-      // Собираем @font-face для всех модификаторов, где объявлены переменные
-      // семейства шрифтов (в имени переменной есть и "typo", и "family").
-      // Шрифты копируются в подпапку того модификатора, где объявлена
-      // переменная, а блоки @font-face добавляются в начало CSS этого файла.
-      const fontFacesByFile: Record<string, string> = {};
-
-      // Глобальный словарь всех переменных тем — нужен для разворачивания
-      // ссылок вида var(--base-typo-family-primary) в литеральные списки
-      // семейств при определении имени семейства шрифта.
-      const globalVars: Record<string, string> = {};
-      Object.keys(themeJs).forEach((fileName) => {
-        Object.assign(globalVars, themeJs[fileName]);
-      });
-
-      await Promise.all(
-        cssFiles.map(async (fileName) => {
-          const declarations = themeJs[fileName];
-          const families = new Set<string>();
-
-          Object.keys(declarations).forEach((varName) => {
-            if (!isTypoFamilyVar(varName)) {
-              return;
-            }
-            const family = resolveFontFamily(declarations[varName], globalVars);
-            if (family) {
-              families.add(family);
-            }
-          });
-
-          if (families.size === 0) {
-            return;
-          }
-
-          // Шрифты модификатора кладём в его собственную подпапку экспорта,
-          // рядом с CSS-файлом, который на них ссылается.
-          const modifier = getModifier(fileName);
-          const fontOutputDir = join(outputPathDir, `_${modifier}`);
-          await ensureDir(fontOutputDir);
-          const copiedFonts = new Set<string>();
-
-          const familyList = [...families];
-          const blocksResults = await Promise.all(
-            familyList.map(async (family) => {
-              const faces: string[] = [];
-              const copyTasks: Array<Promise<void>> = [];
-
-              const filesByWeight = await collectFontFiles(flags.fonts, family);
-
-              if (filesByWeight.size === 0) {
-                // Локальных файлов шрифта нет — пробуем скачать из Google Fonts,
-                // сохранить в папку fonts (кэш) и использовать для @font-face.
-                let downloaded: DownloadedGoogleFont[] = [];
-                try {
-                  downloaded = await downloadGoogleFont(family, flags.fonts);
-                } catch (err) {
-                  this.log(
-                    `failed to download font "${family}" from Google Fonts: ${
-                      err instanceof Error ? err.message : err
-                    }`,
-                  );
-                }
-                downloaded.forEach((font) => {
-                  faces.push(buildSubsetFontFace(family, font));
-                  const filesToCopy: Array<{
-                    name: string;
-                    sourcePath: string;
-                  }> = [{ name: font.fileName, sourcePath: font.sourcePath }];
-                  if (font.woffFileName && font.woffSourcePath) {
-                    filesToCopy.push({
-                      name: font.woffFileName,
-                      sourcePath: font.woffSourcePath,
-                    });
-                  }
-                  filesToCopy.forEach(({ name, sourcePath }) => {
-                    if (copiedFonts.has(name)) {
-                      return;
-                    }
-                    copiedFonts.add(name);
-                    copyTasks.push(copy(sourcePath, join(fontOutputDir, name)));
-                  });
-                });
-                if (downloaded.length > 0) {
-                  this.log(`downloaded "${family}" from Google Fonts`);
-                }
-                await Promise.all(copyTasks);
-                return faces;
-              }
-
-              filesByWeight.forEach((files, weight) => {
-                faces.push(buildFontFace(family, weight, files));
-                files.forEach((file) => {
-                  if (copiedFonts.has(file.name)) {
-                    return;
-                  }
-                  copiedFonts.add(file.name);
-                  copyTasks.push(
-                    copy(file.sourcePath, join(fontOutputDir, file.name)),
-                  );
-                });
-              });
-
-              await Promise.all(copyTasks);
-              return faces;
-            }),
-          );
-
-          const blocks: string[] = [];
-          blocksResults.forEach((faces) => {
-            blocks.push(...faces);
-          });
-
-          if (blocks.length > 0) {
-            fontFacesByFile[fileName] = blocks.join('\n\n');
-          }
-        }),
-      );
-
-      if (Object.keys(fontFacesByFile).length > 0) {
-        this.log(
-          `generated @font-face for: ${Object.keys(fontFacesByFile).join(
-            ', ',
-          )}`,
-        );
-      }
-
-      await Promise.all(
-        cssFiles.map(async (fileName) => {
-          // Раскладываем выходные CSS по подпапкам модификаторов:
-          // Theme_color_light.css -> _color/Theme_color_light.css.
-          const modifierDir = join(outputPathDir, `_${getModifier(fileName)}`);
-          await ensureDir(modifierDir);
-
-          const outputPathFile = join(modifierDir, `${fileName}.css`);
-          if (await pathExists(outputPathFile)) {
-            await remove(outputPathFile);
-          }
-
-          const css = fontFacesByFile[fileName]
-            ? `${fontFacesByFile[fileName]}\n\n${ObjectToCss(
-                themeJs[fileName],
-                fileName,
-              )}`
-            : ObjectToCss(themeJs[fileName], fileName);
-
-          await writeFile(outputPathFile, css);
-        }),
-      );
+      await generateTheme(flags, (message) => this.log(message));
     } catch (err) {
       this.error(err as any);
     }
@@ -766,4 +794,9 @@ type CiFlags = {
   clean: boolean;
 };
 
-GenerateCommand.run();
+// Запускаем команду только когда файл выполняется как главный скрипт
+// (node ciFigmaThemeTransform.js), а не когда импортируется модулем —
+// это позволяет покрывать логику тестами без побочного запуска CLI.
+if (typeof require !== 'undefined' && require.main === module) {
+  GenerateCommand.run();
+}

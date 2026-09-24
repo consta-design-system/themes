@@ -1,0 +1,12 @@
+.Theme_border_default{
+--border-control-width-default: var(--base-border-width-1);
+--border-control-width-focus: var(--base-border-width-2);
+--border-global-width-default: var(--base-border-width-1);
+--border-global-width-emphasis: var(--base-border-width-2);
+--border-global-width-marker: var(--base-border-width-3);
+--base-border-width-1: 1px;
+--base-border-width-2: 2px;
+--base-border-width-3: 3px;
+--base-border-width-4: 4px;
+--base-border-width-none: 0px;
+}
