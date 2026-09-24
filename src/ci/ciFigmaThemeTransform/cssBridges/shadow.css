@@ -1,0 +1,15 @@
+/* Мост совместимости для модификатора shadow.
+   Старые CSS-переменные ссылаются на новые из этого модификатора.
+   Файл подключается генератором автоматически, если существует.
+
+   Исходник: Theme_shadow_gpnDefault.css (@consta/uikit 5.33.3).
+   Новые --shadow-global-* — готовые составные тени, внутри они уже
+   ссылаются на --color-effect-shadow-*, поэтому старые
+   --color-shadow-{group,layer,modal}-{1,2} из color.css здесь не нужны
+   (они остаются только для кода, который собирает тени вручную).
+   Геометрия теней совпадает со старой один в один. */
+:root {
+  --shadow-group: var(--shadow-global-group); /* level-1 */
+  --shadow-layer: var(--shadow-global-layer); /* level-2 */
+  --shadow-modal: var(--shadow-global-modal); /* level-3 */
+}
