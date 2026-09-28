@@ -7,14 +7,15 @@
 //   node ./src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js --path=./src/ci/ciFigmaThemeTransform/__mocks__/figmaExport --output=./src/theme --addLegacyBridge
 //
 // Флаг --addLegacyBridge:
-//   * раскидывает переменные модификатора base по файлам других модификаторов
-//     (ориентир — ключ сразу после "base": --base-border-* -> Theme_border_*.css);
-//   * не создаёт файл модификатора base;
-//   * добавляет мосты совместимости из папки --bridges в файлы своих модификаторов.
+//   * добавляет мост совместимости как отдельный модификатор bridge:
+//     все CSS-файлы из папки --bridges (cssBridges/*.css) объединяются
+//     в один файл Theme_bridge_default.css;
+//   * модификатор base при этом обрабатывается как обычно и остаётся
+//     собственным файлом Theme_base_*.css.
 //
-// Флаг --bridges=<path>: путь к папке с CSS-файлами мостов (<modifier>.css).
-// Файл моста добавляется в тему, если существует, например color.css ->
-// Theme_color_*.css. По умолчанию используется папка __mocks__/cssBridges.
+// Флаг --bridges=<path>: путь к папке с CSS-файлами мостов (*.css).
+// Объявления всех файлов папки собираются в модификатор bridge.
+// По умолчанию используется папка cssBridges.
 //
 // Флаг --clean: полностью очищает папку экспорта перед генерацией,
 // чтобы удалить устаревшие файлы прошлых запусков.
@@ -39,6 +40,9 @@
 // Любой тип может иметь значение-ссылку на другую переменную вида "{a.b.c}":
 //   {base.border.width.1} -> var(--base-border-width-1)
 
+// TODO: нужно чтобы из --path брались все файлы с расширением .tokens.json при трансформации css также как сейчас должны быть разбиты по модификаторам вне зависимости от того какое количество .tokens.json файлов пришло на вход
+// TODO: сделать бинарник для вызова из консоли
+
 import { Command, flags } from '@oclif/command';
 import {
   copy,
@@ -53,10 +57,7 @@ import {
 } from 'fs-extra';
 import { join } from 'path';
 
-import {
-  DownloadedGoogleFont,
-  downloadGoogleFont,
-} from '##/ci/ciFigmaThemeTransform/googleFonts';
+import { DownloadedGoogleFont, downloadGoogleFont } from './googleFonts';
 
 export type ThemeJs = Record<string, Record<string, string>>;
 
@@ -69,6 +70,9 @@ export const parseVarName = (path: string[]) =>
 
 export const getFileName = (modifier: string, valueModifier: string) =>
   `Theme_${modifier}_${valueModifier}`;
+
+// Имя файла моста совместимости, в который собираются все cssBridges/*.css.
+export const THEME_BRIDGE_FILE = 'Theme_bridge_default';
 
 /**
  * Возвращает путь ссылки "{a.b.c}" в виде "a.b.c" или null, если это не ссылка.
@@ -454,38 +458,35 @@ export const readBridgeFile = async (
 };
 
 /**
- * Раскидывает переменные модификатора base по файлам других модификаторов.
- * Ориентир — ключ сразу после "base": --base-border-* -> Theme_border_*.css,
- * --base-color-* -> Theme_color_*.css и т.д. Сам файл Theme_base_*.css в этом
- * режиме не создаётся — он удаляется вызывающим кодом после распределения.
+ * Читает все CSS-файлы мостов совместимости из папки bridges (*.css)
+ * и объединяет их объявления в один словарь. Если папки нет — возвращает
+ * пустой объект.
  */
-export const distributeBaseVars = (themeJs: ThemeJs) => {
-  const files = Object.keys(themeJs);
-  const baseFile = files.find((f) => f.startsWith('Theme_base_'));
+export const readAllBridgeFiles = async (
+  bridgesPath: string | undefined,
+): Promise<Record<string, string>> => {
+  const result: Record<string, string> = {};
 
-  if (!baseFile) {
-    return;
+  if (!bridgesPath || !(await pathExists(bridgesPath))) {
+    return result;
   }
 
-  const prefix = '--base-';
+  const entries = await readdir(bridgesPath);
+  const cssFiles = entries.filter((entry) => entry.endsWith('.css'));
 
-  Object.keys(themeJs[baseFile]).forEach((varName) => {
-    if (!varName.startsWith(prefix)) {
-      return;
-    }
+  await Promise.all(
+    cssFiles.map(async (entry) => {
+      const bridge = await readBridgeFile(
+        bridgesPath,
+        entry.replace(/\.css$/, ''),
+      );
+      if (bridge) {
+        Object.assign(result, bridge);
+      }
+    }),
+  );
 
-    const rest = varName.slice(prefix.length);
-    const group = rest.split('-')[0];
-
-    files
-      .filter(
-        (fileName) =>
-          fileName !== baseFile && fileName.startsWith(`Theme_${group}_`),
-      )
-      .forEach((fileName) => {
-        themeJs[fileName][varName] = themeJs[baseFile][varName];
-      });
-  });
+  return result;
 };
 
 export const ObjectToCss = (obj: Record<string, string>, name: string) =>
@@ -530,43 +531,20 @@ export const generateTheme = async (
   const themeJs: ThemeJs = {};
   collectTokens(data, [], themeJs);
 
-  if (options.addLegacyBridge) {
-    // Раскидываем base-переменные по файлам соответствующих модификаторов.
-    distributeBaseVars(themeJs);
-    // Файл модификатора base в этом режиме не создаём —
-    // его переменные уже попали в файлы своих групп.
-    Object.keys(themeJs)
-      .filter((fileName) => fileName.startsWith('Theme_base_'))
-      .forEach((fileName) => {
-        delete themeJs[fileName];
-      });
-  }
-
   const cssFiles = Object.keys(themeJs);
 
-  log(`detected theme files: ${cssFiles.join(', ')}`);
-
   if (options.addLegacyBridge) {
-    // Добавляем мосты совместимости из файлов папки bridges
-    // (для каждого модификатора — если такой файл существует).
-    const modifiers = [...new Set(cssFiles.map(getModifier))];
-    await Promise.all(
-      modifiers.map(async (modifier) => {
-        const bridge = await readBridgeFile(options.bridges, modifier);
-        if (!bridge) {
-          return;
-        }
-        cssFiles
-          .filter((fileName) => getModifier(fileName) === modifier)
-          .forEach((fileName) => {
-            themeJs[fileName] = {
-              ...themeJs[fileName],
-              ...bridge,
-            };
-          });
-      }),
-    );
+    // Мост совместимости: объединяем все cssBridges/*.css в отдельный
+    // модификатор bridge (файл Theme_bridge_default.css).
+    // Модификатор base при этом обрабатывается как обычно.
+    const bridgeVars = await readAllBridgeFiles(options.bridges);
+    if (Object.keys(bridgeVars).length > 0) {
+      themeJs[THEME_BRIDGE_FILE] = bridgeVars;
+      cssFiles.push(THEME_BRIDGE_FILE);
+    }
   }
+
+  log(`detected theme files: ${cssFiles.join(', ')}`);
 
   // При необходимости полностью очищаем папку экспорта,
   // чтобы удалить устаревшие файлы прошлых запусков.

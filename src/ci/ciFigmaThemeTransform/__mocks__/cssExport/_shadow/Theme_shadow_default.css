@@ -7,7 +7,4 @@
 --shadow-global-level-3: 0 8px 8px var(--color-effect-shadow-modal-key), 0 12px 28px var(--color-effect-shadow-modal-ambient);
 --shadow-global-modal: var(--shadow-global-level-3);
 --shadow-global-none: var(--shadow-global-level-0);
---shadow-group: var(--shadow-global-group);
---shadow-layer: var(--shadow-global-layer);
---shadow-modal: var(--shadow-global-modal);
 }

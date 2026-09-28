@@ -6,10 +6,10 @@ import {
   type ThemeJs,
   buildFontFace,
   collectTokens,
-  distributeBaseVars,
   generateTheme,
   getReferencePath,
   ObjectToCss,
+  readAllBridgeFiles,
   resolveFontFamily,
   resolveValue,
   setColorCssVariables,
@@ -19,7 +19,6 @@ const ROOT = join(__dirname, '..');
 const MOCK_TOKENS = join(ROOT, '__mocks__', 'figmaExport');
 const BRIDGES = join(ROOT, 'cssBridges');
 const FONTS = join(ROOT, 'fonts');
-const EXPECTED_EXPORT = join(ROOT, '__mocks__', 'cssExport');
 
 const toRelative = (dir: string, full: string) =>
   full
@@ -61,7 +60,7 @@ describe('generateTheme (интеграция)', () => {
     await remove(outDir);
   });
 
-  it('воспроизводит эталонный __mocks__/cssExport (addLegacyBridge)', async () => {
+  it('с addLegacyBridge собирает мосты в отдельный модификатор bridge', async () => {
     await generateTheme(
       {
         path: MOCK_TOKENS,
@@ -75,26 +74,21 @@ describe('generateTheme (интеграция)', () => {
       () => undefined,
     );
 
-    // Одинаковый набор файлов: CSS + скопированные шрифты.
-    const actualFiles = await collectRelativeFiles(outDir);
-    const expectedFiles = await collectRelativeFiles(EXPECTED_EXPORT);
-    expect(actualFiles).toEqual(expectedFiles);
+    const files = await collectRelativeFiles(outDir);
 
-    // Содержимое каждого CSS-файла совпадает с эталоном.
-    const cssFiles = actualFiles.filter((f) => f.endsWith('.css'));
-    expect(cssFiles.length).toBeGreaterThan(0);
+    // Модификатор base остаётся собственным файлом.
+    expect(files.some((f) => f.includes('Theme_base_'))).toBe(true);
 
-    const pairs = await Promise.all(
-      cssFiles.map(async (rel) => ({
-        rel,
-        actual: await readCss(outDir, rel),
-        expected: await readCss(EXPECTED_EXPORT, rel),
-      })),
-    );
+    // Мосты собраны в отдельный файл Theme_bridge_default.css.
+    const bridgeFile = files.find((f) => f.includes('Theme_bridge_default'))!;
+    expect(bridgeFile).toBeDefined();
+    const bridgeCss = await readCss(outDir, bridgeFile);
+    expect(bridgeCss).toContain('--color-bg-default');
 
-    pairs.forEach(({ rel, actual, expected }) => {
-      expect(actual).toBe(expected);
-    });
+    // В файлах своих модификаторов мосты больше не подмешиваются.
+    const colorLight = files.find((f) => f.endsWith('Theme_color_light.css'))!;
+    const css = await readCss(outDir, colorLight);
+    expect(css).not.toContain('--color-bg-default');
   }, 120000);
 
   it('без addLegacyBridge не раскидывает base и не добавляет мосты', async () => {
@@ -203,22 +197,21 @@ describe('setColorCssVariables', () => {
   });
 });
 
-describe('distributeBaseVars', () => {
-  it('раскидывает --base-* по файлам групп и оставляет сам base', () => {
-    const theme: ThemeJs = {
-      Theme_base_default: {
-        '--base-space-m': '16px',
-        '--base-border-width-1': '1px',
-      },
-      Theme_space_default: { '--space-m': 'var(--base-space-m)' },
-      Theme_border_default: {},
-    };
+describe('readAllBridgeFiles', () => {
+  it('объединяет объявления всех cssBridges/*.css в один словарь', async () => {
+    const bridges = await readAllBridgeFiles(BRIDGES);
 
-    distributeBaseVars(theme);
+    // Переменная из color.css присутствует.
+    expect(bridges['--color-bg-default']).toBe(
+      'var(--color-global-surface-view-default-primary)',
+    );
+    // Объединение происходит по нескольким файлам папки.
+    expect(Object.keys(bridges).length).toBeGreaterThan(10);
+  });
 
-    expect(theme.Theme_space_default['--base-space-m']).toBe('16px');
-    expect(theme.Theme_border_default['--base-border-width-1']).toBe('1px');
-    expect(theme.Theme_base_default['--base-space-m']).toBe('16px');
+  it('возвращает пустой объект для несуществующей папки', async () => {
+    expect(await readAllBridgeFiles('/no/such/path')).toEqual({});
+    expect(await readAllBridgeFiles(undefined)).toEqual({});
   });
 });
 

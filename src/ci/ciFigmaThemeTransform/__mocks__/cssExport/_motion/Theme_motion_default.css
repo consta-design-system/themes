@@ -10,15 +10,4 @@
 --motion-global-easing-exit: var(--base-motion-easing-exit);
 --motion-global-easing-pending: cubic-bezier(0,0,1,1);
 --motion-global-easing-progress: var(--base-motion-easing-linear);
---base-motion-duration-l: 500ms;
---base-motion-duration-m: 300ms;
---base-motion-duration-none: 0ms;
---base-motion-duration-s: 200ms;
---base-motion-duration-xl: 1000ms;
---base-motion-duration-xs: 150ms;
---base-motion-easing-default: cubic-bezier(0.25,0.1,0.25,1);
---base-motion-easing-enter: cubic-bezier(0,0,0.58,1);
---base-motion-easing-exit: cubic-bezier(0.42,0,1,1);
---base-motion-easing-linear: cubic-bezier(0,0,1,1);
---base-motion-easing-standard: cubic-bezier(0.42,0,0.58,1);
 }
