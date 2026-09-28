@@ -564,18 +564,13 @@ export const generateTheme = async (
   }
 
   // Собираем @font-face для всех модификаторов, где объявлены переменные
-  // семейства шрифтов (в имени переменной есть и "typo", и "family").
-  // Шрифты копируются в подпапку того модификатора, где объявлена
-  // переменная, а блоки @font-face добавляются в начало CSS этого файла.
+  // семейства шрифтов (в имени переменной есть и "typo", и "family") со
+  // значением — прямым литеральным списком семейств ("Inter, ...").
+  // Шрифты копируются только в те файлы, где семейство прописано
+  // непосредственно; файлы, где значение является ссылкой на другую
+  // переменную (var(--base-typo-family-primary)), пропускаются — шрифт
+  // подхватится из файла, где переменная объявлена литерально.
   const fontFacesByFile: Record<string, string> = {};
-
-  // Глобальный словарь всех переменных тем — нужен для разворачивания
-  // ссылок вида var(--base-typo-family-primary) в литеральные списки
-  // семейств при определении имени семейства шрифта.
-  const globalVars: Record<string, string> = {};
-  Object.keys(themeJs).forEach((fileName) => {
-    Object.assign(globalVars, themeJs[fileName]);
-  });
 
   await Promise.all(
     cssFiles.map(async (fileName) => {
@@ -586,7 +581,7 @@ export const generateTheme = async (
         if (!isTypoFamilyVar(varName)) {
           return;
         }
-        const family = resolveFontFamily(declarations[varName], globalVars);
+        const family = getFirstFontFamily(declarations[varName]);
         if (family) {
           families.add(family);
         }

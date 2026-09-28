@@ -1,4 +1,11 @@
-import { lstat, mkdtemp, readdir, readFile, remove } from 'fs-extra';
+import {
+  lstat,
+  mkdtemp,
+  pathExists,
+  readdir,
+  readFile,
+  remove,
+} from 'fs-extra';
 import { tmpdir } from 'os';
 import { join } from 'path';
 
@@ -112,6 +119,38 @@ describe('generateTheme (интеграция)', () => {
     const colorLight = files.find((f) => f.endsWith('Theme_color_light.css'))!;
     const css = await readCss(outDir, colorLight);
     expect(css).not.toContain('--color-bg-default');
+  }, 120000);
+
+  it('добавляет @font-face только туда, где семейство задано литерально', async () => {
+    await generateTheme(
+      {
+        path: MOCK_TOKENS,
+        file: 'consta-neo.tokens.json',
+        output: outDir,
+        bridges: BRIDGES,
+        fonts: FONTS,
+        addLegacyBridge: false,
+        clean: false,
+      },
+      () => undefined,
+    );
+
+    const baseFile = join(outDir, '_base', 'Theme_base_default.css');
+    const typoFile = join(outDir, '_typo', 'Theme_typo_default.css');
+
+    // В base переменная --base-typo-family-primary объявлена литеральным
+    // списком ("Inter, ...") — сюда @font-face добавляются.
+    expect(await pathExists(baseFile)).toBe(true);
+    expect(await readCss(outDir, '_base/Theme_base_default.css')).toContain(
+      '@font-face',
+    );
+
+    // В typo значения --typo-global-family-* ссылаются на другие переменные
+    // (var(--base-typo-family-primary)) — @font-face сюда не добавляются.
+    expect(await pathExists(typoFile)).toBe(true);
+    expect(await readCss(outDir, '_typo/Theme_typo_default.css')).not.toContain(
+      '@font-face',
+    );
   }, 120000);
 });
 
