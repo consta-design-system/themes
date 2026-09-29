@@ -5,6 +5,7 @@ import {
   readdir,
   readFile,
   remove,
+  writeFile,
 } from 'fs-extra';
 import { tmpdir } from 'os';
 import { join } from 'path';
@@ -152,6 +153,50 @@ describe('generateTheme (интеграция)', () => {
     expect(await readCss(outDir, '_typo/Theme_typo_default.css')).not.toContain(
       '@font-face',
     );
+  }, 120000);
+
+  it('объединяет токены из нескольких *.tokens.json файлов по модификаторам', async () => {
+    await writeFile(
+      join(outDir, 'space.tokens.json'),
+      JSON.stringify({
+        space: {
+          m: {
+            default: { $type: 'dimension', $value: { value: 8, unit: 'px' } },
+          },
+        },
+      }),
+    );
+    await writeFile(
+      join(outDir, 'color.tokens.json'),
+      JSON.stringify({
+        color: {
+          bg: { light: { $type: 'color', $value: '#ffffff' } },
+        },
+      }),
+    );
+
+    await generateTheme(
+      {
+        path: outDir,
+        file: 'consta-neo.tokens.json',
+        output: join(outDir, 'out'),
+        bridges: BRIDGES,
+        fonts: FONTS,
+        addLegacyBridge: false,
+        clean: false,
+      },
+      () => undefined,
+    );
+
+    const files = await collectRelativeFiles(join(outDir, 'out'));
+    expect(files.some((f) => f.includes('Theme_space_default.css'))).toBe(true);
+    expect(files.some((f) => f.includes('Theme_color_light.css'))).toBe(true);
+
+    const spaceCss = await readCss(
+      join(outDir, 'out'),
+      files.find((f) => f.endsWith('Theme_space_default.css'))!,
+    );
+    expect(spaceCss).toContain('--space-m: 8px;');
   }, 120000);
 });
 

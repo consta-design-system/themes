@@ -40,7 +40,10 @@
 // Любой тип может иметь значение-ссылку на другую переменную вида "{a.b.c}":
 //   {base.border.width.1} -> var(--base-border-width-1)
 
-// TODO: нужно чтобы из --path брались все файлы с расширением .tokens.json при трансформации css также как сейчас должны быть разбиты по модификаторам вне зависимости от того какое количество .tokens.json файлов пришло на вход
+// Принцип разбиения на файлы не зависит от количества входных .tokens.json:
+// токены из всех файлов папки --path объединяются и раскладываются по
+// модификаторам так же, как если бы это был единственный файл.
+//
 // TODO: сделать бинарник для вызова из консоли
 
 import { Command, flags } from '@oclif/command';
@@ -524,12 +527,26 @@ export const generateTheme = async (
   options: GenerateThemeOptions,
   log: LogFn,
 ): Promise<void> => {
-  const data = await readJSON(join(options.path, options.file));
+  // Из --path берутся все файлы с расширением .tokens.json. Токены из всех
+  // файлов объединяются в единый словарь themeJs и раскладываются по
+  // модификаторам независимо от количества входных файлов.
+  const tokenFiles = (await readdir(options.path)).filter((entry) =>
+    entry.endsWith('.tokens.json'),
+  );
 
-  log(`parsing ${options.file} ...`);
+  if (tokenFiles.length === 0) {
+    throw new Error(`No *.tokens.json files found in "${options.path}".`);
+  }
 
   const themeJs: ThemeJs = {};
-  collectTokens(data, [], themeJs);
+
+  await Promise.all(
+    tokenFiles.map(async (tokenFile) => {
+      const data = await readJSON(join(options.path, tokenFile));
+      log(`parsing ${tokenFile} ...`);
+      collectTokens(data, [], themeJs);
+    }),
+  );
 
   const cssFiles = Object.keys(themeJs);
 
@@ -730,7 +747,8 @@ GenerateCommand.flags = {
     default: undefined,
   }),
   file: flags.string({
-    description: 'The input file name',
+    description:
+      'Deprecated: ignored. All *.tokens.json files from --path are used.',
     default: 'consta-neo.tokens.json',
   }),
   output: flags.string({
