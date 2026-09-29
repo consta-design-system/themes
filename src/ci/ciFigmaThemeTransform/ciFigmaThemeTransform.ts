@@ -72,7 +72,7 @@ export const getFileName = (modifier: string, valueModifier: string) =>
   `Theme_${modifier}_${valueModifier}`;
 
 // Имя файла моста совместимости, в который собираются все cssBridges/*.css.
-export const THEME_BRIDGE_FILE = 'Theme_bridge_default';
+export const THEME_BRIDGE_FILE = 'Theme_bridge_legacy';
 
 /**
  * Возвращает путь ссылки "{a.b.c}" в виде "a.b.c" или null, если это не ссылка.
