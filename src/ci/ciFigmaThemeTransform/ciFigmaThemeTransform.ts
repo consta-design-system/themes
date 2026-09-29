@@ -776,3 +776,5 @@ type CiFlags = {
 if (typeof require !== 'undefined' && require.main === module) {
   GenerateCommand.run();
 }
+
+export const runCli = () => GenerateCommand.run();

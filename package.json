@@ -41,6 +41,9 @@
     "rm:node_modules": "node ./scripts/rm.js --path=./node_modules",
     "theme:generate": "node ./scripts/rm.js --path=./src/ci/ciFigmaThemeTransform/__mocks__/cssExport && yarn babel src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.ts --out-file src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js && yarn babel src/ci/ciFigmaThemeTransform/googleFonts.ts --out-file src/ci/ciFigmaThemeTransform/googleFonts.js && node ./src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js --path=./src/ci/ciFigmaThemeTransform/__mocks__/figmaExport --output=./src/ci/ciFigmaThemeTransform/__mocks__/cssExport --addLegacyBridge && node ./scripts/rm.js --path=./src/ci/ciFigmaThemeTransform/ciFigmaThemeTransform.js  && node ./scripts/rm.js --path=./src/ci/ciFigmaThemeTransform/googleFonts.js"
   },
+  "bin": {
+    "consta-theme-transform": "ci/ciFigmaThemeTransform/bin.js"
+  },
   "files": [
     "*",
     "!**/__mocks__",
