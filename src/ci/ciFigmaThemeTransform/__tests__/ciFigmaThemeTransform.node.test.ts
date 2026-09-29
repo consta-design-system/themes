@@ -20,6 +20,7 @@ import {
   resolveFontFamily,
   resolveValue,
   setColorCssVariables,
+  THEME_BRIDGE_FILE,
 } from '../ciFigmaThemeTransform';
 
 const ROOT = join(__dirname, '..');
@@ -87,7 +88,7 @@ describe('generateTheme (интеграция)', () => {
     expect(files.some((f) => f.includes('Theme_base_'))).toBe(true);
 
     // Мосты собраны в отдельный файл Theme_bridge_default.css.
-    const bridgeFile = files.find((f) => f.includes('Theme_bridge_default'))!;
+    const bridgeFile = files.find((f) => f.includes(THEME_BRIDGE_FILE))!;
     expect(bridgeFile).toBeDefined();
     const bridgeCss = await readCss(outDir, bridgeFile);
     expect(bridgeCss).toContain('--color-bg-default');
