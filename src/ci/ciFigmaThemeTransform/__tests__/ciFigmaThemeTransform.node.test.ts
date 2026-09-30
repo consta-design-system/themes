@@ -288,7 +288,7 @@ describe('readAllBridgeFiles', () => {
 
     // Переменная из color.css присутствует.
     expect(bridges['--color-bg-default']).toBe(
-      'var(--color-global-surface-view-default-primary)',
+      'var(--color-global-surface-view-primary)',
     );
     // Объединение происходит по нескольким файлам папки.
     expect(Object.keys(bridges).length).toBeGreaterThan(10);
