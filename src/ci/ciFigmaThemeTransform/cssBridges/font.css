@@ -1,0 +1,14 @@
+/* Мост совместимости для модификатора font.
+   Старые CSS-переменные ссылаются на новые из этого модификатора.
+   Файл подключается генератором автоматически, если существует.
+
+   Исходник: Theme_font_gpnDefault.css (@consta/uikit 5.33.3).
+   Старые --font-* — примитивы гарнитур, мост ведёт на --base-typo-family-*.
+   Значения совпадают 1:1. Семантические --typo-global-family-{body,heading,
+   label,caption,display,code} внутри ссылаются на те же примитивы —
+   используйте их в новом коде вместо --font-primary.
+   @font-face остаётся на стороне uikit, мост его не переопределяет. */
+:root {
+  --font-primary: var(--base-typo-family-primary);
+  --font-mono: var(--base-typo-family-mono);
+}

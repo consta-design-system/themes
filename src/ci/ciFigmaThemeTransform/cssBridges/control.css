@@ -1,0 +1,41 @@
+/* Мост совместимости для модификатора control.
+   Старые CSS-переменные ссылаются на новые из этого модификатора.
+   Файл подключается генератором автоматически, если существует.
+
+   Исходник: Theme_control_gpnDefault.css (@consta/uikit 5.33.3).
+   Здесь старые переменные семантические, поэтому мост ведёт
+   на семантический слой (--radius-control-*, --size-control-*,
+   --space-control-*, --border-control-*), а не на --base-*. */
+:root {
+  /* Скругление и обводка.
+     ВНИМАНИЕ: единственное расхождение значений во всём мосте.
+     Старое --control-radius = 4px, новое --radius-control-default = 8px
+     (--base-radius-xs). Это намеренная разница темы neo.
+     Чтобы сохранить прежний вид пиксель-в-пиксель, используйте вместо
+     строки ниже: --control-radius: var(--base-radius-2xs); — это 4px. */
+  --control-radius: var(--radius-control-default);
+  --control-border-width: var(--border-control-width-default);
+
+  /* Высота контролов */
+  --control-height-xs: var(--size-control-height-xs);
+  --control-height-s: var(--size-control-height-s);
+  --control-height-m: var(--size-control-height-m);
+  --control-height-l: var(--size-control-height-l);
+
+  /* Размер индикаторов (чекбокс, радио, свитч) */
+  --control-box-size-s: var(--size-control-indicator-s);
+  --control-box-size-m: var(--size-control-indicator-m);
+  --control-box-size-l: var(--size-control-indicator-l);
+
+  /* Внутренние отступы контролов */
+  --control-space-xs: var(--space-control-inset-xs);
+  --control-space-s: var(--space-control-inset-s);
+  --control-space-m: var(--space-control-inset-m);
+  --control-space-l: var(--space-control-inset-l);
+
+  /* Кегль текста в контролах */
+  --control-text-size-xs: var(--typo-global-label-xs-size);
+  --control-text-size-s: var(--typo-global-label-s-size);
+  --control-text-size-m: var(--typo-global-label-m-size);
+  --control-text-size-l: var(--typo-global-label-l-size);
+}

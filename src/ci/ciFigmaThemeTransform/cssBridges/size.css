@@ -1,0 +1,50 @@
+/* Мост совместимости для модификатора size.
+   Старые CSS-переменные ссылаются на новые из этого модификатора.
+   Файл подключается генератором автоматически, если существует.
+
+   Исходники: Theme_size_gpnDefault.css и Theme.css (@consta/uikit 5.33.3).
+   Старые --size-text-* / --line-height-text-* / --font-weight-text-* —
+   примитивная шкала, мост ведёт на --base-typo-*. Значения совпадают 1:1. */
+:root {
+  /* Кегль */
+  --size-text-2xs: var(--base-typo-size-2xs);
+  --size-text-xs: var(--base-typo-size-xs);
+  --size-text-s: var(--base-typo-size-s);
+  --size-text-m: var(--base-typo-size-m);
+  --size-text-l: var(--base-typo-size-l);
+  --size-text-xl: var(--base-typo-size-xl);
+  --size-text-2xl: var(--base-typo-size-2xl);
+  --size-text-3xl: var(--base-typo-size-3xl);
+  --size-text-4xl: var(--base-typo-size-4xl);
+  --size-text-5xl: var(--base-typo-size-5xl);
+  --size-text-6xl: var(--base-typo-size-6xl);
+
+  /* Интерлиньяж */
+  --line-height-text-2xs: var(--base-typo-line-height-2xs);
+  --line-height-text-xs: var(--base-typo-line-height-xs);
+  --line-height-text-s: var(--base-typo-line-height-s);
+  --line-height-text-m: var(--base-typo-line-height-m);
+  --line-height-text-l: var(--base-typo-line-height-l);
+
+  /* Начертание */
+  --font-weight-text-thin: var(--base-typo-weight-thin);
+  --font-weight-text-extralight: var(--base-typo-weight-extralight);
+  --font-weight-text-light: var(--base-typo-weight-light);
+  --font-weight-text-regular: var(--base-typo-weight-regular);
+  --font-weight-text-medium: var(--base-typo-weight-medium);
+  --font-weight-text-semibold: var(--base-typo-weight-semibold);
+  --font-weight-text-bold: var(--base-typo-weight-bold);
+  --font-weight-text-extrabold: var(--base-typo-weight-extrabold);
+  --font-weight-text-black: var(--base-typo-weight-black);
+
+  /* Иллюстрации и иконки: объявлены на .Theme, а не на модификаторе size,
+     но шкала совпадает с --base-size-* один в один. */
+  --graphics-size-xs: var(--base-size-xs);
+  --graphics-size-s: var(--base-size-s);
+  --graphics-size-m: var(--base-size-m);
+  --graphics-size-l: var(--base-size-l);
+  --graphics-size-xl: var(--base-size-xl);
+  --graphics-size-2xl: var(--base-size-2xl);
+  --graphics-size-3xl: var(--base-size-3xl);
+  --graphics-size-4xl: var(--base-size-4xl);
+}
