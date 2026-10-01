@@ -16,7 +16,7 @@ permissions:
 env:
   BUILD_SCRIPT: yarn build
   BUILD_SCRIPT_OUTPUT: dist
-  APP_NAME: uikit
+  APP_NAME: themes
 
 jobs:
   deploy:
